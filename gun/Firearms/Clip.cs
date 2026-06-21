@@ -51,7 +51,8 @@ namespace gun.Firearms
                 {//if there are rounds 
                     evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).Remove();//then remove one round
                     Main.Log.Log("Removed Ammo");
-                    FirearmFix.Attack(new RulebookEventContext(), evt);
+                    evt.SkipAnimation = true;
+                    //FirearmFix.Attack(new RulebookEventContext(), evt);
                     return;
                 }
             }
@@ -59,6 +60,7 @@ namespace gun.Firearms
 
         public void OnEventDidTrigger(RuleAttackWithWeapon evt)
         {
+            evt.SkipAnimation = false;
         }
 
     }
@@ -84,11 +86,13 @@ namespace gun.Firearms
                 }
                 
             }
-            FirearmFix.Attack(new RulebookEventContext(), evt);
+            evt.SkipAnimation = true;
+            //FirearmFix.Attack(new RulebookEventContext(), evt);
         }
 
         public void OnEventDidTrigger(RuleAttackWithWeapon evt)
         {
+            evt.SkipAnimation = false;
         }
     }
 
