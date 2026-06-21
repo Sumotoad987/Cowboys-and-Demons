@@ -1,0 +1,454 @@
+[
+  {
+    "Key": "Gunslinger.Class.Name",
+    "enGB": "Gunslinger"
+  },
+  {
+    "Key": "Gunslinger.Class.Description",
+    "enGB": "For a renegade few, battle sounds different than it does for the typical fighter. The clash of steel and the sizzle of spell energy are drowned out by the thunderous rhythm of gunfire—the pounding beat of the gunslinger.\r\n\r\nGunslingers are a bold and mysterious lot. While many treat the secrets of black powder with the same care and reverence that a wizard typically reserves for his spellbook, most gunslingers know that firearms are a secret that cannot remain concealed forever. While current firearms are simple, often imprecise, and even dangerous devices, they are a technology on the move, and one that will become even more powerful when it is fully fused with magic."
+  },
+  {
+    "Key": "Gunslinger.Proficiencies.Name",
+    "enGB": "Gunslinger Proficiencies"
+  },
+  {
+    "Key": "Gunslinger.Proficiencies.Description",
+    "enGB": "Gunslingers are proficient with all simple and martial weapons, and with all firearms. They are proficient with all light armor. "
+  },
+  {
+    "Key": "Gunslinger.Class.DescriptionShort",
+    "enGB": "Brave, clever, and frequently foolhardy gunslingers are thunderous artillery, often found where the fighting is fiercest."
+  },
+  {
+    "Key": "Deeds.QuickClear.Name",
+    "enGB": "Quick Clear"
+  },
+  {
+    "Key": "Deeds.QuickClear.Description",
+    "enGB": "At 1st level, as a standard action, the gunslinger can remove the broken condition from a single firearm she is currently wielding, as long as that condition was gained by a firearm misfire. The gunslinger must have at least 1 grit point to perform this deed. Alternatively, if the gunslinger spends 1 grit point to perform this deed, she can perform quick clear as a move-equivalent action instead of a standard action."
+  },
+  {
+    "Key": "Deeds.QuickClear.Standard.Name",
+    "enGB": "Quick Clear (Standard)"
+  },
+  {
+    "Key": "Deeds.QuickClear.Standard.Description",
+    "enGB": "As a standard action, the gunslinger can remove the broken condition from a single firearm she is currently wielding. The gunslinger must have at least 1 grit point to perform this deed. "
+  },
+  {
+    "Key": "Deeds.QuickClear.Move.Name",
+    "enGB": "Quick Clear (Move)"
+  },
+  {
+    "Key": "Deeds.QuickClear.Move.Description",
+    "enGB": "The gunslinger can remove the broken condition from a single firearm she is currently wielding as a move action if she spends 1 grit point."
+  },
+  {
+    "Key": "Deeds.SlingerInitiative.Name",
+    "enGB": "Gunslinger Initiative"
+  },
+  {
+    "Key": "Deeds.SlingerInitiative.Description",
+    "enGB": "At 3rd level, as long as the gunslinger has at least 1 grit point, she gains a +2 bonus on initiative checks."
+  },
+  {
+    "Key": "Deeds.Targeting.Name",
+    "enGB": "Targeting"
+  },
+  {
+    "Key": "Deeds.Targeting.Description",
+    "enGB": "At 7th level, as a full-round action, the gunslinger can make a single firearm attack and choose part of the body to target. She gains the following effects depending on the part of the body targeted. This deed costs 1 grit point to perform no matter which part of the creature she targets.\r\n\r\n    Arms: On a hit, the target takes no damage from the hit but is disarmed.\r\n    Head: On a hit, the target is damaged normally, and is also confused for 1 round. This is a mind-affecting effect.\r\n    Legs: On a hit, the target is damaged normally and knocked prone.\r\n"
+  },
+  {
+    "Key": "Deeds.Targeting.Head.Name",
+    "enGB": "Targeting (Headshot)"
+  },
+  {
+    "Key": "Deeds.Targeting.Head.Description",
+    "enGB": "On a hit, the target is damaged normally, and is also confused for 1 round. This is a mind-affecting effect."
+  },
+  {
+    "Key": "Deeds.Targeting.Arms.Name",
+    "enGB": "Targeting (Arms)"
+  },
+  {
+    "Key": "Deeds.Targeting.Arms.Description",
+    "enGB": "On a hit, the target takes no damage from the hit but is disarmed for 1 round plus 1 additional round for each 5 by which the hit roll exceeds their AC."
+  },
+  {
+    "Key": "Deeds.Targeting.Legs.Name",
+    "enGB": "Targeting (Legs)"
+  },
+  {
+    "Key": "Deeds.Targeting.Legs.Description",
+    "enGB": "Legs: On a hit, the target is damaged normally and knocked prone."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Standard.Name",
+    "enGB": "Bleeding Shot"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Standard.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 1 grit point as a free action to have that attack deal extra bleed damage. The amount of bleed damage is equal to the gunslinger's Dexterity modifier."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Strength.Name",
+    "enGB": "Bleeding Shot (Strength)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Strength.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Strength bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Constitution.Name",
+    "enGB": "Bleeding Shot (Constitution)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Constitution.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Constitution bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Dexterity.Name",
+    "enGB": "Bleeding Shot (Dexterity)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Dexterity.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Dexterity bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 1 grit point as a free action to have that attack deal extra bleed damage. The amount of bleed damage is equal to the gunslinger's Dexterity modifier. Alternatively, the gunslinger can spend 2 grit points to deal 1 point of Strength, Dexterity, or Constitution bleed damage (gunslinger's choice) instead."
+  },
+  {
+    "Key": "Bleed.Standard.Name",
+    "enGB": "Bleed"
+  },
+  {
+    "Key": "Bleed.Standard.Description",
+    "enGB": "This creature takes {g|Encyclopedia:HP}hit point{/g} {g|Encyclopedia:Damage}damage{/g} each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Strength.Name",
+    "enGB": "Strength Bleed"
+  },
+  {
+    "Key": "Bleed.Strength.Description",
+    "enGB": "This creature takes strength damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Constitution.Name",
+    "enGB": "Constitution Bleed"
+  },
+  {
+    "Key": "Bleed.Constitution.Description",
+    "enGB": "This creature takes constitution damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Dexterity.Name",
+    "enGB": "Dexterity Bleed"
+  },
+  {
+    "Key": "Bleed.Dexterity.Description",
+    "enGB": "This creature takes Dexterity damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Deeds.Evasive.Name",
+    "enGB": "Gunslinger's Evasion"
+  },
+  {
+    "Key": "Deeds.Evasive.Description",
+    "enGB": "At 15th level, when the gunslinger has at least 1 grit point, she gains the benefit of the evasion, uncanny dodge, and improved uncanny dodge rogue class features. She uses her gunslinger level as her rogue level for improved uncanny dodge. "
+  },
+  {
+    "Key": "Deeds.StunningShot.Name",
+    "enGB": "Stunning Shot"
+  },
+  {
+    "Key": "Deeds.StunningShot.Description",
+    "enGB": "At 19th level, when a gunslinger hits a creature, she can spend 2 grit points to stun the creature for 1 round. The creature must make a Fortitude saving throw (the DC = 10 + 1/2 the gunslinger's level + the gunslinger's Wisdom modifier). If the creature fails, it is stunned for 1 round."
+  },
+  {
+    "Key": "DamagedFirearm.Name",
+    "enGB": "Damaged Firearm"
+  },
+  {
+    "Key": "DamagedFirearm.Description",
+    "enGB": "When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+  },
+  {
+    "Key": "Misfire.Early.Description",
+    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+  },
+  {
+    "Key": "Misfire.1.5.Name",
+    "enGB": "Misfire 1 (5ft)"
+  },
+  {
+    "Key": "Misfire.12.5.Name",
+    "enGB": "Misfire 1-2 (5ft)"
+  },
+  {
+    "Key": "Misfire.12.10.Name",
+    "enGB": "Misfire 1-2 (10ft)"
+  },
+  {
+    "Key": "Misfire.Advanced.Description",
+    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2."
+  },
+  {
+    "Key": "Misfire.1.A.Name",
+    "enGB": "Misfire 1"
+  },
+  {
+    "Key": "Misfire.12.A.Name",
+    "enGB": "Misfire 1-2"
+  },
+  {
+    "Key": "Grit.Name",
+    "enGB": "Grit"
+  },
+  {
+    "Key": "Grit.Description",
+    "enGB": "A gunslinger makes her mark upon the world with daring deeds. Some gunslingers claim they belong to a mystical way of the gun, but it's more likely that the volatile nature of firearms simply prunes the unlucky and careless from their ranks. Whatever the reason, all gunslingers have grit. In game terms, grit is a fluctuating measure of a gunslinger's ability to perform amazing actions in combat. At the start of each day, a gunslinger gains a number of grit points equal to her Wisdom modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Wisdom modifier (minimum 1), though some feats and magic items may affect this maximum. A gunslinger spends grit to accomplish deeds (see below), and regains grit in the following ways.\r\n\r\nCritical Hit with a Firearm: Each time the gunslinger confirms a critical hit with a firearm attack while in the heat of combat, she regains 1 grit point.\r\n\r\nKilling Blow with a Firearm: When the gunslinger reduces a creature to 0 or fewer hit points with a firearm attack while in the heat of combat, she regains 1 grit point."
+  },
+  {
+    "Key": "Grit.Description.Short",
+    "enGB": "At the start of each day, a gunslinger gains a number of grit points equal to her Wisdom modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Wisdom modifier (minimum 1)"
+  },
+  {
+    "Key": "TrueGrit.Name",
+    "enGB": "True Grit"
+  },
+  {
+    "Key": "TrueGrit.Description",
+    "enGB": "At 20th level, a gunslinger recoveres 1 grit each time she spends it allowing her to perform deeds for 1 grit less so long as she has enough grit to perform them at their standard cost."
+  },
+  {
+    "Key": "GunTraining.Name",
+    "enGB": "Gun Training"
+  },
+  {
+    "Key": "GunTraining.Description",
+    "enGB": "Starting at 5th level, a gunslinger gains a bonus equal to her Dexterity modifier on damage rolls with firearms."
+  },
+  {
+    "Key": "Nimble.Name",
+    "enGB": "Nimble"
+  },
+  {
+    "Key": "Nimble.Description",
+    "enGB": "Starting at 2nd level, a gunslinger gains a +1 dodge bonus to AC while wearing light or no armor. Anything that causes the gunslinger to lose her Dexterity bonus to AC also causes the gunslinger to lose this dodge bonus. This bonus increases by +1 for every four levels beyond 2nd level (to a maximum of +5 at 20th level)."
+  },
+  {
+    "Key": "Nimble.Buff.Name",
+    "enGB": "AC Bonus (Nimble)"
+  },
+  {
+    "Key": "Firearms.Early.Reload.Name",
+    "enGB": "Muzzle Loading"
+  },
+  {
+    "Key": "Firearms.Early.Reload.Description",
+    "enGB": "Early firearms are muzzle-loaded, requiring bullets or pellets and black powder to be rammed down the muzzle.. It is a standard action to load a one-handed early firearm and a full-round action to load a two-handed early firearm."
+  },
+  {
+    "Key": "Firearms.Advanced.Reload.Name",
+    "enGB": "Chamber Loading"
+  },
+  {
+    "Key": "Firearms.Advanced.Reload.Description",
+    "enGB": "Advanced firearms are chamber-loaded. It is a move action to load a one-handed or two-handed advanced firearm to its full capacity. The Rapid Reload feat reduces this to a free action (allowing you to ignore the requirement to reload between shots)."
+  },
+  {
+    "Key": "Firearms.Reload.Name",
+    "enGB": "Reload"
+  },
+  {
+    "Key": "Firearms.RapidReload.Name",
+    "enGB": "Rapid Reload"
+  },
+  {
+    "Key": "Firearms.AP.Name",
+    "enGB": "Armor Piercing"
+  },
+  {
+    "Key": "Firearms.AP.Description",
+    "enGB": "Firearms penetrate most forms of armor: bypassing shield, armor, and natural armor bonuses to AC"
+  },
+  {
+    "Key": "Firearms.Musket.Name",
+    "enGB": "Musket"
+  },
+  {
+    "Key": "Firearms.Musket.Description",
+    "enGB": "This long-barreled firearm has a much greater range than a pistol. A musket uses either a bullet and 1 dose of black powder or a single alchemical cartridge as its ammunition. This is an early firearm."
+  },
+  {
+    "Key": "Firearms.Pistol.Name",
+    "enGB": "Pistol"
+  },
+  {
+    "Key": "Firearms.Pistol.Description",
+    "enGB": "The basic single-shot pistol is one of the most common firearms, although it is still rare enough to be an object of envy or curiosity to most. This is an early firearm."
+  },
+  {
+    "Key": "Firearms.Rifle.Name",
+    "enGB": "Rifle"
+  },
+  {
+    "Key": "Firearms.Rifle.Description",
+    "enGB": "This improvement on the musket features a grooved barrel that imparts a twisting, spiral motion to the bullet as it exits, stabilizing it and preventing the end-over-end tumbling common to projectiles from simpler firearms. As a result, a rifle can fire significantly farther and with more accuracy than early long-bore firearms. A rifle uses metal cartridges as ammunition. This is an advanced firearm."
+  },
+  {
+    "Key": "Firearms.Revolver.Name",
+    "enGB": "Revolver"
+  },
+  {
+    "Key": "Firearms.Revolver.Description",
+    "enGB": "A revolver is a pistol with a revolving cylinder containing six chambers. Each chamber can hold a metal cartridge, and when one cartridge is fired, the cylinder automatically rotates (no extra hand or action required), readying the next chamber for firing. A revolver uses metal cartridges as ammunition. This is an advanced firearm."
+  },
+  {
+    "Key": "Feats.FirearmProficiency.Name",
+    "enGB": "Weapon Proficiency (firearms)"
+  },
+  {
+    "Key": "Feats.FirearmProficiency.Description",
+    "enGB": "The Weapon Proficiency (firearms) feat allows you to use all firearms without penalty."
+  },
+  {
+    "Key": "Feats.RapidReload.Name",
+    "enGB": "Rapid Reload"
+  },
+  {
+    "Key": "Feats.RapidReload.Description",
+    "enGB": "The time required for you to reload a firearm is reduced to a move action (for a one-handed firearm), or a standard action (two-handed firearm). Reloading a firearm still provokes attacks of opportunity.\r\n\r\nIf you have this feat you may fire an advanced firearm as a full-attack action."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Musket.Name",
+    "enGB": "Weapon Focus (Musket)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Musket.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using muskets."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Musket.Name",
+    "enGB": "Greater Weapon Focus (Musket)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Musket.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using muskets."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Musket.Name",
+    "enGB": "Weapon Specialization (Musket)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Musket.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using muskets."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Musket.Name",
+    "enGB": "Greater Weapon Specialization (Musket)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Musket.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using muskets."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Pistol.Name",
+    "enGB": "Weapon Focus (Pistol)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Pistol.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using pistols."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Pistol.Name",
+    "enGB": "Greater Weapon Focus (Pistol)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Pistol.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using pistols."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Pistol.Name",
+    "enGB": "Weapon Specialization (Pistol)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Pistol.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using pistols."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Pistol.Name",
+    "enGB": "Greater Weapon Specialization (Pistol)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Pistol.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using pistols."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Rifle.Name",
+    "enGB": "Weapon Focus (Rifle)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Rifle.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using rifles."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Rifle.Name",
+    "enGB": "Greater Weapon Focus (Rifle)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Rifle.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using rifles."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Rifle.Name",
+    "enGB": "Weapon Specialization (Rifle)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Rifle.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using rifles."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Rifle.Name",
+    "enGB": "Greater Weapon Specialization (Rifle)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Rifle.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using rifles."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Revolver.Name",
+    "enGB": "Weapon Focus (Revolver)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Revolver.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using revolvers."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Revolver.Name",
+    "enGB": "Greater Weapon Focus (Revolver)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Revolver.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using revolvers."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Revolver.Name",
+    "enGB": "Weapon Specialization (Revolver)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Revolver.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using revolvers."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Revolver.Name",
+    "enGB": "Greater Weapon Specialization (Revolver)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Revolver.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using revolvers."
+  }
+]

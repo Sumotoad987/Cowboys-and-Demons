@@ -1,0 +1,12 @@
+﻿{
+  "Id": "gun",
+  "DisplayName": "Cowboys and Demons",
+  "Author": "",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.27.11",
+  "Requirements": [],
+  "AssemblyName": "gun.dll",
+  "EntryMethod": "gun.Main.Load",
+  "HomePage": "",
+  "Repository": ""
+}
