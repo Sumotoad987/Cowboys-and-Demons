@@ -48,6 +48,7 @@ namespace gun.Firearms
             "ae5faf162aac42969f3b7e82627031ad",//Stage Lich
 
         };
+        public const string GatewayLootMusketID = "44898aa9d1214792950c112c6927a841";
         public static void Configure()
         {
             //WeaponVisualParameters Uses crossbow animation style
@@ -68,6 +69,12 @@ namespace gun.Firearms
 
             //create a basic Musket and all the normal variants
             CreateBasicWeapons("Musket", BasicItemIDs, WeaponID, 1500);
+
+            //create an enhancted musket for the gateway loot
+            CreateWeaponItem("Musket" + "Gateway", GatewayLootMusketID, WeaponID, 5000)
+                .AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("80bb8a737579e35498177e1e3c75899b"),
+                                   BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("633b38ff1d11de64a91d490c683ab1c8"))
+                .Configure();
 
             //setup any special enchanted variants we want to be in game
             //put all relevant versions into the shops

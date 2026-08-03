@@ -1,12 +1,18 @@
-﻿using BlueprintCore.Utils;
+﻿using BlueprintCore.Blueprints.Configurators.Classes;
+using BlueprintCore.Utils;
 using gun.Classes.Gunslinger;
+using gun.Classes.Spellscar_Drifter;
+using gun.Cowgirl;
 using gun.Firearms;
+using gun.Plot;
 using HarmonyLib;
 using Kingmaker;
+using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.Converters;
 using Kingmaker.Modding;
+using Kingmaker.PubSubSystem;
 using Kingmaker.SharedTypes;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
@@ -24,6 +30,7 @@ public static class Main {
     internal static UnityModManager.ModEntry.ModLogger Log;
     public static string ModPath;
     public static readonly HashSet<string> Bundles = new HashSet<string>();
+    public static WorldMapEncounter map;
 
     public static IEnumerable<string> GetFilesFromDirectory(string directory)
     {
@@ -117,10 +124,23 @@ public static class Main {
 
                 BaseFirearm.Configure();
                 Gunslinger.Configure();
+                AmateurGunslinger.Configure();
+                OldReliable.Configure();
+                SpellSevered.Configure();
+                ToughAsNails.Configure();
+                SpellscarDrifter.Configure();
+                OrderOfTheEasternStar.Configure();
+                CowgirlUnit.Configure();
                 Musket.Configure();
                 Pistol.Configure();
                 Rifle.Configure();
                 Revolver.Configure();
+                Plot.Flags.Configure();
+                Act2.Configure();
+                Mythos.Configure();
+                EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
+                //Game.Instance.AreaLoadingComplete
+
 
             } catch (Exception e) {
                 Log.Log(string.Concat("Failed to initialize.", e));

@@ -59,14 +59,16 @@ namespace gun.Firearms
         const string CapacityGUID = "e712d0661d0f4507af2f18addf53cab3";
         public const string RoundsGUID = "72a83c73e7ce42e0adb54339c6098f21";
         public const string EmptyClipGUID = "edb55d77d6fd4562afbb535626bb55e1";
-        const string ReloadOneHandGUID = "84a5658968e04f6f91a9b32a1b4462f5";
+        public const string ReloadGUID = "6f90360117aa4198b1948a5ff979457c";
+        public const string ReloadStandardGUID = "84a5658968e04f6f91a9b32a1b4462f5";
         const string ReloadOneHandFeatureGUID = "5d503d48e12b4fb38aea53fca2de8768";
-        const string ReloadTwoHandGUID = "45a3e148603f4960bfdd820cc95c8cd3";
+        public const string ReloadFullRoundGUID = "45a3e148603f4960bfdd820cc95c8cd3";
         const string ReloadTwoHandFeatureGUID = "5dba0835a9cb451d85551c2073dcda05";
-        const string RapidReloadOneHandGUID = "4010b6d277654b00a263a1c53df1b224";
+        public const string ReloadMoveGUID = "4010b6d277654b00a263a1c53df1b224";
         const string RapidReloadTwoHandGUID = "c9caffb7a65a49a5888039881bc6070e";
-        const string ReloadAdvancedGUID = "1b6361094bca408593cfa0ead4b4ea82";
+        public const string ReloadAdvancedGUID = "1b6361094bca408593cfa0ead4b4ea82";
         const string ReloadAdvancedFeatureGUID = "c7e33be72b0b48658465341ce4590695";
+        public const string ClipGUID = "5cfc737d3bf84ed3be57c765d1d9957b";
         const string ClipOneHandGUID = "50a4c21bb11e43c7ba23891a7cdf66c5";
         const string ClipTwoHandGUID = "f49df5707fa04eb6ae435723bab1cbb4";
         public const string AdvancedClipGUID = "78f6979ff32e425291709489c652a90b";
@@ -144,43 +146,54 @@ namespace gun.Firearms
 
 
             FeatureConfigurator.New("OneHandReloadingFeature", ReloadOneHandFeatureGUID)
-                .AddFacts(new List<Blueprint<BlueprintUnitFactReference>> {BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadOneHandGUID), BlueprintTool.GetRef<BlueprintUnitFactReference>(RapidReloadOneHandGUID) })
+                .AddFacts(new List<Blueprint<BlueprintUnitFactReference>> {BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadStandardGUID), BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadMoveGUID) })
                 .Configure();
 
             AddUnitFeatureEquipment AddOneHandReload = new AddUnitFeatureEquipment();
             AddOneHandReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadOneHandFeatureGUID);
 
+            AddUnitFeatureEquipment AddReload = new AddUnitFeatureEquipment();
+            AddOneHandReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadGUID);
 
-            AddUnitFeatureEquipment AddOneHandRapidReload = new AddUnitFeatureEquipment();
-            AddOneHandRapidReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(RapidReloadOneHandGUID);
+            /*AddUnitFeatureEquipment AddOneHandRapidReload = new AddUnitFeatureEquipment();
+            AddOneHandRapidReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(RapidReloadOneHandGUID);*/
 
             WeaponEnchantmentConfigurator.New("LoadingOneHand", ClipOneHandGUID)
                 .SetDescription(LocalizationTool.GetString("Firearms.Early.Reload.Description"))
                 .SetEnchantName(LocalizationTool.GetString("Firearms.Early.Reload.Name"))
                 .AddComponent(new EmptyClipCheck())
-                .AddComponent(AddOneHandReload)
-                .AddComponent(AddOneHandRapidReload)
+                .AddComponent(new CheckLoadingEquipment())
+                //.AddComponent(AddOneHandReload)
+                .Configure();
+
+            WeaponEnchantmentConfigurator.New("Loading", ClipGUID)
+                .SetDescription(LocalizationTool.GetString("Firearms.Early.Reload.Description"))
+                .SetEnchantName(LocalizationTool.GetString("Firearms.Early.Reload.Name"))
+                .AddComponent(new EmptyClipCheck())
+                .AddComponent(new CheckLoadingEquipment())
+                //.AddComponent(AddReload)
                 .Configure();
 
 
             FeatureConfigurator.New("TwoHandReloadingFeature", ReloadTwoHandFeatureGUID)
-               .AddFacts(new List<Blueprint<BlueprintUnitFactReference>> { BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadTwoHandGUID), BlueprintTool.GetRef<BlueprintUnitFactReference>(RapidReloadTwoHandGUID) })
+               .AddFacts(new List<Blueprint<BlueprintUnitFactReference>> { BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadFullRoundGUID), BlueprintTool.GetRef<BlueprintUnitFactReference>(RapidReloadTwoHandGUID) })
                .Configure();
 
             AddUnitFeatureEquipment AddTwoHandReload = new AddUnitFeatureEquipment();
             AddTwoHandReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadTwoHandFeatureGUID);
 
 
-            AddUnitFeatureEquipment AddTwoHandRapidReload = new AddUnitFeatureEquipment();
-            AddTwoHandRapidReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(RapidReloadTwoHandGUID);
+            /*AddUnitFeatureEquipment AddTwoHandRapidReload = new AddUnitFeatureEquipment();
+            AddTwoHandRapidReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(RapidReloadTwoHandGUID);*/
+            
 
 
             WeaponEnchantmentConfigurator.New("LoadingTwoHand", ClipTwoHandGUID)
                 .SetDescription(LocalizationTool.GetString("Firearms.Early.Reload.Description"))
                 .SetEnchantName(LocalizationTool.GetString("Firearms.Early.Reload.Name"))
                 .AddComponent(new EmptyClipCheck())
-                .AddComponent(AddTwoHandReload)
-                .AddComponent(AddTwoHandRapidReload)
+                .AddComponent(new CheckLoadingEquipment())
+                //.AddComponent(AddTwoHandReload)
                 .Configure();
 
 
@@ -195,7 +208,8 @@ namespace gun.Firearms
                 .SetDescription(LocalizationTool.GetString("Firearms.Advanced.Reload.Description"))
                 .SetEnchantName(LocalizationTool.GetString("Firearms.Advanced.Reload.Name"))
                 .AddComponent(new AdvancedClipCheck())
-                .AddComponent(AddAdvancedReload)
+                .AddComponent(new CheckLoadingEquipment())
+                //.AddComponent(AddAdvancedReload)
                 .Configure();
             //configure capacity condition reduce rounds resource by one after each attack and give empty clip when rounds hits 0
             //might be simpler to add a second version of the condition on advanced weapons which only adjusts the rounds resoruce if the user doesn't have rapid reload
@@ -225,8 +239,7 @@ namespace gun.Firearms
             reloadSingleEffect.Actions.Actions = new Kingmaker.ElementsSystem.GameAction[2] { reloadSingle, clearEmptyClip };
             //reloadSingleEffect.Actions.Actions.AddItem(reloadSingle);
 
-
-            AbilityConfigurator.New("Reload One-Handed", ReloadOneHandGUID)
+            AbilityConfigurator.New("Reload", ReloadGUID)
                 .SetType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType.CombatManeuver)
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard)
                 .SetRange(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityRange.Personal)
@@ -235,7 +248,18 @@ namespace gun.Firearms
                 .SetIcon(icon)
                 .AddComponent(reloadSingleEffect)
                 .Configure();
-            AbilityConfigurator.New("Reload Two-Handed", ReloadTwoHandGUID)
+
+
+            AbilityConfigurator.New("Reload One-Handed", ReloadStandardGUID)
+                .SetType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType.CombatManeuver)
+                .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard)
+                .SetRange(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityRange.Personal)
+                .SetDescription(LocalizationTool.GetString("Firearms.Early.Reload.Description"))
+                .SetDisplayName(LocalizationTool.GetString("Firearms.Reload.Name"))
+                .SetIcon(icon)
+                .AddComponent(reloadSingleEffect)
+                .Configure();
+            AbilityConfigurator.New("Reload Two-Handed", ReloadFullRoundGUID)
                 .SetType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType.CombatManeuver)
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard)
                 .SetIsFullRoundAction(true)
@@ -245,7 +269,7 @@ namespace gun.Firearms
                 .SetIcon(icon)
                 .AddComponent(reloadSingleEffect)
                 .Configure();
-            AbilityConfigurator.New("Rapid Reload One-Handed", RapidReloadOneHandGUID)
+            AbilityConfigurator.New("Rapid Reload One-Handed", ReloadMoveGUID)
                 .SetType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType.CombatManeuver)
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Move)
                 .SetRange(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityRange.Personal)
@@ -265,6 +289,7 @@ namespace gun.Firearms
                 .AddComponent(reloadSingleEffect)
                 .AddComponent(new HasRapidReload ())//should prevent using this ability if your don't have rapid reload
                 .Configure();
+
             AbilityConfigurator.New("Reload Advanced", ReloadAdvancedGUID)
                 .SetType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType.CombatManeuver)
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Move)

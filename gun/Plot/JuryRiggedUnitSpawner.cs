@@ -1,0 +1,81 @@
+﻿using BlueprintCore.Utils;
+using Kingmaker;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.PubSubSystem;
+using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.Groups;
+using Kingmaker.View.Spawners;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace gun.Plot
+{
+    internal class JuryRiggedUnitSpawner : IAreaActivationHandler, ISubscriber, IGlobalSubscriber
+    {
+        BlueprintArea area;
+        BlueprintUnit ToSpawn;
+        Vector3 position;
+        Quaternion rotation;
+        BlueprintUnlockableFlag Flag;
+        private bool hasRemover;
+        int Chapter;
+
+        public JuryRiggedUnitSpawner(string area, string ToSpawn, Vector3 position, Vector3 rotation, string Requires, int chapter) 
+        {
+            this.area = BlueprintTool.Get<BlueprintArea>(area);
+            this.ToSpawn = BlueprintTool.Get<BlueprintUnit>(ToSpawn);
+            this.position = position;
+            this.rotation = Quaternion.Euler(rotation);
+            this.Flag = BlueprintTool.Get<BlueprintUnlockableFlag>(Requires);
+            this.Chapter = chapter;
+
+        }
+        public void OnAreaActivated()
+        {
+            
+            if (Game.Instance.CurrentlyLoadedArea == area && Game.Instance.Player.Chapter == Chapter)
+            {//if we are on the right map
+                UnitEntityData data = null;
+                bool UnitPresent = (!Game.Instance.UnitGroups.Any((UnitGroup group) =>
+                {
+                    return group.Any((UnitEntityData unit) =>
+                    {
+                        if (unit.GetViewActive(false))//I'm hoping this will check if the unit is really on the map and not remote
+                        {
+                            if (unit.Blueprint == ToSpawn)
+                            {
+                                data = unit;
+                                return true;
+                            }
+                            
+                        }
+                        return false;
+                    });
+                }));//is the unit currently on the map?
+                if (UnitPresent && data != null)
+                {
+                    if (Game.Instance.Player.UnlockableFlags.GetFlagValue(Flag) == 0)
+                    {
+                        //if the unit's condition is no longer met
+
+                        data.Position = new Vector3(-9999, -9999, -9999);//just teleport them really far away first in case the below doesn't work
+                        Game.Instance.UnitGroupsController.HandleUnitDestroyed(data); //not sure this will work 
+                        data.Destroy();//maybe this will
+                    }
+                }else if (Game.Instance.Player.UnlockableFlags.GetFlagValue(Flag) != 0)
+                {//if it is not already spawned and its requirements are met
+                    //used toybox spawn unit as a reference for this one
+                    Game.Instance.EntityCreator.SpawnUnit(ToSpawn, position, rotation, Game.Instance.State.LoadedAreaState.MainState);
+
+                }
+            }
+        }
+    }
+}

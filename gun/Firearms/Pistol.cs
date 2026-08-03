@@ -46,6 +46,8 @@ namespace gun.Firearms
             "b910e55bc8f94c92b9afc3fc860d5f72",
             "019079a6e77f4a8d8303e0dd51b90e46"
         };
+
+        public const string GatewayLootPistolID = "5f1372bcb8f3461ab3927131669c139b";
         public static void Configure()
         {
             //WeaponVisualParameters Uses crossbow animation style
@@ -67,6 +69,10 @@ namespace gun.Firearms
             //create a basic pistol and all the normal variants
             CreateBasicWeapons("Pistol", BasicItemIDs, WeaponID, 1000);
 
+            CreateWeaponItem("Pistol" + "Gateway", GatewayLootPistolID, WeaponID, 5000)
+                .AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("80bb8a737579e35498177e1e3c75899b"),
+                                   BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("629c383ffb407224398bb71d1bd95d14"))
+                .Configure();
 
             //setup any special enchanted variants we want to be in game
             //put all relevant versions into the shops

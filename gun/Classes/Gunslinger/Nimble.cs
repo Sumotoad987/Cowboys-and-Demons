@@ -32,7 +32,7 @@ namespace gun.Classes.Gunslinger
             NimbleRankConfig.m_Flags = 0;//not sure if I need this or what it does
             NimbleRankConfig.m_Type = Kingmaker.Enums.AbilityRankType.DamageBonus;//This may seem odd but I'm fairly sure its just a way of the system linking the rank config with the context value so all that matters it they match
             NimbleRankConfig.m_BaseValueType = ContextRankBaseValueType.ClassLevel;//Nimble increases based on class level
-            NimbleRankConfig.m_Progression = ContextRankProgression.DivStep;//it increments based on steps (I think that's what this means)
+            NimbleRankConfig.m_Progression = ContextRankProgression.OnePlusDivStep;//it increments based on steps (I think that's what this means)
             NimbleRankConfig.m_StartLevel = 2;//We get nimble at level 2
             NimbleRankConfig.m_StepLevel = 4;//it increases every 4 levels after
             NimbleRankConfig.m_UseMin = false;//no minimum value (it starts at 1 anyway this is used for things like bonus equal to wisdom min 1)

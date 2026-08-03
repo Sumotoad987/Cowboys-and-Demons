@@ -13,6 +13,13 @@ using static gun.Firearms.BaseFirearm;
 using BlueprintCore.Utils;
 using BlueprintCore.Blueprints;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Spells;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
+using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
+using BlueprintCore.Actions.Builder.BasicEx;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 
 namespace gun.Firearms
 {
@@ -46,6 +53,10 @@ namespace gun.Firearms
             "ecb6498df73849c5aba4dc8655229822",
             "45ba07cf19024661b33a18f60be31a13"
         };
+
+        public const string GatewayLootRifleID = "6fada8268b8b4ac1b406b7a90168a026";
+
+        public const string GatewayLootRifleEnhancementID = "698f05e558584067a8e15f535b6b69d9";
         public static void Configure()
         {
             //WeaponVisualParameters Uses crossbow animation style
@@ -65,9 +76,21 @@ namespace gun.Firearms
             CreateWeapon("Rifle", WeaponID, false, Kingmaker.Utility.FeetExtension.Feet(80), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire1_A,true);
             
 
-                //create a basic rifle and all the normal variants
-                CreateBasicWeapons("Rifle", BasicItemIDs, WeaponID, 5000);
+            //create a basic rifle and all the normal variants
+            CreateBasicWeapons("Rifle", BasicItemIDs, WeaponID, 5000);
+            WeaponEnchantmentConfigurator.New("GatewayLootRifleEnhancementID", GatewayLootRifleEnhancementID)
+                .AddInitiatorAttackRollTrigger(ActionsBuilder.New().DealStatDamage(new DiceFormula(1,DiceType.D6),Kingmaker.EntitySystem.Stats.StatType.Intelligence,new ContextTargetUnit()),criticalHit:true)
+                .Configure();//hopefully this does 1d6 int damage on a crit
 
+            CreateWeaponItem("Rifle" + "Gateway", GatewayLootRifleID, WeaponID, 5000)
+                .AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("80bb8a737579e35498177e1e3c75899b"),
+                                   BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("102a9c8c9b7a75e4fb5844e79deaf4c0"),
+                                   BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(GatewayLootRifleEnhancementID))
+                .SetDisplayNameText(LocalizationTool.GetString("Firearms.GatewayRifle.Name"))
+                .SetDescriptionText(LocalizationTool.GetString("Firearms.GatewayRifle.Description"))
+                .Configure();
+
+            
             //setup any special enchanted variants we want to be in game
             //put all relevant versions into the shops
             AddWeapontoShop(BasicItemIDs, 3);//put the basic +1,+2 etc. in the chapter 3 exotic weapons vendor

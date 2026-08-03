@@ -1,5 +1,12 @@
-﻿using HarmonyLib;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.BasicEx;
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Utils;
+using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.DialogSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -12,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace gun
 {
@@ -119,7 +127,114 @@ namespace gun
             return clone;
         }
 
+        public static CueSelection MakeCueSelection (params string[] cues)
+        {
+            CueSelection selection = new CueSelection ();
+            selection.Cues = new List<BlueprintCueBaseReference> ();
+            foreach (string cue in cues)
+            {
+                selection.Cues.Add(BlueprintTool.GetRef<BlueprintCueBaseReference>(cue));
+            }
+            selection.Strategy = Strategy.First;
+            return selection;
+        }
 
+        //makes a conditions builder for is the user has seen the following cues. Or if they have not seen any of the following cues
+        public static ConditionsBuilder MakeSeenCue (bool Not, params string[] Cues)
+        {
+            ConditionsBuilder output = ConditionsBuilder.New();
+            foreach (string cue in Cues)
+            {
+                CueSeen Condition = new CueSeen();
+                Condition.m_Cue = BlueprintTool.GetRef<BlueprintCueBaseReference>(cue);
+                Condition.Not = Not;
+                
+                output.Add(Condition);
+                
+            }
+            return output;
+        }
+
+        public static ConditionsBuilder MakeSeenAny (bool Not, params string[] Cues)
+        {
+            ConditionsBuilder output = MakeSeenCue(Not, Cues);
+            output.UseOr();
+            return output;
+        }
+
+        public static ConditionsBuilder MakeSelectedAnswer (params string[] Answers)
+        {
+            ConditionsBuilder output = ConditionsBuilder.New();
+            foreach (string answer in Answers)
+            {
+                AnswerSelected Condition = new AnswerSelected();
+                Condition.m_Answer = BlueprintTool.GetRef<BlueprintAnswerReference>(answer);
+                output.Add(Condition);
+
+            }
+            return output;
+        }
+
+        public static ConditionsBuilder MakeFlagCheck(string flag, int min, int max)
+        {
+            ConditionsBuilder output = ConditionsBuilder.New();
+            FlagInRange FlagCondition = new FlagInRange();
+            FlagCondition.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(flag);
+            FlagCondition.MinValue = min;
+            FlagCondition.MaxValue = max;
+            output.Add(FlagCondition);
+            return output;
+        }
+
+
+        //make a condition builder for if all check were passed (or all were failed)
+        public static ConditionsBuilder MakePassedCheck (bool passed, params string[] Checks)
+        {
+            ConditionsBuilder output = ConditionsBuilder.New();
+            if (passed)
+            {
+                foreach (string check in Checks)
+                {
+                    CheckPassed Condition = new CheckPassed();
+                    Condition.m_Check = BlueprintTool.GetRef<BlueprintCheckReference>(check);
+
+                    output.Add(Condition);
+
+                }
+            }
+            else
+            {
+                foreach (string check in Checks)
+                {
+                    CheckFailed Condition = new CheckFailed();
+                    Condition.m_Check = BlueprintTool.GetRef<BlueprintCheckReference>(check);
+
+                    output.Add(Condition);
+
+                }
+            }
+                
+            return output;
+        }
+
+        public static ActionsBuilder LootBuilder(params string[] items)
+        {
+            ActionsBuilder output = ActionsBuilder.New();
+            foreach (string item in items)
+            {
+                output.GiveItemToPlayer(item);
+            }
+            return output;
+        }
+        public static Sprite MakeIcon (string file)
+        {
+            //creates an Icon
+            byte[] data = File.ReadAllBytes(Main.ModPath + "/Media/Icons/" + file);
+            Texture2D texture2D = new Texture2D(64, 64);
+            texture2D.LoadImage(data);
+            Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
+            return icon;
+        }
 
     }
 }

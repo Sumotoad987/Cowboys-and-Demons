@@ -694,5 +694,995 @@
   {
     "Key": "Finnean.Lich.Flavor",
     "enGB": "This weapon was once the seat of Finnean's soul. Now that the soul of the Sarkorian Pathfinder has left the weapon, it has fallen silent forever."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Name",
+    "enGB": "Amateur Gunslinger"
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Wisdom modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Drifter.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Charisma modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description.Short",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class."
+  },
+  {
+    "Key": "ToughAsNails.Name",
+    "enGB": "Tough As Nails"
+  },
+  {
+    "Key": "ToughAsNails.Description",
+    "enGB": "At 20th level, if the Spellscar drifter confirms a critical hit on an attack made with a firearm, the target is stunned for 1d4 rounds. A successful Will saving throw (DC = 10 + the Spellscar drifter’s base attack bonus) reduces this effect to staggered instead of stunned"
+  },
+  {
+    "Key": "ToughAsNails.Description.Short",
+    "enGB": "The Spellscar drifter can stun or stagger an enemy on a critical hit with a firearm."
+  },
+  {
+    "Key": "SpellSevered.Name",
+    "enGB": "Spell Severed"
+  },
+  {
+    "Key": "SpellSevered.Description",
+    "enGB": "At 12th level, a Spellscar drifter becomes permanently marked by long exposure to the Spellscar Desert. The Spellscar drifter gains spell resistance equal to 10 + her character level."
+  },
+  {
+    "Key": "SpellSevered.Description.Short",
+    "enGB": "The Spellscar drifter gains spell resistance equal to 10 + her character level."
+  },
+  {
+    "Key": "OldReliable.Name",
+    "enGB": "Old Reliable"
+  },
+  {
+    "Key": "OldReliable.Description",
+    "enGB": "At 11th level, whenever a Spellscar drifter declares a challenge, the threat range of the Spellscar drifter’s firearm is doubled against the target of her challenge. This increase does not stack with other effects that double the threat range of the weapon."
+  },
+  {
+    "Key": "OldReliable.Description.Short",
+    "enGB": "The threat range of the Spellscar drifter’s firearms is doubled against the target of her challenge."
+  },
+  {
+    "Key": "SpellscarDrifter.Name",
+    "enGB": "Spellscar Drifter"
+  },
+  {
+    "Key": "SpellscarDrifter.Description",
+    "enGB": "The Spellscar Desert is a dangerous wasteland into which few venture without a guide. Spellscar drifters have made themselves at home in these badlands. When not scouring the desert for forgotten treasures or magic hidden by the region’s shifting magic-dead zones, a Spellscar drifter might hire himself out as a guide, bodyguard, or assassin. There are even a few Spellscar drifters who are temporarily deputized by the Grand Duchy of Alkenstar to perform law enforcement tasks beyond the reach of the city’s normal constabulary. Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+  },
+  {
+    "Key": "SpellscarDrifter.Description.Short",
+    "enGB": "Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Name",
+    "enGB": "???"
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Description",
+    "enGB": "There is something strange about this woman. Perhaps it is nothing more than the side effects of prolonged exposure to occult forces in her work or a mutation from the mana wastes. Whatever it is it makes her differnt."
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Description.Short",
+    "enGB": "There is something strange about this woman."
+  },
+  {
+    "Key": "OrderOfTheEasternStar.Name",
+    "enGB": "Order of the Eastern Star"
+  },
+  {
+    "Key": "OrderOfTheEasternStar.Description",
+    "enGB": "This cavalier order exists to keep dangerous secrets hidden from the world and secretly protect the world against unimaginable threats from beyond the mortal realms. These cavaliers scout and observe, concerning themselves not with the trivial pursuit of morality, but rather with ensuring the survival of society itself. Edicts: The cavalier must preserve the secrets of his order while acting to protect civilization against occult threats. He must thwart the schemes of otherworldly horrors and must give his order a full accounting of any potential threats."
+  },
+  {
+    "Key": "CavalierEasternStarChallenge.Name",
+    "enGB": "Challenge"
+  },
+  {
+    "Key": "CavalierEasternStarChallenge.Description",
+    "enGB": "Whenever a cavalier of the order of the eastern star issues a challenge, she receives a +1 dodge bonus to AC and a +1 insight bonus on saves against the attacks and abilities of the target of his challenge. She must be wearing light armor or no armor to receive these bonuses. These bonuses increase by 1 for every 4 class levels the cavalier possesses."
+  },
+  {
+    "Key": "CavalierEasternStarSkills.Name",
+    "enGB": "Skills"
+  },
+  {
+    "Key": "CavalierEasternStarSkills.Description",
+    "enGB": "A cavalier belonging to the order of the eastern star adds Knowledge (arcana) to her class skills. She receives a bonus on Knowledge (arcana) checks equal to 1/2 his cavalier level (minimum +1)."
+  },
+  {
+    "Key": "CavalierEasternStarGuarded.Name",
+    "enGB": "Guarded"
+  },
+  {
+    "Key": "CavalierEasternStarGuarded.Description",
+    "enGB": "At 2nd level, the cavalier gains DR 1/— and a +2 morale bonus on saving throws when wearing light armor or no armor and fighting defensively or using Combat Expertise. At 6th level and every 4 levels thereafter, this DR increases by 1."
+  },
+  {
+    "Key": "CavalierEasterStarPierceTheGuard.Name",
+    "enGB": "Pierce the Guard"
+  },
+  {
+    "Key": "CavalierEasterStarPierceTheGuard.Description",
+    "enGB": "At 8th level, the cavalier's weapons are treated as having the cavalier's {g|Encyclopedia:Alignment}alignment{/g} for the purpose of overcoming the {g|Encyclopedia:Damage_Reduction}damage reduction{/g} of extraplaner creatures. Against an extraplaner target of her challenge, the cavalier automatically overcomes all damage reduction that creature possesses."
+  },
+  {
+    "Key": "CavalierEasternStarOnePurpose.Name",
+    "enGB": "One Purpose"
+  },
+  {
+    "Key": "CavalierEasternStarOnePurpose.Description",
+    "enGB": "At 15th level, the cavalier’s mount shares the benefits of the cavalier’s guarded ability. The cavalier must fight defensively or use Combat Expertise to grant these benefits, but the mount need not. In addition, the mount gains all the benefits of the cavalier’s challenge."
+  },
+  {
+    "Key": "Mythos.WarpSpace.Name",
+    "enGB": "Warp Space"
+  },
+  {
+    "Key": "Mythos.WarpSpace.Description",
+    "enGB": "Gateways between planes can warp the space around them interfering with normal teleportation yet to one with true understanding that distorted space can allow for a whole other kind of transport. This ability can be used at will and functions as dimension door however it can only be used while under the effects of Tear Proximity."
+  },
+  {
+    "Key": "Mythos.WarpSpace.Description.Short",
+    "enGB": "This ability can be used at will and functions as dimension door however it can only be used while under the effects of Tear Proximity."
+  },
+  {
+    "Key": "Cowgirl.Name",
+    "enGB": "Bell"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Title",
+    "enGB": "Lone Rider"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.0",
+    "enGB": "One rarely enocunters a lone traveler in a place as harsh as the worldwound. Yet as the Commander crests a craggy hilltop that is exactly what {mf|he|she} finds. In the valley below a figure knees down in the dirt with an unnaturaly still horse by their side. Anywhere else such as sight would little more than an oddity yet here nothing is quite so simple. The sight of something so mundane sets the commander's company strangely on edge."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.1",
+    "enGB": "From the safety of the hilltop the Commander decides too..."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.0",
+    "enGB": "... watch the stranger closely."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.2",
+    "enGB": "The Commander's keen eyes make out a body lying dead in the dirt. The stranger seems to be searching the body for something."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.3",
+    "enGB": "But the stranger is too far away to make out what their are doing."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.1",
+    "enGB": "...try and identify the stranger."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.4",
+    "enGB": "The unusual clothes and weapons worn by the stranger marks her out as a native of Alkenstar a nation in Garund famous for it's advanced technology. Most notably it is one of the few places which holds the secrets of gunsmithing. Allowing them to create powerful firearms such she bears."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.5",
+    "enGB": "The unusual clothes and weaponry worn by the stranger suggests they're not from around here but the Commander has never seen the like of them before."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.2",
+    "enGB": "...sense the air for any sign of illusions."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.6",
+    "enGB": "It's hard to tell amidst the raw chaos of the Worldwound but there is a trace of something in the air. There was magic here but whatever it was it's gone now."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.7",
+    "enGB": "Any signs of magic are lost amidst the raw chaos of the Wound."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.3",
+    "enGB": "...move in closer."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.8",
+    "enGB": "It would seem the Commander is not the only one interested in this strange precence within the Wound. From the scant cover of withering vegetation the Commander spots a motly gang of demons and cultists creeping through the valley towards the stranger."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.9",
+    "enGB": "Still possessing the element of surprise the Commander..."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.4",
+    "enGB": "...charges into the fray."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.10",
+    "enGB": "The Commander bursts into the fray meeting the demons head on. The sudden onslaught catches the demons off guard inflicting serious damage and forcing them back into the valley wall. Even so the Commander is greatly outnumbered and slowly the battle begins to turn against {mf|him|her}"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.11",
+    "enGB": "The slope proves rougher than expected and the Commander is exhuasted before {mf|he|she} even reaches the bottom. When the two forces meet the demons hold their ground and begin to push the Commander back uphill."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.5",
+    "enGB": "...clambers down the rockface to outflank the enemy."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.12",
+    "enGB": "The Commander slips around and strikes the enemy from the rear inflicting serious damage and forcing them back into the valley wall. Even so the Commander is greatly outnumbered and slowly the battle begins to turn against {mf|him|her}"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.13",
+    "enGB": "The slope proves rougher than expected and the Commander is exhuasted before {mf|he|she} even reaches the bottom. When the two forces meet the demons hold their ground and begin to push the Commander back uphill."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.14",
+    "enGB": "A sudden bang as loud as thunder echoes through the valley. Metal pellets rend through demon hide as the stranger joins the battle. For a moment everything seems to slow as all eyes turn to the newcomer and the smoking metal rod in her hands."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.15",
+    "enGB": "\"So these are demons then ey? Seem they'll bleed just like the rest of us.\" she mutters before firing again."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.16",
+    "enGB": "With the strangers help the tide turns in the Commander's favour and the demons soon lie dead and {mf|his|her} feet."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.17",
+    "enGB": "As the smoke clears the stranger steps forward \"Thanks for the help there. Bell Tarvil, Shieldmarshal of Alkenstar at your service\" she tips her hat the commanders way."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.6",
+    "enGB": "Offer a hand: \"I'm {name} pleasure to make your acquaintance\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.7",
+    "enGB": "\"You fought well yourself. I'm {name} Commander of the Fifth Crusade\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.18",
+    "enGB": "\"Ah so you're the one I heard about back in Kenebres. Things are rough back there but I reckon they'd've been worse without your help. Anyway you're probably wondering what brings a gal like me all the way out here all by my lonesome. I'm on the trail of a villain. He's a real monster who loves to delve into all the worst kinds of magic, alchemy and any other kind of dark knowledge he can get his hands on.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.8",
+    "enGB": "\"Who is he?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.9",
+    "enGB": "\"Is he working with the demons?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.10",
+    "enGB": "\"What makes him so important to travel halfway around the world for?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.11",
+    "enGB": "\"Is there anything I can do to help?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.12",
+    "enGB": "\"Would you consider joining the crusade?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.19",
+    "enGB": "\"He's taken to calling himself the Brainweaver. He's a master of the twisted art of fleshwarping and head of a cult of crazies who think he understands the mysteries of reality or some such rot.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.20",
+    "enGB": "\"I don't think so but I wouldn't put it past him to make a deal with 'em. Him an' his cronies are dedicated to Yog-Sothoth which is whole other brand of madness. I'm not sure why they came round 'ere but I'd guess either it cause he wanted to study the worldwound or he thought's it'd be a good place to lay low after all the heat on 'em back home.\"",
+    "ProcessTemplate": "false"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.21",
+    "enGB": "\"If it were just 'im well... But it's not. Before I left home he went on another one of his rampages and this time he took a whole lot of people prisoner. I hate to imagine what kind of horrors he has in mind for 'em so I've been keeping as hard on his trail as I can. I hope that at least if he can't settle down he won't have time for whatever else he's up ta.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.22",
+    "enGB": "Theres something more too it than that, something personal, but whatever it is she's not letting on."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.23",
+    "enGB": "\"I don't think so but thank you for asking. Right now I've gotta keep after him and from what I've heard you've got plenty of problems of your own to deal with. But I'll remember your offer, try an' keep ya in the loop.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.24",
+    "enGB": "She gives a dry laugh \"You sure are eager to get new recruits aren't ya. As for me, well. I 'ave a responsibility to rescue my own people first. But.. hmmm. I can see you've got a worthy cause of your own going on here. I had planned on bringing 'em all back home but maybe I'll stick around seems there's plenty of good to be done 'round here. Until then I wish you the best of luck and maybe I'll take down a few demons for ya along the way.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.25",
+    "enGB": "\"Well if this lot are anything to go by it's probably not safe to stick around these parts too long. 'Sides I'd best get back on the hunt. May we both live long enough for our paths to cross again.\" With a final nod in the commanders direction the Shieldmarshal swings up on her horse and rides away."
+  },
+  {
+    "Key": "Plot.Leave",
+    "enGB": "Leave"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.14",
+    "enGB": "Search the area."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.26",
+    "enGB": "The Commander spots the body of a humanoid clearly killed by a bullet wound. The figure wore a tattered grey cloak and an amulet bearing the image of a black spiral over a silver portal. By his side is the battered remains of a book with a large hole has been burned through its centre. It looks like the cover once bore the same symbol as the cultists amulet and the spine shows the title 'Gateways of Mystery'"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.15",
+    "enGB": "Examine the book."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.27",
+    "enGB": "The book is too heavily damaged to make out much beyond a few sentences here are there. But something about even those few words is profoundly unsettling. It hints at secrets at the edge of time, bears fragments of diagrams of the most horrid monstrous forms and whispers that true enlightenment lies in the mysteries hidden between the stars."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.28",
+    "enGB": "There is however one section that catches the Commanders eye. An essay on planer gateways and passages between worlds. It speaks of how such passageways warp the space around them interfering with normal teleportation yet to one with true understanding that distorted space can allow for a whole other kind of transport."
+  },
+  {
+    "Key": "Plot.Continue",
+    "enGB": "Continue."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.0",
+    "enGB": "You've been doing well for yerself. This fort looks a whole let better than before. You an' yer troops sure have proven yerself quite the force ta be reckoned with haven't ya."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.1",
+    "enGB": "Anyways I said I'd try and keep ya in the loop with my own investigation so 'ere I am 'oping yer offers still on the table."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.2",
+    "enGB": "I've found where the Brainweaver an' his cult of loonies are hiding out. Even better it sounds like at least some of his captives might still be alive. Problem is, well there's a whole lot more of 'em than I thought. He musta picked up a few local demon loving nuts to bolster 'is ranks. On toppa that the place's underground, well fortified and probably got a load of traps and curses. Short version I don't reckon I can take it on my own."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.0",
+    "enGB": "We'd best hurry then if his prisoners are still alive there's no telling how long they'll stay that way."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.1",
+    "enGB": "I'm guessing that's why you've come to me"
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.2",
+    "enGB": "This doesn't sound like its any of my business"
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.3",
+    "enGB": "Exactly. Ya see I've 'eard of how skilled you an' yer company are on the battlefield and I was 'oping yall might tag along and help me finish dis thing. I'm sure you're plenty busy what with running a whole war against the Abyss but well if you leave this lot to fester on yer border they'll no doubt come back ta bite ya later."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.5",
+    "enGB": "On toppa that once this monsters in the dirt or behind bars I'll suddenly find myself with a whole lotta time on my hands. Yer cause seems as good as any so I'd be happy to sign up if you still want a wandering gunslinger like me in yer ranks."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.3",
+    "enGB": "In that case what can I do to help?"
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.6",
+    "enGB": "Well if you don't care about the poor souls he's doing all kinds of horrors to or of the threat his madhouse 'll cause you down the road maybe some gold'll change yer mind. Would it make any difference if I said he's got a bounty on his head back home?"
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.4",
+    "enGB": "No."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.5",
+    "enGB": "I think we can come to an arrangement."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.7",
+    "enGB": "Alright then 'ere's the plan.” She marks a point on the commander's map “Brainweaver's lair is here the entrance lookes like some kinda mouth craved outa the rock hard ta miss once you know where ta look. I'll head out there now and keep an eye on things, see if I can't scout a bit of the place learn any more about what's inside. As soon as your ready meet me at this cliff overlooking the place. Once you get there we can make our way inside rescue those poor souls and put an end to this madness before it's too late."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Answers.6",
+    "enGB": "I'll meet you there."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.8",
+    "enGB": "In that case I'd best be off. Don't want 'em slipping away somewhere while we're talking. Thanks for yer help."
+  },
+  {
+    "Key": "Plot.CowgirlQuest1Intro.Cue.9",
+    "enGB": "“Okay then. I can see where I'm not wanted I do what I can on my own but mark my words if you think this'll just go away on its own yer very much mistaken. One way or another this guy will be causing ya a whole mess of grief.” Without another word she turns and marches from the city."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Title",
+    "enGB": "The Gateway to Insanity"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Description",
+    "enGB": "The worldwound attracts strange visitors. Perhaps then it should come as no suprise that a cult of Yog-Sothoth outer being know for parceling out powerful secrets about gates between worlds would be attracted to the largest gate on the planet. But a being that powerful doesn't give out knowledge for free. Are his secrets worth the loss of sanity that so often comes from the barest contact with this being."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Reach.Title",
+    "enGB": "Reach the Gateway to Insanity"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Reach.Description",
+    "enGB": "The lair of the brainweaver is located in the wastes south of drezen marked by an X on the commanders map."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.0",
+    "enGB": "As the commander approaches the Shieldmarshal's rendezvous the very air seems to change. Even in the midst of the wound with the Abyss bleeding through the fabric of reality something in this place feels profoundly wrong. Its a different kind of wrongness nothing so blatant as the energy of the Abyss there are no floating rocks or rains of blood just a niggling sense of something alien."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.1",
+    "enGB": "It takes the commander a while to realise that its more than just an odd feeling. The very landscape seems to be changing. Despite never having turned the road seems to have lead back on itself. The commanders eye is drawn to a stream only to see the water flowing uphill. Realising something is wrong the commander..."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.0",
+    "enGB": "...calls on the wisdom of the Aeons"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.2",
+    "enGB": "The commander's gaze pierces through this place. Everything about the Worldwound is a violation of the laws of reality. Demons and the Abyss to not belong on this plane. But what is here, it does not belong anywhere. Not only should it not exist it should not be possible for it to exist. If the rift to the abyss is a wound in reality this place is an infection, a disease that must be purged at all costs."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.1",
+    "enGB": "...tries to find a pattern to the changes."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.3",
+    "enGB": "Having faces all kinds of strange forces in the wound the commander is able to plot the limits of this phenomenon and charts a course though the most stable regions."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.4",
+    "enGB": "No matter how hard {mf|he|she} looks at it {mf|he|she} can find no pattern. What is in this place is beyond mortal ken. It should not exist, it cannot exist, yet it exists."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.2",
+    "enGB": "...tries to outrun the changes."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.5",
+    "enGB": "The very fabric of the world here is moving but the commander moves faster and before {mf|he|she} knows it the rendezvous point comes into view ahead."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.6",
+    "enGB": "The commander tries to run but the world just changes too fast everywhere {mf|he|she} tries to go it is always somewhere different by the time {mf|he|she} arrives. Losing {mf|his|her} footing the commander finds {mf|him|her}self falling uphill."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.3",
+    "enGB": "...stubbornly presses forwards."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.7",
+    "enGB": "Eventually the commander arrives at a wide cliff-face dotted with dying shubs. Bell lies out near the edge staring through her gun sights at whatever lies below."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.8",
+    "enGB": "As the commander approaches she creeps back from the edge to meet {mf|him|her}. “Thanks again for coming boss. I've been keeping an eye on the place, but there not been much activity since last we spoke. A few cultists coming an' going for supplies, mostly food an' such.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.9",
+    "enGB": "She gestures down to the wall on the far side of the valley where a crack in the rock has been sculpted out into the shape vast worm whose open maw is filled with row upon row of jagged metal teeth. “As far as I can see that... thing there's the only way in or out. At least by conventional means anyhow. You never can tell what sorta magic they've got up their sleeves.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.5",
+    "enGB": "Any word on the prisoners?"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.10",
+    "enGB": "“I overheard some of them talking 'bout em a few days ago. Sounds like they're being kept for some kinda experiment. Probably means there still alive at least though I fear they might be wishing they weren't.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.6",
+    "enGB": "How many are in this cult?"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.11",
+    "enGB": "“I count at least forty of them plus Brainweaver himself. Most of 'em aren't that much of a threat on their own any more than your demon cultists but Brainweaver'll be a tricky one. He's got a range of nasty spells plus all sorta alchemical horrors.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.7",
+    "enGB": "Anything I should know before we go?"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.12",
+    "enGB": "“Look this place 'll be trapped that much is obvious, an' I'm sure you and your team 'ave dealt with that kinda thing before. But what you see down there... It'll go beyond your typical traps or curses or whatnot. Things are gonna get pretty crazy down there. My advice: keep yer eyes an' yer heart open but yer mind closed. You'll see stuff you don't understand but trust me your better off that way. There are some questions best left unanswered an knowledge like that... well it does strange thing ta people.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.13",
+    "enGB": "Bell leads the commander down a carefully concealed pathway to the valley below. From up close the opening is even more grotesque. Eyes seem to burst from its skull like boils and the metal teeth are stained with dry blood. Even to the most untrained eye it would be clear that these spikes mark some kind of trap. Being far from untrained the commander..."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.9",
+    "enGB": "...searches for a safe path forward."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.14",
+    "enGB": "The commander moves slowly through the blades watching {mf|his|her} every step. They make it several paces through the jaw before hearing a faint click."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.15",
+    "enGB": "Searching the area carefully the commander notices one of the sculpture's eyes is different from the others. Taking a closer look {mf|he|she} discovers a hidden passageway through the pupil"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.10",
+    "enGB": "...attempts to disarm the mechanism."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.16",
+    "enGB": "The machine gets the better of the commander whirling into action the moment {mf|he|she} touches it."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.17",
+    "enGB": "Slipping a hand in under one of the teeth the commander find a series of gears that drive the mechanism. One well place cut and the system jams up allowing the party to advance."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.11",
+    "enGB": "...tries to power through it."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.18",
+    "enGB": "It takes only a moment for the blades to whirl into action."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.19",
+    "enGB": "Deciding there's no way round it and it would take too long to try and disarm the commander chooses to march headlong through. The teeth begin to spin wilding round the edge of the cavern but the commander steps forward and blocks the blade holding back the mechanism as the party rushes forwards."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.12",
+    "enGB": "...tries to pass as a member of the cult."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.20",
+    "enGB": "The bluff lasts all of a few seconds before one of the cultists recognises the commander. Sometimes being a famous hero has its disadvantages."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.21",
+    "enGB": "The commander drops down in plain sight of the cultists greeting them as brothers and sisters in mystery and aside from a few odd looks is able to walk passed unobstructed."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.13",
+    "enGB": "...tries to pass as a member of the cult."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.22",
+    "enGB": "Unfortunatly one of the cultists spots {mf|him|her} before {mf|he|she} has a chance to strike"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.23",
+    "enGB": "The commander falls upon them like a wraith. Before they can as much as scream the cultists lie dead on the floor."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.24",
+    "enGB": "The carved teeth spin and close inwards pinning the commander in place as the passageway begins to fill with murky brown bile."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.14",
+    "enGB": "The commander tries to wriggle free."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.25",
+    "enGB": "The traps grasp proves stronger than expected and by the time the commander has made it the far end {mf|he|she} has gotten several mouthfuls of the foul tasting liquid"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.26",
+    "enGB": "Slipping from the traps grasp the commander makes a rush for the far side bursting through just in time to avoid the rising bile."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.15",
+    "enGB": "The commander holds {mf|his|her} breath"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.27",
+    "enGB": "The vile liquid forces its into {mf|his|her} mouth before {mf|he|she} is able to clamp it shut. Eventually the commander breaks free and swims through the disguising liquid to the far side."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.28",
+    "enGB": "The commander holds {mf|his|her} breath and carefully works {mf|his|her} way free swimming through the bile to the far side covered in the disgusting liquid but otherwise unharmed."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.29",
+    "enGB": "The passageway opens up into a entrance hall decorated in purples and greens. Before the commander has a chance to investigate any further however {mf|he|she} is spotted by a gang of cultists."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.30",
+    "enGB": "One of the cultists turns to run while the rest bar the commanders path forwards. They begin chanting in unfathomable tongues as they approach."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.16",
+    "enGB": "The commander attempts to disrupt their spellcraft"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.31",
+    "enGB": "The commander tries to ward against whatever power these cultists are drawing upon but nothing seems to work as it should. Their magic is just to different. Forces to resort to brute force the commander is able to take out the cultists but not before their magic has sapped at {mf|his|her} own mind. To make matters worse bells ring out the alert. The escaping cultist must have warned the others who was coming."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.32",
+    "enGB": "Thinking quickly the commander brings up wards to protect against the onslaught and takes out the oncoming cultists before then can finish whatever they were trying to cast. Unfortunately {mf|he|she} is not quick enough to catch the retreating cultist, moments later a the ringing of bells warns that the alarm has been raised."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.17",
+    "enGB": "The commander shouts trying to cow them into silence"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.33",
+    "enGB": "It's unclear if the cultists are brave enough to stand their ground, more afraid of their boss than the commander or simply too detached from reality to comprehend the danger. Either way they keep chanting without the slightest pause. Their spells weaves an intricate web of magic which saps the the commanders mind even as {mf|he|she} cuts them down. To make matters worse bells ring out the alert. The escaping cultist must have warned the others who was coming."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.34",
+    "enGB": "The commander's roar breaks through the chanting, distrupting the intricate pattern of magic being woven and providing an opening to strike. The battle is over quickly but not quickly enough to stop the fleeing cultists escape and soon bells ring out the alarm through the tunnels. "
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.18",
+    "enGB": "The commander shouts trying to cow them into silence"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.35",
+    "enGB": "But the cultist proves too quick diving down a passageway and out of sight before the commander can reach them. Worse still when the commander turns back to {mf|his|her} attackers they're able to finish their spell and begin to drain energy from the commander's mind before {mf|he|she} silences them."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.36",
+    "enGB": "Pushing right through the chanting cultist the commander makes a dive for the retreating figure catching them before they have a chance to raise the alarm. However this victory is not without its cost. Without the commander to stop them the rest of the cultists are able to complete their spell draining energy directly from the {mf|his|her} mind. Turning back the commander strikes them down before they have a chance to capitalise on what they've done."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.37",
+    "enGB": "With the immediate threat dealt with the Commander pauses to consider {mf|his|her} options. The entrance hall itself would seem to have served an entirely ornamental function. Disturbing tapestries line the walls bearing images of tendrils wrapped in eyes coiling around the world or bursting out of human bodies. Chairs and tables a scattered haphazardly about the place suggesting the room was used for casual meetings. Two doorways lead deeper into the structure. Ahead is large stone archway and on the left lines a smaller door covered in runes."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.19",
+    "enGB": "The commander ploughs forwards through the double doors."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.20",
+    "enGB": "The commander turns to the runic doorway."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.37",
+    "enGB": "The room beyond is filled with scrolls but unlike a typical library they are not neatly catalogued to lined up in selves. Instead the scolls seems to burst out from the walls themselves unrolled at full length and swaying slightly in an unseen wind. “This 'ere looks like one of their libraries. I'd steer clear of it if I were you.” Bell suggests"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.21",
+    "enGB": "Heeding her advice the commander turns back the way {mf|he|she} came"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.22",
+    "enGB": "The commander decides to take a closer look."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.39",
+    "enGB": "Most of the scrolls are written in an unknown script but there is something compelling about the words nonetheless. Without knowing how or why the commander finds {mf|him|her}self drawn to keep reading this unfathomable text."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.40",
+    "enGB": "Most of the scrolls are written in an unknown script but there is something compelling about the words nonetheless. Relying on the diagrams and general arcane principles the commander is able to decipher that they are notes on inter-planer travel, summoning, and the creation of gateways. These cult is clearing researching some highly esoteric forms of magic and now some of their knowledge belongs to the commander."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.41",
+    "enGB": "As the commander reads the text something strange starts the happen. The writing seems to be reading {mf|him|her} back. First its just a niggling sense of being watched but it grows. The wall knows {mf|him|her}. {mf|he|she} is just another story to be read and catalogued. To be understood down to the slightest stroke of a pen."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.42",
+    "enGB": "The commander wrenches {mf|him|her}self free of the walls gaze. Averting {mf|his|her} own eyes from the scrolls before anything worse happens. Yet something of the experience still lingers a memory that can't be easily shaken."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.43",
+    "enGB": "{name} is a book being read by something incomprehensible. The commander can feel eyes running through {mf|his|her} words, a hand slowly flicking through {mf|his|her} pages. A sharp bang seems to echo vaguely in the distance and a voice speaks. “Snap out of it!” But Bell's words don't matter she's just another book on the self after all. There's a heavy thud and all goes black. When the commander comes to {mf|he|she} is a person again lying back in the entrance hall with a fresh bruise on {mf|his|her} face. “Are ya back with us?” Bell asks."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.44",
+    "enGB": "“What happened?” The words come out garbled as the commander's mind slowly recovers. “I don't rightly know. Something was happening to ya. I had to knock you out and drag you outa there. Sorry 'bout the bruise but whatever that was I'm sure it woulda been worse.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.45",
+    "enGB": "A shudder runs up the commander's spine as {mf|he|she} wonders what might have happened if that had gone on much longer. Even in so short a time the mark of that place runs deep. It feels as though something has folded down a corner of the commander's pages ready to read again later. After taking some time to recover from the experience the commander resumes the journey deeper into the cultist lair."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.46",
+    "enGB": "Past the entrance hall the commander finds the living and sleeping quarters of the cultists."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.47",
+    "enGB": "The whole place is deserted objects strews about as though everyone left in a hurry. After a brief search the commander finds nothing of interest."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.48",
+    "enGB": "Cultists mill about the room whispering to each other in some strange language. All eyes turn to look at the newcommer..."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.49",
+    "enGB": "After clearing the cultists living area the commander spots several objects discarded in haste. Most of it is everyday objects worth little to nothing but some of them were carrying some interesting weapons."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.24",
+    "enGB": "...who tries to blend in with the crowd."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.50",
+    "enGB": "Without knowing the secret language of the cult its hard to pass as one of them for long. The commander's ruse isn't enough to fool so many at once. One of the cultists shouts something and all hell breaks loose. Some charge forward weapons drawn only to fall before the commander's power. Others flee deeper in and yet more make a rush for the exit. While they prove little threat a few of them manage to escape to warn the others."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.51",
+    "enGB": "A good robe a slight slouch and some incoherent mumbling is enough to keep the commander from drawing too much attention as {mf|he|she} slips by the cultists"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.25",
+    "enGB": "...who offers them a chance to leave peacefully."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.52",
+    "enGB": "The cultists fanaticism wins out over their sense of self preservation. Many charge the commander only to fall to {mf|his|her} far greater skill. However their sacrifice buys time for some of the others to retreat deeper into the structure and raise the alarm. "
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.53",
+    "enGB": "The commander's reputation proceeds {mf|him|her} and a quick glance confirms to the cultists that they don't stand a chance in a fight. After some debate the cultists accept the commander's offer. The group head out into the wound leaving the commander's path forwards clear."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.26",
+    "enGB": "...who charges into battle."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.54",
+    "enGB": "The commander's charge is fierce but {mf|he|she} is soon bogged down by the sheer number of bodies. While the battle is decidedly in {mf|his|her} favour {mf|he|she} is unable to prevent many of the cultists escaping deeper inside to raise the alarm."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.55",
+    "enGB": "The commander takes them by storm. A few cultists move to block the commander but are swept aside like dust before {mf|his|her} onslaught. The remaining cultists who were trying to retreat deeper into the building are cut off before they can escape to warn the others."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.56",
+    "enGB": "As the commander nears the far end of the cultists living space a odd acrid scent fills the air punctuated by dull moans. Pushing forwards {mf|he|she} finds {mf|him|her}self in a grim laboratory. A large table dominates the room. Mercifully it's shackles are currently empty but its surface is stained with blood and other fluids.  The room is divided down the middle by a wall of iron bars and beyond them strange distorted shapes shamble around in the dark growling and moaning."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.57",
+    "enGB": "“I... I think those are the townsfolk he took” Bells face is grim as she stares through the bars at the remains of once familiar faces. “We gotta help 'em.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.58",
+    "enGB": "As she moves closer one of the figures jumps forwards reaching through the bars towards her with a screeching roar. Instead of the hand one might expect their arm opens up into a mouth which gnashes its teeth straining to get close enough to bite down on the gunslinger."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.28",
+    "enGB": "“I'm sorry Bell they might be passed saving. Are you prepared for that?”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.59",
+    "enGB": "“I know... and if it comes to it I... I can do what need ta be done. But we 'ave ta try don't we? They deserve that much.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.29",
+    "enGB": "“What has he done to these people?!”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.60",
+    "enGB": "“It's what I was afraid of. It's called fleshwarping. I don't know if he learnt it from Drow or the Nexian fleshforges but its truly nasty stuff. Taking people's bodies and making all kinds of changes. Sewing parts together like some crazed tailor. I don't know what we wants to learn from all this but no knowledge is worth what he's done to these people.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.30",
+    "enGB": "“They're nothing but monsters now.”"
+  },
+  {
+    "Key": "Plot.Alignment.Fleshwarps.TreatedAsMonsters",
+    "enGB": "Treated the brainweaver's fleshwarps as monsters"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.31",
+    "enGB": "“Of course. We'll do everything we can.”"
+  },
+  {
+    "Key": "Plot.Alignment.Fleshwarps.TreatedAsVictims",
+    "enGB": "Tried to help the brainweaver's fleshwarps'"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.61",
+    "enGB": "We can't just leave 'em here! They're innocent people, just minding their own business before this lot got to 'em. What are we fightin' for is not ta help folks like this.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.32",
+    "enGB": "“I'm sorry but the only thing we can do now is put them out of their misery.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.62",
+    "enGB": "“But... I knew these people how can we just...” Bell's eyes are full of tears “I know they wouldn't want to live like this but surely there's another way. I just wish... I wish I'd gotten here sooner maybe then I coulda saved 'em.” she turns to face the mutants. “I... I am so sorry. I failed you. I failed you all.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.33",
+    "enGB": "“We can't help them but we can at least learn from what was done to them. Let's take a look around the lab.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.63",
+    "enGB": "“You're just gonna read his notes after what it's led too? This kinda knowledge, its evil crazed. You'd be better off not knowing.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.64",
+    "enGB": "In spite of Bells protests the commander makes a thorough search of the room reading through details notes of the most heinous and grizzly experiments imaginable. There's more here than can be read in a day but even in a short time the commander is able to get a grasp of the basics of fleshwarping."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.65",
+    "enGB": "Bells warnings bear out as the commander struggles through the papers. Each experiment is more grisly than the last and their collective toll wears down even the strongest stomach. This is the stuff of nightmares, horrors the commander won't soon be able to forget."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.35",
+    "enGB": "“There's nothing we can do for them now. Once we're finished here we'll send a team to investigate.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.66",
+    "enGB": "Bell nods. “Whatever happens, thank you for trying.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.67",
+    "enGB": "The commander steps towards the bars and surveys the horrors beyond. Most are barely recognisable as humanoid. Extra limbs or eyes or tentacles jut of their bodies at odd angles. Some press up against the bars jaws and pincers snapping. Others retreat back in fear cowering in the corner. Yet others barely move at all, twitching slightly on the ground. Yet all their mismatched eyes are turned to the commander who..."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.36",
+    "enGB": "...appeals to their humanity."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.68",
+    "enGB": "The commander's words cut through the madness eating away at their minds to reach the shreds of who they once were. The mutants calm. One of them tries to speak but the words come out in a garble. Finally they step back from the bars signalling without words that they are no longer a danger to anyone."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.69",
+    "enGB": "It's unclear if the creatures can even understand the commanders words. They continue to act more like animals than people struggling and roaring incoherently."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.37",
+    "enGB": "...searches through the research notes for a way to undo what was done."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.70",
+    "enGB": "“This kinda knowledge, its evil, crazed.” Bell warns “You'd be better off not knowing but... if its to 'elp these poor folk out I guess we've got no choice”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.71",
+    "enGB": "The commander makes a thorough search of the room reading through detailed notes of the most heinous and grizzly experiments imaginable. There's more here than can be read in a day but even in a short time the commander is able to get a grasp of the basics of fleshwarping. Enough to offer hope that with enough work a cure may one day be found."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.72",
+    "enGB": "Bell's warnings bear out as the commander struggles through the papers. Each experiment is more grisly than the last and their collective toll wears down even the strongest stomach. This is the stuff of nightmares, horrors the commander won't soon be able to forget."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.38",
+    "enGB": "...calls on the divine to help heal these poor souls."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.73",
+    "enGB": "The commander's prayers are answered and a healing light washes over the victims. They slowly calm as their minds regain a semblance of control. Even so horrors like this don't fade so easily. The physical changes are still there but at least they have regained a shred of their humanity."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.74",
+    "enGB": "The commander's efforts are not enough to overcome the sheer extent of damage inflicted on these people's minds. {mf|He|She} succeeds only in healing a few of the more mundane injuries and malnutrition these people have suffered."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.39",
+    "enGB": "...attempts to restore cosmic order and reverse these unnatural changes."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.75",
+    "enGB": "The power of the aeon washes over the crowd but its effects are not all that might be expected. Much of what was done to these people was through a combination of alchemy and twisted medicine. These actions while vile are not themselves a violation of the cosmic order. What was done to their minds however was different these people were touched by something alien, something corrupting and that at least can be purged restoring them to some semblance of sanity."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.40",
+    "enGB": "...calls on the light of heaven to cleanse the victims' affliction."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.76",
+    "enGB": "Heaven's light shines forth from the commander a beacon marking the way back. A lighthouse guiding the souls of these people through the veil of madness and back to reality. Their bodies remain changed but the chaos in the minds has stilled. They step back all their former aggression gone."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.41",
+    "enGB": "Realising there's nothing more {mf|he|she} can do for them now the commander prepares to continue on vowing to come back for these poor souls."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.77",
+    "enGB": "One of the mutants steps forward pointing to a door at the far end of the room “He... that... way. You... stop him... We wait”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.78",
+    "enGB": "Leaving the grisly laboratory behind the commander finds {mf|him|her}self in a rough-hewn stone corridor. A large contingent of cultists stand at the far end of the hall some appear to be spellcasters the rest point firearms back at the commander."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.79",
+    "enGB": "The cultists are prepared for the commander's arrival and immediately begin their attack. Soon the corridor is filled with bullets and spells as the cultist volley fire from their position at the far side."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.80",
+    "enGB": "The cultists are well prepared for the commander's arrival having had the time to erect barricades and entrench themselves at the far end of the corridor. The moment they spot the commander they begin their attack filling the air with spell and shot."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.81",
+    "enGB": "But the cultists are unprepared for the commander's arrival. Caught off-guard they struggle to maintain a solid defence against the commander's attack. "
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.82",
+    "enGB": "However the cultists are not the only threat in this place. Even space itself turns against the commander. As {mf|he|she} makes to move down the corridor it's shape begins to distort around {mf|him|her}. No matter how fast {mf|he|she} runs the cultists never seem to get any closer and yet their weapons seems to have no trouble reaching {mf|him|her}. Struggling against these strange forces the commander..."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.44",
+    "enGB": "...embraces the chaotic space."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.83",
+    "enGB": "The commander lets the chaos flow through {mf|him|her}. Mythic power to guides {mf|him|her} through the storm. To an outside view it would seem like the {mf|he|she} was walking competly at random but yet bit bit {mf|he|she} makes her way across the room while the enemys' attacks drift harmlessly by."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.45",
+    "enGB": "[Mythos]...uses what {mf|he|she} has learned to turn the distortion to {mf|his|her} advantage."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.84",
+    "enGB": "The commander slips through the folded space appearing behind the cultists. Taken totally by surprise the cultist provide little resistance before being cut down."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.46",
+    "enGB": "...focuses on avoiding enemy fire as {mf|he|she} advances"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.85",
+    "enGB": "It's slow going and the commander feels {mf|he|she} has walked about twenty times the corridors lengths but {mf|he|she} eventually reaches the other side having avoided suffering any major injury."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.86",
+    "enGB": "It's slow going and the commander feels {mf|he|she} has walked about twenty times the corridors length but {mf|he|she} eventually reaches the other side. But {mf|he|she} is unable to avoid the sheer volume of fire headed {mf|his|her} way and gets hit by several stray spells."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.47",
+    "enGB": "...watches {mf|his|her} step to find a way through the warped space."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.89",
+    "enGB": "Beyond the cultists the warping of space only gets worse and it soon becomes clear why. A portal twisted and pulsating has been cut through space just around the corner. It looks in many ways like another part of the Worldwound. A seething purple and red mass of abyssal energy. One of many rifts in that vast network. But something about this one is different. Sickly green light shines around its edges, its opening seems to fold in upon itself and the energy bursting out comes in tortured fits. If all rifts were describes as a bleeding wound in the world this one you might say was infected."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.90",
+    "enGB": "It's foreboding appearance doesn't appear to bother the surviving cultists who begin to leap through fleeing the commander's wrath as it begins to sputter and die. The commander watches with horror as the portal starts to close in on itself around the last of the cultists folding his body inside out and twisting it beyond all recognition. With a sickly splat the mass to distorted flesh slumps to the ground, the last remnant of the tainted rift."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.91",
+    "enGB": "“Blast!” Bell shouts at the now empty space “I was sure I had 'em this time. But that creep always seems to find some way to slip off without a scratch. An' now he's gone again an' I don't even 'ave a trail ta follow.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.92",
+    "enGB": "“But at least we were able to 'elp out his victims that's the important thing. I just wish we could tell 'em we've stopped him from doing this ever again.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.93",
+    "enGB": "“I suppose we put a stop to 'is opperations for now anyway. I'm sure he'll be back but we'll 'ave slowed him down at least.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.94",
+    "enGB": "“Anyways I don't think there's much else I can do 'ere. I guess that means I'm all yours. I've not been 'ere long but this Worldwound of yours seem a whole lot worse than we thought back 'ome. So if you'll take me I'd be 'appy to sign up.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.49",
+    "enGB": "“The crusades would be honoured to have you Bell.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.50",
+    "enGB": "“We're always looking for experienced fighters. Welcome aboard.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Answer.51",
+    "enGB": "“I don't think it'll work out.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.95",
+    "enGB": "“In that case I look forward to fighting by your side boss.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.96",
+    "enGB": "“Well I suppose I'd best be off then. Maybe I'll see you around again but I doubt it.”"
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.97",
+    "enGB": "With the threat ended the commander takes some time to search the bodies of the cultists."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.98",
+    "enGB": "While some of the cultists escaped through the rift many more fell here leaving behind some valuables and a very interesting weapon."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.99",
+    "enGB": "Whilst most of the cultists managed to escape through the rift a few fell here leaving behind some valuables."
+  },
+  {
+    "Key": "Plot.GatewayToInsanity.Cue.100",
+    "enGB": "The commander escorts the mutated prisoners out of the building and sends for a team of clerics to take them back to Drezen in hopes of a more complete cure."
   }
+
 ]

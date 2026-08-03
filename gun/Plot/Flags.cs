@@ -1,0 +1,79 @@
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.StoryEx;
+using BlueprintCore.Blueprints.Configurators;
+using BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
+using Kingmaker.ElementsSystem;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace gun.Plot
+{
+    internal static class Flags
+    {
+        public const string CowgirlRespect = "4f5d55d2fff1491b9d2c3493d07af5ca";
+        public const string CowgirlApproval = "2bc8e0a161c44dcbbc7d90e91360c50a";
+        public const string SuspectsCowgirl = "a3c8a07d04514d2eb6468d9d0608af15";
+        public const string CowgirlInParty = "";
+        public const string OfferedToHelpCowgirl = "ef183c806412468aa5d7a2cb66907108";
+        public const string AskedCowgirlToJoinCrusade = "80a691254e5344098f30ce71bfd2a662";
+        public const string Mythos = "8ec57227d1fc441194089220d4f0133c";
+        public const string Madness = "36d7803faad945d6a1f4da3d6ebf6bc3";
+        public const string MetCowgirl = "a5ceb576f2d948bebb4cab2375ae93dd";
+        public const string CowgirlInDrezen = "15d22e9571a345aa952ec379558cbabd";
+        public const string RejectedCowgirl = "";
+        public const string BeganGatewayToInsanity = "";
+        public const string CompletedGatewayToInsanity = "";
+        public const string GatewayToInsanityAlarm = "";
+        public const string GatewayToInsanityLongTime = "";
+        public const string TreatedFleshwarps = "";
+        public static void Configure()
+        {
+            UnlockableFlagConfigurator.New("CowgirlRespect", CowgirlRespect).Configure();
+            UnlockableFlagConfigurator.New("CowgirlApproval", CowgirlApproval).Configure();
+            UnlockableFlagConfigurator.New("SuspectsCowgirl", SuspectsCowgirl).Configure();
+            UnlockableFlagConfigurator.New("OfferedToHelpCowgirl", OfferedToHelpCowgirl).Configure();
+            UnlockableFlagConfigurator.New("AskedCowgirlToJoinCrusade", AskedCowgirlToJoinCrusade).Configure();
+            UnlockableFlagConfigurator.New("MetCowgirl", MetCowgirl).Configure();
+            UnlockableFlagConfigurator.New("Mythos", Mythos).Configure();
+            UnlockableFlagConfigurator.New("Madness", Madness).Configure();
+            UnlockableFlagConfigurator.New("CowgirlInDrezen", CowgirlInDrezen).Configure();
+            UnlockableFlagConfigurator.New("RejectedCowgirl", RejectedCowgirl).Configure();
+            UnlockableFlagConfigurator.New("BeganGatewayToInsanity", BeganGatewayToInsanity).Configure();
+            UnlockableFlagConfigurator.New("CompletedGatewayToInsanity", CompletedGatewayToInsanity).Configure();
+            UnlockableFlagConfigurator.New("GatewayToInsanityAlarm", GatewayToInsanityAlarm).Configure();
+            UnlockableFlagConfigurator.New("GatewayToInsanityLongTime", GatewayToInsanityLongTime).Configure();
+            UnlockableFlagConfigurator.New("TreatedFleshwarps", TreatedFleshwarps).Configure();
+            UnlockableFlagConfigurator.New("CowgirlInParty", CowgirlInParty).Configure();
+        }
+
+        public static ActionsBuilder IncrementFlag(int value,string GUID)
+        {
+            ActionsBuilder actions = ActionsBuilder.New();
+            actions.IncrementFlagValue(GUID, true, new EvaluatorInt(value));
+            return actions;
+        }
+    }
+}
+
+public class EvaluatorInt : IntEvaluator
+{
+    public int value;
+    public override string GetCaption()
+    {
+        return "" + value;
+    }
+
+    public override int GetValueInternal()
+    {
+        return value;
+    }
+
+    public EvaluatorInt(int value)
+    {
+        this.value = value;
+    }
+}
