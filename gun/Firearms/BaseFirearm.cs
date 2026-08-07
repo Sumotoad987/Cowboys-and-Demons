@@ -79,6 +79,7 @@ namespace gun.Firearms
         public static void Configure()
         {
             FirearmProficiency.Configure();//create the firearm proficiency feat
+            Scatter.Configure();
 
             MakeProjectile();//create the bullet
             //WeaponCategoryExtension.Data[59].SubCategories.Remove((WeaponSubCategory cat) => cat == WeaponSubCategory.Disabled);
@@ -153,7 +154,7 @@ namespace gun.Firearms
             AddOneHandReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadOneHandFeatureGUID);
 
             AddUnitFeatureEquipment AddReload = new AddUnitFeatureEquipment();
-            AddOneHandReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadGUID);
+            AddReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(ReloadGUID);
 
             /*AddUnitFeatureEquipment AddOneHandRapidReload = new AddUnitFeatureEquipment();
             AddOneHandRapidReload.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(RapidReloadOneHandGUID);*/
@@ -350,7 +351,7 @@ namespace gun.Firearms
 
 
         //this is called by the subtypes of weapon to simplify the definition of the default version of each
-        public static void CreateWeapon(string name, string ID, bool OneHanded, Kingmaker.Utility.Feet range, DiceFormula damage, DamageCriticalModifierType CritMod, int CritRange, DamageTypeDescription DamageType, Sprite icon, float weight, WeaponVisualParameters visuals, string missfireType, bool isAdvanced = false ,bool isLight = false, bool isMonk = false)
+        public static void CreateWeapon(string name, string ID, bool OneHanded, Kingmaker.Utility.Feet range, DiceFormula damage, DamageCriticalModifierType CritMod, int CritRange, DamageTypeDescription DamageType, Sprite icon, float weight, WeaponVisualParameters visuals, string missfireType, bool isAdvanced = false ,int ScatterType = 0, bool isLight = false, bool isMonk = false)
         {
             WeaponTypeConfigurator weapon = WeaponTypeConfigurator.New(name, ID)
                 .SetIsTwoHanded(!OneHanded)
@@ -391,6 +392,20 @@ namespace gun.Firearms
                 }
             }
             weapon.AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(missfireType));
+
+            switch (ScatterType)
+            {
+                case (30):
+                    weapon.AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(Scatter.Enchant30ft));
+                    break;
+                case (15):
+                    weapon.AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(Scatter.Enchant15ft));
+                    break;
+                default:
+                    break;
+            }
+                
+                
             weapon.Configure();
         }
 

@@ -222,7 +222,7 @@ namespace gun
             ActionsBuilder output = ActionsBuilder.New();
             foreach (string item in items)
             {
-                output.GiveItemToPlayer(item);
+                output.GiveHandSlotItemToPlayer(item,false);
             }
             return output;
         }

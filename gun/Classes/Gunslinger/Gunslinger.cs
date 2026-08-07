@@ -67,6 +67,7 @@ namespace gun.Classes.Gunslinger
                 .SetIsDivineCaster(false)
                 .SetIsArcaneCaster(false)
                 .SetPrestigeClass(false)
+                .AddPrerequisiteIsPet(not:true)
                 ;
             GunslingerConfig.Configure();
 

@@ -36,7 +36,7 @@ namespace gun.Plot
             this.x1 = x1;
             this.z1 = z1;
             RemovedBy = BlueprintTool.Get<BlueprintUnlockableFlag>(removedBy);
-            if (requires != null)
+            if (requires != "NULL")
             {
                 hasRequirement = true;
                 Requires = BlueprintTool.Get<BlueprintUnlockableFlag>(requires);
@@ -51,7 +51,7 @@ namespace gun.Plot
             {//if we are on the world map
                 if (hasRequirement)//if there is a requirement
                 {
-                    if (Game.Instance.Player.UnlockableFlags.GetFlagValue(Requires) != 0)//and it is not met
+                    if (Game.Instance.Player.UnlockableFlags.GetFlagValue(Requires) == 0)//and it is not met
                     {
                         return;//do nothing
                     }
@@ -77,14 +77,18 @@ namespace gun.Plot
 
                         Rect SpriteRect = new Rect(0, 0, 100, 100);
                         Sprite Icon = Sprite.Create(texture, SpriteRect, Vector2.zero);
-                        SpriteRenderer IconRender = new SpriteRenderer();
-                        IconRender.transform.position = new Vector3((x0 + x1) / 2, 0, (z0 + z1) / 2);
-                        IconRender.transform.localScale = new Vector3(width, height, 0);
-                        IconRender.transform.rotation = Quaternion.Euler(-90, 0, 0);
+
+                        GameObject Mappoint = GameObject.Instantiate(new GameObject(), new Vector3((x0 + x1) / 2, 0, (z0 + z1) / 2), Quaternion.Euler(-90, 0, 0));
+                        Mappoint.name = Event.NameSafe();
+                        SpriteRenderer IconRender = Mappoint.AddComponent<SpriteRenderer>();
+                        IconRender.transform.localScale = new Vector3(height, width, 1);
                         IconRender.sprite = Icon;
-                        SpriteRenderer.Instantiate(Icon, GlobalMapView.Instance.transform,true);
-                        //Icon.transform.position = new Vector3((x0 + x1) / 2, 0, (z0 + z1) / 2);//place it in the center of the encoutner area
                     }
+                }
+                else
+                {
+                    GameObject Mappoint = GameObject.Find(Event.NameSafe());
+                    GameObject.Destroy(Mappoint);
                 }
             }
         }

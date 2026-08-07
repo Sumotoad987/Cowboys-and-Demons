@@ -32,8 +32,6 @@ namespace gun.Cowgirl
         {
             
             FeatureConfigurator TemplateConfig = FeatureConfigurator.New("CowgirlTemplate", MonsterTemplateGUID);
-
-
             AddStatBonusPerLevel ACBoost = new AddStatBonusPerLevel();
             ACBoost.Value = 1;
             ACBoost.divider = 2;

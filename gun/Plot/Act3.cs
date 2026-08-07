@@ -2,8 +2,10 @@
 using BlueprintCore.Actions.Builder.BasicEx;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Actions.Builder.KingdomEx;
+using BlueprintCore.Actions.Builder.MiscEx;
 using BlueprintCore.Actions.Builder.StoryEx;
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
+using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.Configurators.Quests;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Conditions.Builder;
@@ -17,6 +19,7 @@ using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.QuestSystem;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Components;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.DialogSystem;
@@ -24,6 +27,7 @@ using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Alignments;
@@ -41,7 +45,7 @@ namespace gun.Plot
     internal static class Act3
     {
         //vauge plan. Once act 3 begins and the drezen map is loaded it will check if is after some arbitrary date and if the CowgirlAsksForHelp etude is false. in that case it will add a quest to the journal then spawn her actor on the map at the entrace to the keep for you to talk to and begin the quest
-        public const string CowgirlQuest1Intro = "5cf54737ebe34892b8f17e0e6bb02a90";
+        
         public static string[] CowgirlQuest1DialogueCues = { 
             "1cefbaa101224b1cb09459808481cd90",
             "93b8c8286e854c97ad837bfe3d2e4b27",
@@ -61,7 +65,8 @@ namespace gun.Plot
             "819f5781922a450fb2ce70d04c9675a0",
             "1f1ab76766e94c3bb6fe3a35e3bff1c4",
             "a514b75de1644498a4075ddbe1359032",
-            "6a752d90a4544a569b91a6e577eb3a9a"
+            "6a752d90a4544a569b91a6e577eb3a9a",
+            "6a363d0ccba642c3ad167a045677dd15"
         };
         public const string GatewayToInsanityQuestGUID = "845666dad2424f129f6a922588d446cc";
         public const string ReachTheGatewayToInsanityGUID = "110e190f9c8943129cb185612baf4f0d";
@@ -184,7 +189,10 @@ namespace gun.Plot
             "2ae2dd19e5224c65878b17f177412ff1",
             "46f55a0404a14f4eb8261dd163b571d6",
             "dd6616887721492c81fef30e66c8c2fb",
-            "201bd378f527416daf129d978586c4ad"
+            "201bd378f527416daf129d978586c4ad",
+            "8c70e3258e4c461f8d233eb66f4aeb99",
+            "0d2ad72c5c3745679a5ee84529a5ffb0",
+            "30f1303127d94cc3b394fdda2c12a118"
         };
         public static string[] GatewayToInsanityAnswers = { 
             "93165d1c51e247c8ab3db8126d77110a",
@@ -240,7 +248,15 @@ namespace gun.Plot
             "8da8440983b144f2858ec6d1e620eb1a",
             "3b33d72335f64a95980b04de18b81b16",
             "672827bd527c49f69a42899470f06ad6",
-            "612765e7f32f48f388ccb318f82cdfdd"
+            "612765e7f32f48f388ccb318f82cdfdd",
+            "5c75abf4f688455986b86c67c0c4b0ea",
+            "a060e0003ca04c6cb671d9797a820b91",
+            "5213f49e13584cceb5ebb714b771895b",
+            "c906776757104bb9a17d35defbc09e2a",
+            "8429c2f7bcc04591a15683593d2a24de",
+            "3f5694abc3074eed8e047d9ac8bb7158",
+            "d57f7e4047de4a52b90974e42b1bc7d6",
+            "d6b5a7c40ff7422285caf66850c10cea"
         };
         public static string[] GatewayToInsanityChecks = { 
             "824f9837b249402c98077b7798d5b568",
@@ -265,14 +281,18 @@ namespace gun.Plot
             "7dfa10228d47472a8214cba84e531738",
             "00c76b3d115f408fb12280b876e30b47",
             "0d62390d92a544359d6cbf01043260d9",
-            "7fdb1df72d544748a670100c70294192"
+            "7fdb1df72d544748a670100c70294192",
+            "4ef78e2f73504a2d900737f99b13d68e",
+            "5a67fb019e4d4f4f982f39962e9a9834",
+            "287b9629ab4c4663bdc84206eb195764",
+            "3b7aef5d58e24878be6187db97b9363d",
+            "1497a8a27ca24407abd43b5b65607985"
         };
         public const string AberrantBileGUID = "214eed495b8d47fd9eb7bc5b1f8cbbcf";
         public static void Configure()
         {
             CowgirlDrezenSpawn();
             IntroductionDialogue();
-            GeneralDialogue();
             GatewaytoInsanity();
             Fleshwarps();
         }
@@ -280,9 +300,9 @@ namespace gun.Plot
         private static void CowgirlDrezenSpawn()
         {//this one handles setting up the spawner and such for putting Bell on the map in Drezen and controlling what dialogue is assosiated with her
             EventBus.Subscribe(new JuryRiggedUnitSpawner(
-                "8a076e720870a44438d13b9b939933fd",//outdoors of Drezen (hopefully)
+                "2570015799edf594daf2f076f2f975d8",//outdoors of Drezen (hopefully)
                 CowgirlUnit.GUID,
-                new UnityEngine.Vector3(0,0,0),//will need to computer a position
+                new UnityEngine.Vector3(41.9f, 66.3f, -53.4f),
                 new UnityEngine.Vector3(0,0,0),//and rotation (probably use toybox to help find these)
                 Flags.CowgirlInDrezen,
                 3)//is for chapter 3 assuming this start at 1 not 0 and lines up with in game acts
@@ -291,17 +311,13 @@ namespace gun.Plot
 
         private static void IntroductionDialogue()
         {//This one is the dialogue she has when you first meet her in drezen and she asks for your help
-            DialogConfigurator CowgirlQuest1IntroDialgoue = DialogConfigurator.New("CowgirlQuest1IntroDialgoue", CowgirlQuest1Intro);
-            CowgirlQuest1IntroDialgoue.SetType(DialogType.Common);
-            CowgirlQuest1IntroDialgoue.SetFirstCue(Utilities.MakeCueSelection(CowgirlQuest1DialogueCues[0]));
-            CowgirlQuest1IntroDialgoue.Configure();
-
             
-
             CueConfigurator.New("CowgirlQuest1Intro0", CowgirlQuest1DialogueCues[0])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlQuest1Intro.Cue.0"))
                 .SetContinueValue(Utilities.MakeCueSelection(CowgirlQuest1DialogueCues[1], CowgirlQuest1DialogueCues[2]))
+                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.BeganGatewayToInsanity,maxValue:0).FlagUnlocked(Flags.BeganGatewayToInsanity,negate:true).UseOr())//only shows up if the quest has not be started
                 .SetSpeaker(CowgirlUnit.GetSpeaker())
+                .SetShowOnce()
                 .Configure();
 
             CueConfigurator.New("CowgirlQuest1Intro1", CowgirlQuest1DialogueCues[1])
@@ -343,7 +359,6 @@ namespace gun.Plot
 
             CueConfigurator.New("CowgirlQuest1Intro4", CowgirlQuest1DialogueCues[4])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlQuest1Intro.Cue.3"))
-                .SetConditions(Utilities.MakeFlagCheck(Flags.AskedCowgirlToJoinCrusade, -1, 0))//is it less than 1
                 .SetSpeaker(CowgirlUnit.GetSpeaker())
                 .SetAnswers(CowgirlQuest1DialogueAnswers[3], CowgirlQuest1DialogueAnswers[2])
                 .Configure();
@@ -389,24 +404,25 @@ namespace gun.Plot
 
             CueConfigurator.New("CowgirlQuest1Intro8", CowgirlQuest1DialogueCues[8])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlQuest1Intro.Cue.8"))
-                .SetAnswers(CowgirlQuest1DialogueAnswers[6])
+                .SetAnswers(CowgirlQuest1DialogueAnswers[7])
                 .SetOnStop(ActionsBuilder.New()
-                    .GiveObjective(BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(ReachTheGatewayToInsanityGUID))//add the quest
+                    .GiveObjective(BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(ReachTheGatewayToInsanityGUID)).IncrementFlagValue(Flags.BeganGatewayToInsanity,true,new EvaluatorInt(1))//add the quest
                     .AddAll(Flags.IncrementFlag(-1,Flags.CowgirlInDrezen).Build()))//Remove Bell from Drezen for now
                 .SetSpeaker(CowgirlUnit.GetSpeaker())
                 .Configure();
 
 
+
+            AnswerConfigurator.New("CowgirlQuest1IntroA7", CowgirlQuest1DialogueAnswers[7])
+                .SetText(LocalizationTool.GetString("Plot.Leave"))
+                .Configure();
+
             CueConfigurator.New("CowgirlQuest1Intro9", CowgirlQuest1DialogueCues[9])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlQuest1Intro.Cue.9"))
                 .SetOnStop(Flags.IncrementFlag(1, Flags.RejectedCowgirl).AddAll(Flags.IncrementFlag(-1, Flags.CowgirlInDrezen).Build()))
                 .SetSpeaker(CowgirlUnit.GetSpeaker())
+                .SetAnswers(CowgirlQuest1DialogueAnswers[7])
                 .Configure();
-        }
-
-        private static void GeneralDialogue()
-        {//this one is what she normal has as dialogue in Drezen (might move this to another class since it's not exclusive to Act 3
-
         }
 
         private static void GatewaytoInsanity()
@@ -414,7 +430,7 @@ namespace gun.Plot
             QuestConfigurator GatewayToInsanityQuest = QuestConfigurator.New("GatewayToInsanityQuest", GatewayToInsanityQuestGUID);
             GatewayToInsanityQuest.SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Title"));
             GatewayToInsanityQuest.SetDescription(LocalizationTool.GetString("Plot.GatewayToInsanity.Description"));
-            GatewayToInsanityQuest.SetCompletionText(LocalizationTool.GetString("Plot.GatewayToInsanity.Compeltion"));
+            GatewayToInsanityQuest.SetCompletionText(LocalizationTool.GetString("Plot.GatewayToInsanity.Completion"));
             GatewayToInsanityQuest.SetGroup(Kingmaker.Enums.QuestGroupId.CompanionQuests);
             GatewayToInsanityQuest.SetDescriptionPriority(0);//not sure what this is
             GatewayToInsanityQuest.SetType(Kingmaker.Enums.QuestType.Normal);
@@ -427,9 +443,10 @@ namespace gun.Plot
             ReachTheGatewayToInsanity.SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Reach.Title"));
             ReachTheGatewayToInsanity.SetDescription(LocalizationTool.GetString("Plot.GatewayToInsanity.Reach.Description"));
             ReachTheGatewayToInsanity.AddExperience(cR: 10, encounter: Kingmaker.Blueprints.Classes.Experience.EncounterType.QuestMain, dummy: false, modifier: 1.0f);
+            ReachTheGatewayToInsanity.SetQuest(BlueprintTool.Get<BlueprintQuest>(GatewayToInsanityQuestGUID));
             ReachTheGatewayToInsanity.Configure();
 
-            WorldMapEncounter GatewayToInsanityMapPoint = new WorldMapEncounter(-10,-10,10,10, Flags.CompletedGatewayToInsanity, GatewayToInsanityStorybookGUID,"", Flags.BeganGatewayToInsanity);
+            WorldMapEncounter GatewayToInsanityMapPoint = new WorldMapEncounter(-51,9,-50,10, Flags.CompletedGatewayToInsanity, GatewayToInsanityStorybookGUID,"X.png", Flags.BeganGatewayToInsanity);
             EventBus.Subscribe(GatewayToInsanityMapPoint);
 
 
@@ -472,6 +489,7 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.1"))
                 .Configure();
 
+
             #region Aeon
             AnswerConfigurator.New("GatewayToInsanityA0", GatewayToInsanityAnswers[0])
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.0"))
@@ -495,7 +513,7 @@ namespace gun.Plot
 
             #region Answer1KnowledgeArcana
             CheckConfigurator.New("GatewayToInsanityC0", GatewayToInsanityChecks[0])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillKnowledgeArcana)
                 .SetSuccess(GatewayToInsanityPages[0])
@@ -505,7 +523,6 @@ namespace gun.Plot
             AnswerConfigurator.New("GatewayToInsanityA1", GatewayToInsanityAnswers[1])
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.1"))
                 .SetShowConditions(ConditionsBuilder.New()
-                    .AnswerSelected(GatewayToInsanityAnswers[0], true)
                     .CheckPassed(GatewayToInsanityChecks[0],true)
                     .CheckPassed(GatewayToInsanityChecks[1],true)
                     )
@@ -530,7 +547,7 @@ namespace gun.Plot
 
             #region Answer2Mobility
             CheckConfigurator.New("GatewayToInsanityC1", GatewayToInsanityChecks[1])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillMobility)
                 .SetSuccess(GatewayToInsanityPages[0])
@@ -538,9 +555,8 @@ namespace gun.Plot
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA2", GatewayToInsanityAnswers[2])
-                .SetText(LocalizationTool.GetString("Plot.CowgirlMeeting.Answer.2"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.2"))
                 .SetShowConditions(ConditionsBuilder.New()
-                    .AnswerSelected(GatewayToInsanityAnswers[0], true)
                     .CheckPassed(GatewayToInsanityChecks[0], true)
                     .CheckPassed(GatewayToInsanityChecks[1], true)
                     )
@@ -551,7 +567,7 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity5", GatewayToInsanityCues[5])
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.5"))
-                .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[0]))
+                .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[1]))
                 
                 //shows if you passed the mobility check
                 .Configure();
@@ -564,9 +580,9 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity6", GatewayToInsanityCues[6])
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.6"))
-                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[0]))
+                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[1]))
                 //shows if you failed the mobility check
-                .SetOnShow(ActionsBuilder.New().DealDamage(damage:FailedMobilityDamage,target: new PartyUnit()))//deals 4d6 damage to party
+                .SetOnShow(ActionsBuilder.New().DamageParty(damage:FailedMobilityDamage, new PlayerCharacter()))//deals 4d6 damage to party
                 .Configure();
             #endregion
 
@@ -577,13 +593,12 @@ namespace gun.Plot
             AnswerConfigurator.New("GatewayToInsanityA3", GatewayToInsanityAnswers[3])
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.3"))
                 .SetShowConditions(ConditionsBuilder.New()
-                    .AnswerSelected(GatewayToInsanityAnswers[0], true)
                     .CheckPassed(GatewayToInsanityChecks[0], true)
                     .CheckPassed(GatewayToInsanityChecks[1], true)
                     )
                 .SetShowOnce()
                 //plays if the player has not selected the aeon answer or passed another check
-                .SetOnSelect(ActionsBuilder.New().AddFatigueHours(HourstoAdd, new PartyUnit())
+                .SetOnSelect(ActionsBuilder.New().AddFatigueHours(HourstoAdd, new PlayerCharacter())
                     )//gain 12 hours of fatigue
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[1]))
                 .Configure();
@@ -595,7 +610,6 @@ namespace gun.Plot
             AnswerConfigurator.New("GatewayToInsanityA4", GatewayToInsanityAnswers[4])
                 .SetText(LocalizationTool.GetString("Plot.Continue"))
                 .SetShowConditions(ConditionsBuilder.New()
-                    .AnswerSelected(GatewayToInsanityAnswers[0])
                     .CheckPassed(GatewayToInsanityChecks[0])
                     .CheckPassed(GatewayToInsanityChecks[1])
                     .UseOr()
@@ -628,7 +642,7 @@ namespace gun.Plot
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA5", GatewayToInsanityAnswers[5])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.5"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.5"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[1]))
                 .Configure();
@@ -639,7 +653,7 @@ namespace gun.Plot
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA6", GatewayToInsanityAnswers[6])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.6"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.6"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[1]))
                 .Configure();
@@ -650,7 +664,7 @@ namespace gun.Plot
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA7", GatewayToInsanityAnswers[7])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.7"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.7"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[1]))
                 .Configure();
@@ -682,13 +696,13 @@ namespace gun.Plot
 
             #region Answer9Perception
             AnswerConfigurator.New("GatewayToInsanityA9", GatewayToInsanityAnswers[9])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.9"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.9"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[2]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC2", GatewayToInsanityChecks[2])
-                .SetDC(33)
+                .SetDC(31)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillPerception)
                 .SetSuccess(GatewayToInsanityPages[3])//go to through the eye
@@ -708,13 +722,13 @@ namespace gun.Plot
 
             #region Answer10Trickery
             AnswerConfigurator.New("GatewayToInsanityA10", GatewayToInsanityAnswers[10])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.10"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.10"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[3]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC3", GatewayToInsanityChecks[3])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillThievery)
                 .SetSuccess(GatewayToInsanityPages[5])//go to entrance hall
@@ -734,13 +748,13 @@ namespace gun.Plot
 
             #region Answer11Fortitude
             AnswerConfigurator.New("GatewayToInsanityA11", GatewayToInsanityAnswers[11])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.11"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.11"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[4]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC4", GatewayToInsanityChecks[4])
-                .SetDC(25)
+                .SetDC(23)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveFortitude)
                 .SetSuccess(GatewayToInsanityPages[5])//go to entrance hall
@@ -759,7 +773,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity19", GatewayToInsanityCues[19])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.19"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[4]))
-              .SetOnShow(ActionsBuilder.New().DealDamage(damage: FailedFortDamage, target: new PartyUnit()))//deals 2d6 damage to party
+              .SetOnShow(ActionsBuilder.New().DamageParty(damage: FailedFortDamage, new PlayerCharacter()))//deals 2d6 damage to party
               .Configure();
             #endregion
         }
@@ -768,20 +782,20 @@ namespace gun.Plot
         {
             BookPageConfigurator.New("GatewayToInsanityPage3", GatewayToInsanityPages[3])
                 .SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Title"))
-                .SetCues(GatewayToInsanityCues[15])
+                .SetCues(GatewayToInsanityCues[15], GatewayToInsanityCues[20], GatewayToInsanityCues[21])
                 .SetAnswers(GatewayToInsanityAnswers[12], GatewayToInsanityAnswers[13])
                 .Configure();
 
             #region Answer12Deception
 
             AnswerConfigurator.New("GatewayToInsanityA12", GatewayToInsanityAnswers[12])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.12"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.12"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[5]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC5", GatewayToInsanityChecks[5])
-                .SetDC(28)
+                .SetDC(26)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.CheckBluff)
                 .SetSuccess(GatewayToInsanityPages[6])//go to entrance hall cleared
@@ -803,13 +817,13 @@ namespace gun.Plot
             #region Answer13Stealth
 
             AnswerConfigurator.New("GatewayToInsanityA13", GatewayToInsanityAnswers[13])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.13"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.13"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[6]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC6", GatewayToInsanityChecks[6])
-                .SetDC(28)
+                .SetDC(26)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillStealth)
                 .SetSuccess(GatewayToInsanityPages[6])//go to entrance hall cleared
@@ -845,18 +859,18 @@ namespace gun.Plot
             BuffConfigurator.New("AberrantBile", AberrantBileGUID)
                 .SetDisplayName(LocalizationTool.GetString("AberrantBile.Name"))
                 .SetDescription(LocalizationTool.GetString("AberrantBile.Description"))
-                .AddBuffPoisonStatDamage(descriptor: Kingmaker.Enums.ModifierDescriptor.None, saveType: Kingmaker.EntitySystem.Stats.SavingThrowType.Fortitude, stat: Kingmaker.EntitySystem.Stats.StatType.Constitution, succesfullSaves: 3, ticks:1000, value: new Kingmaker.RuleSystem.DiceFormula(2, Kingmaker.RuleSystem.DiceType.One))
+                .AddBuffPoisonStatDamage(descriptor: Kingmaker.Enums.ModifierDescriptor.None, saveType: Kingmaker.EntitySystem.Stats.SavingThrowType.Fortitude, stat: Kingmaker.EntitySystem.Stats.StatType.Constitution, succesfullSaves: 3, ticks:600, value: new Kingmaker.RuleSystem.DiceFormula(2, Kingmaker.RuleSystem.DiceType.One))
                 .Configure();
 
             #region Answer14Mobility
             AnswerConfigurator.New("GatewayToInsanityA14", GatewayToInsanityAnswers[14])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.14"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.14"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[7]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC7", GatewayToInsanityChecks[7])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillMobility)
                 .SetSuccess(GatewayToInsanityPages[5])//go to entrance hall fight
@@ -877,13 +891,13 @@ namespace gun.Plot
 
             #region Answer15Fortitude
             AnswerConfigurator.New("GatewayToInsanityA15", GatewayToInsanityAnswers[15])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.15"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.15"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[8]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC8", GatewayToInsanityChecks[8])
-                .SetDC(32)
+                .SetDC(30)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveFortitude)
                 .SetSuccess(GatewayToInsanityPages[5])//go to entrance hall fight
@@ -908,7 +922,7 @@ namespace gun.Plot
         {
             BookPageConfigurator.New("GatewayToInsanityPage5", GatewayToInsanityPages[5])
                 .SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Title"))
-                .SetCues(GatewayToInsanityCues[20], GatewayToInsanityCues[22], GatewayToInsanityCues[25], GatewayToInsanityCues[26], GatewayToInsanityCues[27], GatewayToInsanityCues[28], GatewayToInsanityCues[29], GatewayToInsanityCues[30])
+                .SetCues(GatewayToInsanityCues[17], GatewayToInsanityCues[19], GatewayToInsanityCues[20], GatewayToInsanityCues[22], GatewayToInsanityCues[25], GatewayToInsanityCues[26], GatewayToInsanityCues[27], GatewayToInsanityCues[28], GatewayToInsanityCues[29], GatewayToInsanityCues[30])
                 .SetAnswers(GatewayToInsanityAnswers[16], GatewayToInsanityAnswers[17], GatewayToInsanityAnswers[18])
                 .Configure();
 
@@ -929,13 +943,13 @@ namespace gun.Plot
 
             #region Answer16UseMagicDevice
             AnswerConfigurator.New("GatewayToInsanityA16", GatewayToInsanityAnswers[16])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.16"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.16"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[9]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC9", GatewayToInsanityChecks[9])
-                .SetDC(28)
+                .SetDC(26)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillUseMagicDevice)
                 .SetSuccess(GatewayToInsanityPages[6])//go to entrance hall cleared
@@ -946,7 +960,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity31", GatewayToInsanityCues[31])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.31"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[9]))
-               .SetOnShow(ActionsBuilder.New().DealDamageToAbility(Kingmaker.EntitySystem.Stats.StatType.Intelligence, IntDrain, drain:true).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm),true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(),new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm),true, new EvaluatorInt(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity32", GatewayToInsanityCues[32])
@@ -959,13 +973,13 @@ namespace gun.Plot
 
             #region Answer17Intimidation
             AnswerConfigurator.New("GatewayToInsanityA17", GatewayToInsanityAnswers[17])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.17"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.17"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[10]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC10", GatewayToInsanityChecks[10])
-                .SetDC(26)
+                .SetDC(24)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.CheckIntimidate)
                 .SetSuccess(GatewayToInsanityPages[6])//go to entrance hall cleared
@@ -976,7 +990,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity33", GatewayToInsanityCues[33])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.33"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[10]))
-               .SetOnShow(ActionsBuilder.New().DealDamageToAbility(Kingmaker.EntitySystem.Stats.StatType.Intelligence, IntDrain, drain: true).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity34", GatewayToInsanityCues[34])
@@ -989,13 +1003,13 @@ namespace gun.Plot
 
             #region Answer18Athletics
             AnswerConfigurator.New("GatewayToInsanityA18", GatewayToInsanityAnswers[18])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.18"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.18"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[11]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC11", GatewayToInsanityChecks[11])
-                .SetDC(26)
+                .SetDC(24)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillAthletics)
                 .SetSuccess(GatewayToInsanityPages[6])//go to entrance hall cleared
@@ -1006,13 +1020,13 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity35", GatewayToInsanityCues[35])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.35"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[11]))
-               .SetOnShow(ActionsBuilder.New().DealDamageToAbility(Kingmaker.EntitySystem.Stats.StatType.Intelligence, IntDrain, drain: true).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity36", GatewayToInsanityCues[36])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.36"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[11]))
-              .SetOnShow(ActionsBuilder.New().DealDamageToAbility(Kingmaker.EntitySystem.Stats.StatType.Intelligence, IntDrain, drain: true))
+              .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence))
               .Configure();
 
             #endregion
@@ -1034,15 +1048,15 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA19", GatewayToInsanityAnswers[19])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.19"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.19"))
                 .SetShowOnce()
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[7]))
+                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[9]))
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA20", GatewayToInsanityAnswers[20])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.20"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.20"))
                 .SetShowOnce()
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[9]))
+                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[7]))
                 .Configure();
 
         }
@@ -1060,19 +1074,19 @@ namespace gun.Plot
                .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA21", GatewayToInsanityAnswers[21])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.21"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.21"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[9]))
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA22", GatewayToInsanityAnswers[22])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.22"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.22"))
                 .SetShowOnce()
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[11]))
+                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[12]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC12", GatewayToInsanityChecks[12])
-                .SetDC(34)
+                .SetDC(32)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillKnowledgeArcana)
                 .SetSuccess(GatewayToInsanityPages[8])
@@ -1089,6 +1103,7 @@ namespace gun.Plot
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.40"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[12]))
               .SetOnShow(UpdateMythosCount.MythosActionBuilder(1))
+              .SetShowOnce()
               .Configure();
 
         }
@@ -1106,7 +1121,7 @@ namespace gun.Plot
               .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC13", GatewayToInsanityChecks[13])
-                .SetDC(35)
+                .SetDC(33)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveWill)
                 .SetSuccess(GatewayToInsanityCues[42])
@@ -1170,22 +1185,25 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity49", GatewayToInsanityCues[49])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.49"))
               .SetConditions(ConditionsBuilder.New()
-                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[16]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
-                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[16]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
-              .UseOr())
+                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[15]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
+                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[15]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
+                .UseOr())
               .SetOnShow(Utilities.LootBuilder(Pistol.GatewayLootPistolID, Musket.GatewayLootMusketID).GiveItemToPlayer("f2bc0997c24e573448c6c91d2be88afa",quantity:602))
               .Configure();
 
             #region Answer24Deception
             AnswerConfigurator.New("GatewayToInsanityA24", GatewayToInsanityAnswers[24])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.24"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.24"))
                 .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,0,-999))//shows if the alarm is not raised
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,999,1,true).AddOrAndLogic(ConditionsBuilder.New()
+                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[15]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
+                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[15]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
+                .UseOr(),true))//shows if the alarm is not raised and no check has been passed or failed
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[14]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC14", GatewayToInsanityChecks[14])
-                .SetDC(32)
+                .SetDC(30)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.CheckBluff)
                 .SetSuccess(GatewayToInsanityPages[9])
@@ -1207,14 +1225,17 @@ namespace gun.Plot
 
             #region Answer25Diplomacy
             AnswerConfigurator.New("GatewayToInsanityA25", GatewayToInsanityAnswers[25])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.25"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.25"))
                 .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, 0, -999))//shows if the alarm is not raised
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, 999, 1,true).AddOrAndLogic(ConditionsBuilder.New()
+                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[15]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
+                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[15]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
+                .UseOr(), true))//shows if the alarm is not raised
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[15]))
                 .Configure();
 
-            CheckConfigurator.New("GatewayToInsanityC14", GatewayToInsanityChecks[15])
-                .SetDC(30)
+            CheckConfigurator.New("GatewayToInsanityC15", GatewayToInsanityChecks[15])
+                .SetDC(28)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.CheckDiplomacy)
                 .SetSuccess(GatewayToInsanityPages[9])
@@ -1236,14 +1257,17 @@ namespace gun.Plot
 
             #region Answer26Athletics
             AnswerConfigurator.New("GatewayToInsanityA26", GatewayToInsanityAnswers[26])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.26"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.26"))
                 .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, 0, -999))//shows if the alarm is not raised
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, 999, 1,true).AddOrAndLogic(ConditionsBuilder.New()
+                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[15]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
+                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[15]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
+                .UseOr(), true))//shows if the alarm is not raised
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[16]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC16", GatewayToInsanityChecks[16])
-                .SetDC(28)
+                .SetDC(26)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillAthletics)
                 .SetSuccess(GatewayToInsanityPages[9])
@@ -1267,9 +1291,9 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.Continue"))
                 .SetShowOnce()
                 .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, 999, 1)//shows if the alarm is raised
-                .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[16]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
-                .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[16]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
-                .UseOr())
+                    .CheckPassed(GatewayToInsanityChecks[14]).CheckPassed(GatewayToInsanityChecks[15]).CheckPassed(GatewayToInsanityChecks[16])//shows if they passed any of the checks
+                    .CheckFailed(GatewayToInsanityChecks[14]).CheckFailed(GatewayToInsanityChecks[15]).CheckFailed(GatewayToInsanityChecks[16])//or failed any of the checks
+                    .UseOr())
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[10]))
                 .Configure();
 
@@ -1296,7 +1320,7 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA28", GatewayToInsanityAnswers[28])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.28"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.28"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[10]))
                 .Configure();
@@ -1307,7 +1331,7 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA29", GatewayToInsanityAnswers[29])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.29"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.29"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[10]))
                 .Configure();
@@ -1325,7 +1349,7 @@ namespace gun.Plot
 
 
             AnswerConfigurator.New("GatewayToInsanityA30", GatewayToInsanityAnswers[30])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.30"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.30"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[11]))
                 .SetAlignmentShift(TreatedFleshwarpsAsMonsters)
@@ -1339,7 +1363,7 @@ namespace gun.Plot
 
 
             AnswerConfigurator.New("GatewayToInsanityA31", GatewayToInsanityAnswers[31])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.31"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.31"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[12]))
                 .SetAlignmentShift(TriedToHelpFleshwarps)
@@ -1360,7 +1384,7 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA32", GatewayToInsanityAnswers[32])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.32"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.32"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[11]))
                 .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, new EvaluatorInt(-2)).SetObjectiveStatus(HelpTheFleshwarpsQuestGUID, status: Kingmaker.Designers.Quests.Common.SummonPoolCountTrigger.ObjectiveStatus.Fail))
@@ -1372,7 +1396,7 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA33", GatewayToInsanityAnswers[33])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.33"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.33"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[17]))
                 .SetOnSelect(ActionsBuilder.New()
@@ -1383,7 +1407,7 @@ namespace gun.Plot
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC17", GatewayToInsanityChecks[17])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillKnowledgeArcana)
                 .SetSuccess(GatewayToInsanityPages[11])
@@ -1415,7 +1439,7 @@ namespace gun.Plot
                 .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA35", GatewayToInsanityAnswers[35])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.35"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.35"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[13]))
                 .SetShowConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[33],negate:true))
@@ -1442,14 +1466,14 @@ namespace gun.Plot
 
             #region Answer36Diplomacy
             AnswerConfigurator.New("GatewayToInsanityA36", GatewayToInsanityAnswers[36])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.36"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.36"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[18]))
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps,0))//show only if you have not already treated them once
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps,0).FlagUnlocked(Flags.TreatedFleshwarps,negate:true).UseOr())//show only if you have not already treated them once
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC18", GatewayToInsanityChecks[18])
-                .SetDC(35)
+                .SetDC(33)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.CheckDiplomacy)
                 .SetSuccess(GatewayToInsanityPages[12])
@@ -1472,7 +1496,7 @@ namespace gun.Plot
 
             #region Answer37Arcana
             AnswerConfigurator.New("GatewayToInsanityA37", GatewayToInsanityAnswers[37])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.37"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.37"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[19]))
                 .SetOnSelect(ActionsBuilder.New().TimeSkip(minutesToSkip: new EvaluatorInt(30))
@@ -1480,7 +1504,7 @@ namespace gun.Plot
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC19", GatewayToInsanityChecks[19])
-                .SetDC(30)
+                .SetDC(28)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillKnowledgeArcana)
                 .SetSuccess(GatewayToInsanityPages[12])
@@ -1506,14 +1530,14 @@ namespace gun.Plot
 
             #region Answer38LoreReligion
             AnswerConfigurator.New("GatewayToInsanityA38", GatewayToInsanityAnswers[38])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.38"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.38"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[20]))
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0))//show only if you have not already successfuly treated them
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0).FlagUnlocked(Flags.TreatedFleshwarps, negate: true).UseOr())//show only if you have not already successfuly treated them
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC20", GatewayToInsanityChecks[20])
-                .SetDC(33)
+                .SetDC(31)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillLoreReligion)
                 .SetSuccess(GatewayToInsanityPages[12])
@@ -1535,11 +1559,11 @@ namespace gun.Plot
 
             #region Answer39Aeon
             AnswerConfigurator.New("GatewayToInsanityA39", GatewayToInsanityAnswers[39])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.39"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.39"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[12]))
                 .SetMythicRequirement(Mythic.PlayerIsAeon)
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0))//show only if you have not already successfuly treated them and are an aeon
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0).FlagUnlocked(Flags.TreatedFleshwarps, negate: true).UseOr())//show only if you have not already successfuly treated them and are an aeon
                 .Configure();
 
 
@@ -1553,11 +1577,11 @@ namespace gun.Plot
 
             #region Answer40Angel
             AnswerConfigurator.New("GatewayToInsanityA40", GatewayToInsanityAnswers[40])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.40"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.40"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[12]))
                 .SetMythicRequirement(Mythic.PlayerIsAngel)
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0))//show only if you have not already successfuly treated them and are an angel
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 0).FlagUnlocked(Flags.TreatedFleshwarps, negate: true).UseOr())//show only if you have not already successfuly treated them and are an angel
                 .Configure();
 
 
@@ -1570,10 +1594,10 @@ namespace gun.Plot
             #endregion
 
             AnswerConfigurator.New("GatewayToInsanityA41", GatewayToInsanityAnswers[41])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.41"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.41"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[12]))
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, minValue:1))//show only if you have successfuly treated them
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, minValue:1, maxValue: 999))//show only if you have successfuly treated them
                 .Configure();
 
             CueConfigurator.New("GatewayToInsanity77", GatewayToInsanityCues[77])
@@ -1582,15 +1606,15 @@ namespace gun.Plot
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA42", GatewayToInsanityAnswers[42])
-               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.41"))
+               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.41"))
                .SetShowOnce()
                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[13]))
                .SetShowConditions(ConditionsBuilder.New()
-                .FlagInRange(Flags.TreatedFleshwarps, 0)
+                .FlagUnlocked(Flags.TreatedFleshwarps, negate: true)
                 .AnswerSelected(GatewayToInsanityAnswers[38])
                 .AnswerSelected(GatewayToInsanityAnswers[37])
                 .AnswerSelected(GatewayToInsanityAnswers[36])
-                )//show only if you have not successfuly treated them and hae tried everything
+                )//show only if you have not successfuly treated them and have tried everything
                .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA43", GatewayToInsanityAnswers[43])
@@ -1616,12 +1640,12 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity79", GatewayToInsanityCues[79])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.79"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,minValue:1).FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,minValue:1, maxValue: 999).FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity80", GatewayToInsanityCues[80])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.80"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1).FlagInRange(Flags.GatewayToInsanityLongTime, minValue: 1))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1, maxValue: 999).FlagInRange(Flags.GatewayToInsanityLongTime, minValue: 1, maxValue: 999))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity81", GatewayToInsanityCues[81])
@@ -1635,7 +1659,7 @@ namespace gun.Plot
 
             #region Answer44Trickster
             AnswerConfigurator.New("GatewayToInsanityA44", GatewayToInsanityAnswers[44])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.44"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.44"))
                 .SetShowOnce()
                 .SetShowConditions(ConditionsBuilder.New()
                                     .AnswerSelected(GatewayToInsanityAnswers[44], negate: true)
@@ -1655,10 +1679,10 @@ namespace gun.Plot
 
             #region Answer45Mythos
             AnswerConfigurator.New("GatewayToInsanityA45", GatewayToInsanityAnswers[45])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.45"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.45"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[13]))
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.Mythos,minValue:1)
+                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.Mythos,minValue:1, maxValue: 999)
                                     .AnswerSelected(GatewayToInsanityAnswers[44], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[45], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[46], negate: true)
@@ -1678,110 +1702,89 @@ namespace gun.Plot
             DamageDescription FailDamage = new DamageDescription();
             FailDamage.SetDice(new ModifiableDiceFormula(new Kingmaker.RuleSystem.DiceFormula(6, Kingmaker.RuleSystem.DiceType.D6)));
 
-            ContextDiceValue FailureLevelDamage = new ContextDiceValue();
-            FailureLevelDamage.DiceType = Kingmaker.RuleSystem.DiceType.One;
-            FailureLevelDamage.DiceCountValue = 2;
+
+            DCModifier AlarmShortTime = new DCModifier();
+            AlarmShortTime.Conditions = ConditionsBuilder.New()
+                .FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1, maxValue: 999)//if the alarm is raised
+                .AddOrAndLogic(//and either
+                ConditionsBuilder.New()
+                    .FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0)//long time is 0
+                    .FlagUnlocked(Flags.GatewayToInsanityAlarm,negate:true).UseOr()//or long time is not defined
+                    ).Build();
+            AlarmShortTime.Mod = 5;
+            DCModifier AlarmLongTime = new DCModifier();
+            AlarmLongTime.Conditions = ConditionsBuilder.New()
+                .FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1, maxValue: 999)//if the alarm is raised
+                    .FlagInRange(Flags.GatewayToInsanityLongTime, minValue: 1, maxValue: 999).Build();//long time is 1
+            AlarmLongTime.Mod = 5;
+
 
             #region Answer46Reflex
-            AnswerConfigurator.New("GatewayToInsanityA46", GatewayToInsanityAnswers[46])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.46"))
+            AnswerConfigurator.New("GatewayToInsanityA46", GatewayToInsanityAnswers[46]) 
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.46"))
                 .SetShowOnce()
                 .SetShowConditions(ConditionsBuilder.New()
                                     .AnswerSelected(GatewayToInsanityAnswers[44], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[45], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[46], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[47], negate: true))
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[21], GatewayToInsanityChecks[22], GatewayToInsanityChecks[23]))
+                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[21]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC21", GatewayToInsanityChecks[21])
-                .SetDC(30)
-                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,maxValue:0))
+                .SetDC(28)
+                .SetDCModifiers(AlarmShortTime, AlarmLongTime)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveReflex)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
-                .Configure();
-
-            CheckConfigurator.New("GatewayToInsanityC22", GatewayToInsanityChecks[22])
-                .SetDC(35)
-                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1).FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0))
-                .SetExperience(DialogExperience.NormalExperience)
-                .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveReflex)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
-                .Configure();
-
-            CheckConfigurator.New("GatewayToInsanityC23", GatewayToInsanityChecks[23])
-                .SetDC(40)
-                .SetExperience(DialogExperience.NormalExperience)
-                .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveReflex)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
+                .SetSuccess(GatewayToInsanityPages[13])
+                .SetFail(GatewayToInsanityPages[13])
                 .Configure();
 
             CueConfigurator.New("GatewayToInsanity85", GatewayToInsanityCues[85])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.85"))
-              .SetOnShow(ActionsBuilder.New().DealDamage(SuccessDamage, new PartyUnit()))
+              .SetOnShow(ActionsBuilder.New().DamageParty(SuccessDamage, new PlayerCharacter()))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[21]).CheckPassed(GatewayToInsanityChecks[22]).CheckPassed(GatewayToInsanityChecks[23]).UseOr())
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity86", GatewayToInsanityCues[86])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.86"))
               .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[21]).CheckFailed(GatewayToInsanityChecks[22]).CheckFailed(GatewayToInsanityChecks[23]).UseOr())
-              .SetOnShow(ActionsBuilder.New().DealDamage(FailDamage, new PartyUnit()).DealDamagePermanentNegativeLevels(FailureLevelDamage))
+              .SetOnShow(ActionsBuilder.New().DamageParty(FailDamage, new PlayerCharacter()).DealLevelDamage(new PlayerCharacter(),new DiceFormula(),2,EnergyDrainType.Permanent,null))
               .Configure();
 
             #endregion
 
-            #region Answer47PerceptionReflex
+            #region Answer47Perception
             AnswerConfigurator.New("GatewayToInsanityA47", GatewayToInsanityAnswers[47])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.47"))
+                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.47"))
                 .SetShowOnce()
                 .SetShowConditions(ConditionsBuilder.New()
                                     .AnswerSelected(GatewayToInsanityAnswers[44], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[45], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[46], negate: true)
                                     .AnswerSelected(GatewayToInsanityAnswers[47], negate: true))
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[24], GatewayToInsanityChecks[25], GatewayToInsanityChecks[26]))
+                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[24]))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC24", GatewayToInsanityChecks[24])
-                .SetDC(30)
-                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, maxValue: 0))
+                .SetDC(28)
+                .SetDCModifiers(AlarmShortTime, AlarmLongTime)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillPerception)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
-                .Configure();
-
-            CheckConfigurator.New("GatewayToInsanityC25", GatewayToInsanityChecks[24])
-                .SetDC(35)
-                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm, minValue: 1).FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0))
-                .SetExperience(DialogExperience.NormalExperience)
-                .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillPerception)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
-                .Configure();
-
-            CheckConfigurator.New("GatewayToInsanityC26", GatewayToInsanityChecks[26])
-                .SetDC(40)
-                .SetExperience(DialogExperience.NormalExperience)
-                .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillPerception)
-                .SetSuccess(GatewayToInsanityPages[12])
-                .SetFail(GatewayToInsanityPages[12])
+                .SetSuccess(GatewayToInsanityPages[13])
+                .SetFail(GatewayToInsanityPages[13])
                 .Configure();
 
             CueConfigurator.New("GatewayToInsanity87", GatewayToInsanityCues[87])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.85"))
-              .SetOnShow(ActionsBuilder.New().DealDamage(SuccessDamage, new PartyUnit()))
-              .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[21]))
+              .SetOnShow(ActionsBuilder.New().DamageParty(SuccessDamage, new PlayerCharacter()))
+              .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[24]))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity88", GatewayToInsanityCues[88])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.86"))
-              .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[21]))
-              .SetOnShow(ActionsBuilder.New().DealDamage(FailDamage, new PartyUnit()).DealDamagePermanentNegativeLevels(FailureLevelDamage))
+              .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[24]))
+              .SetOnShow(ActionsBuilder.New().DamageParty(FailDamage, new PlayerCharacter()).DealLevelDamage(new PlayerCharacter(), new DiceFormula(), 2, EnergyDrainType.Permanent, null))
               .Configure();
 
             #endregion
@@ -1823,73 +1826,35 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity92", GatewayToInsanityCues[92])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.92"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps,minValue:1))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps,minValue:1,maxValue:999))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity93", GatewayToInsanityCues[93])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.93"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, maxValue: 0))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, maxValue: 0).FlagUnlocked(Flags.TreatedFleshwarps,negate:true).UseOr())
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity94", GatewayToInsanityCues[94])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.94"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue:0).UseOr()//if she doesn't dislike you
-                            .AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval,minValue:-2).FlagInRange(Flags.CowgirlRespect,minValue:2)))//or she doesn't dislike you too much and respects you
-              .Configure();//nore to self add more sources of respect since right now I don't think it can even get to 2
+              .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[32],true,true))//so long as you have not killed the fleshwarps
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlInDrezen,true,new EvaluatorInt(1)))//put her back in drezen
+              .Configure();
 
-            AnswerConfigurator.New("GatewayToInsanityA49", GatewayToInsanityAnswers[49])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.49"))
-                .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: 0).UseOr()//if she doesn't dislike you
-                            .AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: -2).FlagInRange(Flags.CowgirlRespect, minValue: 2)))//or she doesn't dislike you too much and respects you
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[15]))
-                .SetOnSelect(RecruitCowgirl.Builder())
-                .Configure();//recruit cowgirl
-
-            AnswerConfigurator.New("GatewayToInsanityA50", GatewayToInsanityAnswers[50])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.50"))
-                .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: 0).UseOr()//if she doesn't dislike you
-                            .AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: -2).FlagInRange(Flags.CowgirlRespect, minValue: 2)))//or she doesn't dislike you too much and respects you
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[15]))
-                .SetOnSelect(RecruitCowgirl.Builder())
-                .Configure();//recruit cowgirl
-
-            AnswerConfigurator.New("GatewayToInsanityA51", GatewayToInsanityAnswers[51])
-                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answers.51"))
-                .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: 0).UseOr()//if she doesn't dislike you
-                            .AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: -2).FlagInRange(Flags.CowgirlRespect, minValue: 2)))//or she doesn't dislike you too much and respects you
-                .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[15]))
-                .Configure();
-
-            AnswerConfigurator.New("GatewayToInsanityA52", GatewayToInsanityAnswers[52])
+           AnswerConfigurator.New("GatewayToInsanityA52", GatewayToInsanityAnswers[52])
                 .SetText(LocalizationTool.GetString("Plot.Continue"))
                 .SetShowOnce()
-                .SetShowConditions(ConditionsBuilder.New().AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: 0,negate:true)//if she dislieks you
-                            .AddOrAndLogic(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, minValue: -2).FlagInRange(Flags.CowgirlRespect, minValue: 2))//or she doesn't dislike you too much and respects you
-                            ,negate:true))//I think this means all the above is not true 
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[15]))
                 .Configure();
         }
 
         private static void GatewayReward()
         {
-            BookPageConfigurator.New("GatewayToInsanityPage14", GatewayToInsanityPages[14])
+            BookPageConfigurator.New("GatewayToInsanityPage15", GatewayToInsanityPages[15])
                .SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Title"))
-               .SetCues(GatewayToInsanityCues[95], GatewayToInsanityCues[96], GatewayToInsanityCues[97], GatewayToInsanityCues[98], GatewayToInsanityCues[99], GatewayToInsanityCues[100])
+               .SetCues(GatewayToInsanityCues[97], GatewayToInsanityCues[98], GatewayToInsanityCues[99])
                .SetAnswers(GatewayToInsanityAnswers[53])
                .Configure();
 
-            CueConfigurator.New("GatewayToInsanity95", GatewayToInsanityCues[95])
-              .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.95"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlInParty,minValue:1))
-              .Configure();
-
-            CueConfigurator.New("GatewayToInsanity96", GatewayToInsanityCues[96])
-              .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.96"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlInParty, maxValue: 0))
-              .Configure();
 
 
             CueConfigurator.New("GatewayToInsanity97", GatewayToInsanityCues[97])
@@ -1898,24 +1863,19 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity98", GatewayToInsanityCues[98])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.98"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityLongTime, maxValue: 0).FlagUnlocked(Flags.GatewayToInsanityLongTime,negate:true).UseOr())
               .SetOnShow(Utilities.LootBuilder(Rifle.GatewayLootRifleID).GiveItemToPlayer("f2bc0997c24e573448c6c91d2be88afa", quantity: 1386))//give good loot plus unique rifle
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity99", GatewayToInsanityCues[99])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.99"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityLongTime, minValue: 1))
+              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityLongTime, minValue: 1, maxValue: 999))
               .SetOnShow(ActionsBuilder.New().GiveItemToPlayer("f2bc0997c24e573448c6c91d2be88afa", quantity: 1000))//give modest gold
-              .Configure();
-
-            CueConfigurator.New("GatewayToInsanity100", GatewayToInsanityCues[100])
-              .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.100"))
-              .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, minValue: 1))
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA53", GatewayToInsanityAnswers[53])
                 .SetText(LocalizationTool.GetString("Plot.Leave"))
-                .SetOnSelect(ActionsBuilder.New().FinishObjective(ReachTheGatewayToInsanityGUID))//complete reach the gateway to insanity
+                .SetOnSelect(ActionsBuilder.New().FinishObjective(ReachTheGatewayToInsanityGUID).IncrementFlagValue(Flags.CompletedGatewayToInsanity,true, new EvaluatorInt(1)))//complete reach the gateway to insanity
                 .Configure();
         }
 
@@ -1923,10 +1883,12 @@ namespace gun.Plot
         private static void Fleshwarps()
         {//this one is the parent for all the events pertaining to the fleshwarps
             QuestObjectiveConfigurator HelpTheFleshwarpsQuest = QuestObjectiveConfigurator.New("GatewayToInsanityFleshwarps", HelpTheFleshwarpsQuestGUID);
-            HelpTheFleshwarpsQuest.SetTitle(LocalizationTool.GetString("GatewayToInsanity.Fleshwarps.Title"));
-            HelpTheFleshwarpsQuest.SetDescription(LocalizationTool.GetString("GatewayToInsanity.Fleshwarps.Description"));
+            HelpTheFleshwarpsQuest.SetTitle(LocalizationTool.GetString("Plot.GatewayToInsanity.Fleshwarps.Title"));
+            HelpTheFleshwarpsQuest.SetDescription(LocalizationTool.GetString("Plot.GatewayToInsanity.Fleshwarps.Description"));
             HelpTheFleshwarpsQuest.AddExperience(cR: 10, encounter: Kingmaker.Blueprints.Classes.Experience.EncounterType.QuestMain, dummy: false, modifier: 1.0f);
+            HelpTheFleshwarpsQuest.SetQuest(BlueprintTool.Get<BlueprintQuest>(GatewayToInsanityQuestGUID));
             HelpTheFleshwarpsQuest.Configure();
+
         }
     }
 }

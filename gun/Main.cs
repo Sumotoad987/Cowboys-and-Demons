@@ -39,8 +39,8 @@ public static class Main {
     public static bool Load(UnityModManager.ModEntry modEntry) {
         Log = modEntry.Logger;
         LogWrapper.EnableInternalVerboseLogs();
-        modEntry.OnGUI = OnGUI;
         ModPath = modEntry.Path;
+
         HarmonyInstance = new Harmony(modEntry.Info.Id);
         try {
             HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
@@ -49,10 +49,6 @@ public static class Main {
             throw;
         }
         return true;
-    }
-
-    public static void OnGUI(UnityModManager.ModEntry modEntry) {
-
     }
 
     [HarmonyPatch(typeof(BlueprintsCache))]
@@ -80,7 +76,6 @@ public static class Main {
 
                 List<OwlcatModification> list = new List<OwlcatModification>();
 //                list.AddRange(OwlcatModManager.m_Modifications);
-                Log.Log(System.IO.Path.Combine(ModPath, "Bundles\\"));
                 list.AddRange(OwlcatModificationsManager.LoadModifications(System.IO.Path.Combine(ModPath, "Bundles\\")));
                 
                 List<OwlcatModification> m_Modifications = new List<OwlcatModification>();
@@ -115,8 +110,8 @@ public static class Main {
                         
                         owlcatModification.Apply();
                         Log.Log("applied");
-                        owlcatModification.Reload();
-                        Log.Log("reloading");
+                        //owlcatModification.Reload();
+                        
                         //list.Add(owlcatModification);
                     }
                 }
@@ -135,10 +130,12 @@ public static class Main {
                 Pistol.Configure();
                 Rifle.Configure();
                 Revolver.Configure();
+                //Shotgun.Configure();
                 Plot.Flags.Configure();
                 Act2.Configure();
                 Mythos.Configure();
                 EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
+                Act3.Configure();
                 //Game.Instance.AreaLoadingComplete
 
 

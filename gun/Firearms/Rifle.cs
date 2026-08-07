@@ -79,6 +79,8 @@ namespace gun.Firearms
             //create a basic rifle and all the normal variants
             CreateBasicWeapons("Rifle", BasicItemIDs, WeaponID, 5000);
             WeaponEnchantmentConfigurator.New("GatewayLootRifleEnhancementID", GatewayLootRifleEnhancementID)
+                .SetDescription(LocalizationTool.GetString("Firearms.GatewayRifle.Enchant.Description"))
+                .SetEnchantName(LocalizationTool.GetString("Firearms.GatewayRifle.Enchant.Name"))
                 .AddInitiatorAttackRollTrigger(ActionsBuilder.New().DealStatDamage(new DiceFormula(1,DiceType.D6),Kingmaker.EntitySystem.Stats.StatType.Intelligence,new ContextTargetUnit()),criticalHit:true)
                 .Configure();//hopefully this does 1d6 int damage on a crit
 

@@ -273,7 +273,7 @@ namespace gun.Plot
 
             AnswerConfigurator.New("CowgirlMeetA4", AnswerIDs[4])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlMeeting.Answer.4"))
-                .SetShowConditions(Utilities.MakeSeenAny(true, cueIDs[13], cueIDs[12], cueIDs[11], cueIDs[10]))
+                .SetShowConditions(Utilities.MakeSelectedAnswer(AnswerIDs[5]))
                 .SetNextCue(Utilities.MakeCueSelection(CheckIDs[3]))
                 .SetShowOnce()
                 .Configure();
@@ -302,7 +302,7 @@ namespace gun.Plot
 
             AnswerConfigurator.New("CowgirlMeetA5", AnswerIDs[5])
                 .SetText(LocalizationTool.GetString("Plot.CowgirlMeeting.Answer.5"))
-                .SetShowConditions(Utilities.MakeSeenAny(true, cueIDs[13], cueIDs[12], cueIDs[11], cueIDs[10]))
+                .SetShowConditions(Utilities.MakeSelectedAnswer(AnswerIDs[4]))
                 .SetNextCue(Utilities.MakeCueSelection(CheckIDs[4]))
                 .SetShowOnce()
                 .Configure();
@@ -375,7 +375,7 @@ namespace gun.Plot
         {
             BookPageConfigurator.New("CowgirlMeetBook3", Pages[3])
                 .SetTitle(LocalizationTool.GetString("Plot.CowgirlMeeting.Title"))
-                .SetCues(cueIDs[18], cueIDs[19], cueIDs[20], cueIDs[21], cueIDs[22])
+                .SetCues(cueIDs[18], cueIDs[19], cueIDs[20], cueIDs[21])
                 .SetAnswers(AnswerIDs[8], AnswerIDs[9], AnswerIDs[10], AnswerIDs[11], AnswerIDs[12])
                 .Configure();
 
@@ -418,6 +418,8 @@ namespace gun.Plot
                 .SetDC(25)
                 .SetExperience(DialogExperience.SmallExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SkillPerception)
+                .SetSuccess(cueIDs[22])
+                .SetFail(cueIDs[21])
                 .SetShowOnce()
                 .Configure();
 
