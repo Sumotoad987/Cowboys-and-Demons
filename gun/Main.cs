@@ -63,30 +63,6 @@ public static class Main {
                 }
                 Initialized = true;
 
-                /*var path = Path.Combine(ModPath, "Bundles\\GunAssets\\");
-                OwlcatModification owlcatModification = OwlcatModification
-                    .LoadFromDirectory(path, path);
-                if (owlcatModification == null)
-                {
-                    Log.Log("Loading gunmod bundle failed, modification is null.");
-                }
-                else
-                {
-                    OwlcatModificationManifest manifest = owlcatModification.Manifest;
-                    if (manifest == null)
-                    {
-                        Log.Log("Loading gunmod bundle failed, manifest is null.");
-                    }
-                    else
-                    {
-                        Log.Log("Applying gunmod modification.");
-
-                        owlcatModification.Apply();
-                        owlcatModification.Reload();
-                        //Log.Log("applied");
-                        //Log.Log("reloading");
-                    }
-                }*/
                 LoadGunAssets();
                 
 
