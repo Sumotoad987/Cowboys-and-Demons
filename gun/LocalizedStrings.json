@@ -244,6 +244,14 @@
     "enGB": "AC Bonus (Nimble)"
   },
   {
+    "Key": "Firearms.Capacity.6.Name",
+    "enGB": "Capacity 6"
+  },
+  {
+    "Key": "Firearms.Capacity.6.Description",
+    "enGB": "A firearm's capacity is the number of shots it can hold at one time."
+  },
+  {
     "Key": "Firearms.Scatter.30.Name",
     "enGB": "Scatter (30ft)"
   },

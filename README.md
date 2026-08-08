@@ -30,6 +30,7 @@ All this is due to the fact that assets can only be added (with great difficulty
 * "Clement Percussion Revolver" (https://skfb.ly/6YHAY) by Feco is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 * "Katana and early Japanese rifle" (https://skfb.ly/6U6RL) by patspet is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 * "Flintlock pistol" (https://skfb.ly/6TNo8) by Cyril43 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+* "25 CC0 bang / firework SFX" (https://opengameart.org/content/25-cc0-bang-firework-sfx) by rubberduck 
 
 ## Thanks to
 * Wolfie's [Modding Wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) for getting me started.

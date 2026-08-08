@@ -57,7 +57,7 @@ namespace gun.Firearms
             Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
 
             //creates the musket weapon type by calling from base firearm
-            CreateWeapon("Revolver", WeaponID, true, Kingmaker.Utility.FeetExtension.Feet(20), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire1_A, true);
+            CreateWeapon("Revolver", WeaponID, true, Kingmaker.Utility.FeetExtension.Feet(20), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire1_A, true,6);
 
             //create a basic Musket and all the normal variants
             CreateBasicWeapons("Revolver", BasicItemIDs, WeaponID, 4000);

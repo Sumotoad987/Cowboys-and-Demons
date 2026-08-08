@@ -38,7 +38,6 @@ public static class Main {
     }
     public static bool Load(UnityModManager.ModEntry modEntry) {
         Log = modEntry.Logger;
-        LogWrapper.EnableInternalVerboseLogs();
         ModPath = modEntry.Path;
 
         HarmonyInstance = new Harmony(modEntry.Info.Id);
@@ -54,9 +53,7 @@ public static class Main {
     [HarmonyPatch(typeof(BlueprintsCache))]
     public static class BlueprintsCaches_Patch {
         private static bool Initialized = false;
-
-
-        [HarmonyPriority(Priority.First)]
+        
         [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
         public static void Init_Postfix() {
             try {
@@ -66,57 +63,35 @@ public static class Main {
                 }
                 Initialized = true;
 
-                Log.Log("Patching blueprints.");
-                // Insert your mod's patching methods here
-                OwlcatModificationsManager OwlcatModManager = OwlcatModificationsManager.Instance;
-                if (!OwlcatModManager.m_Started) 
+                /*var path = Path.Combine(ModPath, "Bundles\\GunAssets\\");
+                OwlcatModification owlcatModification = OwlcatModification
+                    .LoadFromDirectory(path, path);
+                if (owlcatModification == null)
                 {
-                    OwlcatModManager.Start();
+                    Log.Log("Loading gunmod bundle failed, modification is null.");
                 }
-
-                List<OwlcatModification> list = new List<OwlcatModification>();
-//                list.AddRange(OwlcatModManager.m_Modifications);
-                list.AddRange(OwlcatModificationsManager.LoadModifications(System.IO.Path.Combine(ModPath, "Bundles\\")));
-                
-                List<OwlcatModification> m_Modifications = new List<OwlcatModification>();
-
-
-                m_Modifications.AddRange(OwlcatModManager.m_Modifications);
-                m_Modifications.AddRange(list);
-                OwlcatModManager.m_Modifications = m_Modifications.ToArray();
-                string[] enabledModifications = { "GunAssets" };
-                foreach (string modificationName in enabledModifications)
+                else
                 {
-
-                    OwlcatModification owlcatModification = OwlcatModManager.m_Modifications.FirstItem((OwlcatModification d) => d.Manifest?.UniqueName == modificationName);
-                    if (owlcatModification == null)
-                    {
-                        PFLog.Mods.Error("Missing modification: " + modificationName);
-                        continue;
-                    }
-                    Log.Log("Found mod");
-                    string path = owlcatModification.Path;
-                    Log.Log("At path:" + path);
                     OwlcatModificationManifest manifest = owlcatModification.Manifest;
-                    Log.Log("got manifest");
                     if (manifest == null)
                     {
-                        PFLog.Mods.Error("Modification can't be loaded: " + modificationName + " (" + path + ")");
+                        Log.Log("Loading gunmod bundle failed, manifest is null.");
                     }
-                    else 
+                    else
                     {
-                        Log.Log("getting ready to apply");
-                        PFLog.Mods.Log("Apply modification: " + manifest.UniqueName + " (" + path + ")");
-                        
-                        owlcatModification.Apply();
-                        Log.Log("applied");
-                        //owlcatModification.Reload();
-                        
-                        //list.Add(owlcatModification);
-                    }
-                }
-                OwlcatModManager.AppliedModifications = list.ToArray();
+                        Log.Log("Applying gunmod modification.");
 
+                        owlcatModification.Apply();
+                        owlcatModification.Reload();
+                        //Log.Log("applied");
+                        //Log.Log("reloading");
+                    }
+                }*/
+                LoadGunAssets();
+                
+
+                Log.Log("Patching blueprints.");
+                
                 BaseFirearm.Configure();
                 Gunslinger.Configure();
                 AmateurGunslinger.Configure();
@@ -142,6 +117,63 @@ public static class Main {
             } catch (Exception e) {
                 Log.Log(string.Concat("Failed to initialize.", e));
             }
+        }
+
+        public static void LoadGunAssets()
+        {
+            OwlcatModificationsManager OwlcatModManager = OwlcatModificationsManager.Instance;
+            if (!OwlcatModManager.m_Started)
+            {
+                OwlcatModManager.Start();
+            }
+
+            List<OwlcatModification> list = new List<OwlcatModification>();
+            //list.AddRange(OwlcatModManager.m_Modifications);
+            list.AddRange(OwlcatModificationsManager.LoadModifications(System.IO.Path.Combine(ModPath, "Bundles\\")));
+
+            List<OwlcatModification> m_Modifications = new List<OwlcatModification>();
+
+
+            m_Modifications.AddRange(OwlcatModManager.m_Modifications);
+            m_Modifications.AddRange(list);
+            OwlcatModManager.m_Modifications = m_Modifications.ToArray();
+            string[] enabledModifications = { "GunAssets" };
+            foreach (string modificationName in enabledModifications)
+            {
+
+                OwlcatModification owlcatModification = OwlcatModManager.m_Modifications.FirstItem((OwlcatModification d) => d.Manifest?.UniqueName == modificationName);
+                if (owlcatModification == null)
+                {
+                    PFLog.Mods.Error("Missing modification: " + modificationName);
+                    continue;
+                }
+                Log.Log("Found mod");
+                string path = owlcatModification.Path;
+                Log.Log("At path:" + path);
+                OwlcatModificationManifest manifest = owlcatModification.Manifest;
+                Log.Log("got manifest");
+                if (manifest == null)
+                {
+                    PFLog.Mods.Error("Modification can't be loaded: " + modificationName + " (" + path + ")");
+                }
+                else
+                {
+                    Log.Log("getting ready to apply");
+                    PFLog.Mods.Log("Apply modification: " + manifest.UniqueName + " (" + path + ")");
+
+                    owlcatModification.Apply();
+                    Log.Log("applied");
+                    //owlcatModification.Reload();
+
+                }
+            }
+            foreach (OwlcatModification mod in OwlcatModManager.AppliedModifications)
+            {
+                list.Add(mod);
+            }
+            
+            OwlcatModManager.AppliedModifications = list.ToArray();
+            
         }
     }
 

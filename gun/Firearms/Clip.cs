@@ -37,6 +37,7 @@ using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.Utility;
 using Kingmaker.Visual.Sound;
 using Owlcat.Runtime.Core.Logging;
 using Owlcat.Runtime.UI.Tooltips;
@@ -70,7 +71,22 @@ namespace gun.Firearms
                 }
                 else
                 {//if there are rounds 
-                    evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).Remove();//then remove one round
+                    if (evt.Weapon.Enchantments.Any((ItemEnchantment enhancement) =>
+                    {
+                        Capacity cap = enhancement.GetComponent<Capacity>();
+                        if (cap != null)
+                        {
+                            return cap.count == 1;
+                        }
+                        return false;
+                    }))
+                    {
+                        evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).Remove();//if the clip is just one then remove all rounds (in case you load a thing with a large clip them switch to a thing with a smaller clip
+                    }
+                    else
+                    {
+                        evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).RemoveRank();//then remove one round
+                    }
                     SoundPlayer Bang = new SoundPlayer(System.IO.Path.Combine(Main.ModPath, "Media\\Sounds\\bang_01.wav"));
                     Bang.Play();
                 }
@@ -106,7 +122,24 @@ namespace gun.Firearms
                     }
                     else
                     {//if there are rounds 
-                        Rounds.Remove();//then remove one round
+                        if (evt.Weapon.Enchantments.Any((ItemEnchantment enhancement) =>
+                        {
+                            Capacity cap = enhancement.GetComponent<Capacity>();
+                            if (cap != null) 
+                            {
+                                return cap.count == 1;
+                            }
+                            return false;
+                        }))
+                        {
+                            Rounds.Remove();//if the clip is just one then remove all rounds (in case you load a thing with a large clip them switch to a thing with a smaller clip
+                        }
+                        else
+                        {
+                            Rounds.RemoveRank();//then remove one round
+                        }
+                            
+                        
                     }
                     
                 }
@@ -159,6 +192,16 @@ namespace gun.Firearms
         public string GetAbilityCasterRestrictionUIText()
         {
             return "Requires a loaded gun";
+        }
+    }
+
+    public class Capacity : WeaponEnchantmentLogic
+    {
+        public int count = 1;
+
+        public Capacity(int cap)
+        {
+            count = cap;
         }
     }
 }

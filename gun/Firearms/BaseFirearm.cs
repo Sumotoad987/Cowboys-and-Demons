@@ -56,9 +56,7 @@ namespace gun.Firearms
         public const WeaponCategory FirearmCategory = WeaponCategory.HandCrossbow;//hand crossbow apears to be unimplemented so I will use that for now
         public const string ProjectileRef = "0f083f2598b3e6441992ebadbc0325aa";
         const string ArmorPiercingGUID = "027bf51a88d94dbc86bf8848d2f2cff0";
-        const string CapacityGUID = "e712d0661d0f4507af2f18addf53cab3";
         public const string RoundsGUID = "72a83c73e7ce42e0adb54339c6098f21";
-        public const string EmptyClipGUID = "edb55d77d6fd4562afbb535626bb55e1";
         public const string ReloadGUID = "6f90360117aa4198b1948a5ff979457c";
         public const string ReloadStandardGUID = "84a5658968e04f6f91a9b32a1b4462f5";
         const string ReloadOneHandFeatureGUID = "5d503d48e12b4fb38aea53fca2de8768";
@@ -75,6 +73,7 @@ namespace gun.Firearms
         public static string[] Vendors = { "5f17d3b47752fb94abe8c98534af8920", "7aaf7d11ce8541b69b3ce0064dd45d2a", "9c597a1f92dde2f4f8adb27ee5730188", "", "73895d43f46b45079e19d1afcb96efdd", "195579adaa20483ca3aad66bb2b06f8f" };//one on the end is for Roguelike DLC
         public const string FinneanItem = "95c126deb99ba054aa5b84710520c035";
         public const string BulletGUID = "608d2e99ebf14967a023672b0764aa5c";
+        public static string[] Capacity = {"", "36423d2718b14ee6b8bfd6e5b556a834","","","","", "6101cd89ec854ce0ad87cc82cd8b838b" };
 
         public static void Configure()
         {
@@ -89,7 +88,8 @@ namespace gun.Firearms
 
             //create the rounds resource (visible)
             BuffConfigurator.New("Rounds", RoundsGUID)
-                .SetStacking(Kingmaker.UnitLogic.Buffs.Blueprints.StackingType.Replace)//stacks are how many rounds are available
+                .SetStacking(Kingmaker.UnitLogic.Buffs.Blueprints.StackingType.Rank)//stacks are how many rounds are available
+                .SetRanks(10)
                 .Configure();
             ;
 
@@ -130,21 +130,17 @@ namespace gun.Firearms
         //creates the capacity "enhancement" on a weapon alongside the associated resource and ability
         private static void SetupClip()
         {
-            //create the capacity condition (hidden in UI perhaps)
-            BuffConfigurator.New("Capacity", CapacityGUID)
-                .SetStacking(Kingmaker.UnitLogic.Buffs.Blueprints.StackingType.Stack)//it stacks and the number of stacks is the max number of rounds
+
+            WeaponEnchantmentConfigurator.New("Capacity1", Capacity[1])
+                .SetHiddenInUI()
+                .AddComponent(new Capacity(1))
                 .Configure();
-                ;
 
-            //creates a condition to handle having no rounds left
-            AddCondition EmptyClipCondition = new AddCondition();
-            EmptyClipCondition.Condition = Kingmaker.UnitLogic.UnitCondition.CantAct;
-            BuffConfigurator.New("EmptyClip", EmptyClipGUID)
-                .SetStacking(Kingmaker.UnitLogic.Buffs.Blueprints.StackingType.Replace)
+            WeaponEnchantmentConfigurator.New("Capacity6", Capacity[6])
+                .SetDescription(LocalizationTool.GetString("Firearms.Capacity.6.Description"))
+                .SetEnchantName(LocalizationTool.GetString("Firearms.Capacity.6.Name"))
+                .AddComponent(new Capacity(6))
                 .Configure();
-            ;
-
-
 
             FeatureConfigurator.New("OneHandReloadingFeature", ReloadOneHandFeatureGUID)
                 .AddFacts(new List<Blueprint<BlueprintUnitFactReference>> {BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadStandardGUID), BlueprintTool.GetRef<BlueprintUnitFactReference>(ReloadMoveGUID) })
@@ -229,15 +225,13 @@ namespace gun.Firearms
             reloadSingle.IsFromSpell = false;
             reloadSingle.IsNotDispelable = true;
 
-            ContextActionRemoveBuff clearEmptyClip = new ContextActionRemoveBuff();
-            clearEmptyClip.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(EmptyClipGUID);
-            clearEmptyClip.ToCaster = true;
+
 
             AbilityEffectRunAction reloadSingleEffect = new AbilityEffectRunAction();
             reloadSingleEffect.SavingThrowType = Kingmaker.EntitySystem.Stats.SavingThrowType.Unknown;
             reloadSingleEffect.IgnoreCaster = false;
             reloadSingleEffect.Actions = new Kingmaker.ElementsSystem.ActionList();
-            reloadSingleEffect.Actions.Actions = new Kingmaker.ElementsSystem.GameAction[2] { reloadSingle, clearEmptyClip };
+            reloadSingleEffect.Actions.Actions = new Kingmaker.ElementsSystem.GameAction[1] { new ReloadEffect()};
             //reloadSingleEffect.Actions.Actions.AddItem(reloadSingle);
 
             AbilityConfigurator.New("Reload", ReloadGUID)
@@ -305,13 +299,7 @@ namespace gun.Firearms
             //one handed firearms are standard action, two handed are full round, and advanced are move action reduced to free with rapid reload
         }
 
-        //adds the scatter enhancement and action
-        private static void SetupScatter ()
-        {
-            //create the scatter shot action
-            //configure the action to make an attack roll against all enemies in a cone
-            //add the scatter enhancement which grants the scatter shot action
-        }
+
 
         //sets up the visual parameters of the weapon
         public static WeaponVisualParameters DefineVisualParameters(string ModelID = "f4ef679dee9518b40806cea527b62958")//default to crossbow
@@ -351,7 +339,7 @@ namespace gun.Firearms
 
 
         //this is called by the subtypes of weapon to simplify the definition of the default version of each
-        public static void CreateWeapon(string name, string ID, bool OneHanded, Kingmaker.Utility.Feet range, DiceFormula damage, DamageCriticalModifierType CritMod, int CritRange, DamageTypeDescription DamageType, Sprite icon, float weight, WeaponVisualParameters visuals, string missfireType, bool isAdvanced = false ,int ScatterType = 0, bool isLight = false, bool isMonk = false)
+        public static void CreateWeapon(string name, string ID, bool OneHanded, Kingmaker.Utility.Feet range, DiceFormula damage, DamageCriticalModifierType CritMod, int CritRange, DamageTypeDescription DamageType, Sprite icon, float weight, WeaponVisualParameters visuals, string missfireType, bool isAdvanced = false ,int Cap = 1, int ScatterType = 0, bool isLight = false, bool isMonk = false)
         {
             WeaponTypeConfigurator weapon = WeaponTypeConfigurator.New(name, ID)
                 .SetIsTwoHanded(!OneHanded)
@@ -374,8 +362,8 @@ namespace gun.Firearms
                 .AddComponent(new EquipmentRestrictionFirearm())
                 .SetFighterGroupFlags(WeaponFighterGroupFlags.Crossbows) //sets it up for fighter weapon group stuff
                 ;
-            //current issues: no progiciency of its own might be able to set some other kind of restriction of it like the way some require one to be a barbarian to wear make them require the firearm prof feat or something
             
+            weapon.AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(Capacity[Cap]));
             if (isAdvanced)
             {
                 weapon.AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(AdvancedClipGUID));
