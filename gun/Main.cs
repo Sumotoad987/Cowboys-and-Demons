@@ -48,7 +48,6 @@ public static class Main {
         private static bool Initialized = false;
         
         [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
-        [HarmonyAfter("DragonLibrary")]
         public static void Init_Postfix() {
             try {
                 if (Initialized) {
