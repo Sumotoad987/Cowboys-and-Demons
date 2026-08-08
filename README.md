@@ -61,4 +61,5 @@ All this is due to the fact that assets can only be added (with great difficulty
 ## Thanks to
 * Wolfie's [Modding Wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) for getting me started.
 * Kurufinve for the Unity template needed to add assets to the game.
+* Casdragon for help fixing compatibility issues with other owlmods
 * The many WotR mods out there on Github which I looked at for guidance.
