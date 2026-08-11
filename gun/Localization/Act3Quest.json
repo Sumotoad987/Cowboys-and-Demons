@@ -50,7 +50,7 @@
   },
   {
     "Key": "Plot.CowgirlQuest1Intro.Cue.7",
-    "enGB": "Alright then 'ere's the plan.” She marks a point on the commander's map “Brainweaver's lair is here the entrance lookes like some kinda mouth craved outa the rock hard ta miss once you know where ta look. I'll head out there now and keep an eye on things, see if I can't scout a bit of the place learn any more about what's inside. As soon as your ready meet me at this cliff overlooking the place. Once you get there we can make our way inside rescue those poor souls and put an end to this madness before it's too late."
+    "enGB": "\"Alright then 'ere's the plan.\" She marks a point on the commander's map \"Brainweaver's lair is here, the entrance lookes like some kinda mouth craved outa the rock hard ta miss once you know where ta look. I'll head there keep an eye on things, see if I can't scout a bit of the place learn any more about what's inside. As soon as your ready meet me at this cliff overlooking the place. Once you get there we can make our way inside rescue those poor souls and put an end to this madness before it's too late.\""
   },
   {
     "Key": "Plot.CowgirlQuest1Intro.Answer.6",
@@ -62,7 +62,7 @@
   },
   {
     "Key": "Plot.CowgirlQuest1Intro.Cue.9",
-    "enGB": "“Okay then. I can see where I'm not wanted I do what I can on my own but mark my words if you think this'll just go away on its own yer very much mistaken. One way or another this guy will be causing ya a whole mess of grief.” Without another word she turns and marches from the city."
+    "enGB": "\"Okay then. I can see where I'm not wanted I do what I can on my own but mark my words if you think this'll just go away on its own yer very much mistaken. One way or another this guy will be causing ya a whole mess of grief.\" Without another word she turns and marches from the city."
   },
   {
     "Key": "Plot.GatewayToInsanity.Title",
@@ -142,11 +142,11 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.8",
-    "enGB": "As the commander approaches she creeps back from the edge to meet {mf|him|her}. “Thanks again for coming boss. I've been keeping an eye on the place, but there not been much activity since last we spoke. A few cultists coming an' going for supplies, mostly food an' such.”"
+    "enGB": "As the commander approaches she creeps back from the edge to meet {mf|him|her}. \"Thanks again for coming boss. I've been keeping an eye on the place, but there not been much activity since last we spoke. A few cultists coming an' going for supplies, mostly food an' such.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.9",
-    "enGB": "She gestures down to the wall on the far side of the valley where a crack in the rock has been sculpted out into the shape of a vast worm whose open maw is filled with row upon row of jagged metal teeth. “As far as I can see that... thing there's the only way in or out. At least by conventional means anyhow. You never can tell what sorta magic they've got up their sleeves.”"
+    "enGB": "She gestures down to the wall on the far side of the valley where a crack in the rock has been sculpted out into the shape of a vast worm whose open maw is filled with row upon row of jagged metal teeth. \"As far as I can see that... thing there's the only way in or out. At least by conventional means anyhow. You never can tell what sorta magic they've got up their sleeves.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.5",
@@ -154,7 +154,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.10",
-    "enGB": "“I overheard some of them talking 'bout em a few days ago. Sounds like they're being kept for some kinda experiment. Probably means there still alive at least. Though I fear they might be wishing they weren't.”"
+    "enGB": "\"I overheard some of them talking 'bout em a few days ago. Sounds like they're being kept for some kinda experiment. Probably means there still alive at least. Though I fear they might be wishing they weren't.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.6",
@@ -162,7 +162,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.11",
-    "enGB": "“I count at least forty of them plus Brainweaver himself. Most of 'em aren't that much of a threat on their own any more than your demon cultists but Brainweaver'll be a tricky one. He's got a range of nasty spells plus all sorta alchemical horrors.”"
+    "enGB": "\"I count at least forty of them plus Brainweaver himself. Most of 'em aren't that much of a threat on their own any more than your demon cultists but Brainweaver'll be a tricky one. He's got a range of nasty spells plus all sorta alchemical horrors.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.7",
@@ -170,7 +170,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.12",
-    "enGB": "“Look this place... It'll be trapped that much is obvious, an' I'm sure you and your team 'ave dealt with that kinda thing before. But what you see down there... It'll go beyond your typical traps or curses or whatnot. Things are gonna get pretty crazy. My advice: keep yer eyes an' yer heart open but yer mind closed. You'll see stuff you don't understand but trust me your better off that way. There are some questions best left unanswered an knowledge like that... well it does strange things ta people.”"
+    "enGB": "\"Look this place... It'll be trapped that much is obvious, an' I'm sure you and your team 'ave dealt with that kinda thing before. But what you see down there... It'll go beyond your typical traps or curses or whatnot. Things are gonna get pretty crazy. My advice: keep yer eyes an' yer heart open but yer mind closed. You'll see stuff you don't understand but trust me your better off that way. There are some questions best left unanswered an knowledge like that... well it does strange things ta people.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.13",
@@ -322,7 +322,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.38",
-    "enGB": "The room beyond is filled with scrolls but unlike a typical library they are not neatly catalogued to lined up in selves. Instead the scolls seems to burst out from the walls themselves unrolled at full length and swaying slightly in an unseen wind. “This 'ere looks like one of their libraries. I'd steer clear of it if I were you.” Bell suggests"
+    "enGB": "The room beyond is filled with scrolls but unlike a typical library they are not neatly catalogued to lined up in selves. Instead the scolls seems to burst out from the walls themselves unrolled at full length and swaying slightly in an unseen wind. \"This 'ere looks like one of their libraries. I'd steer clear of it if I were you.\" Bell suggests"
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.21",
@@ -350,11 +350,11 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.43",
-    "enGB": "{name} is a book being read by something incomprehensible. The commander can feel eyes running through {mf|his|her} words, a hand slowly flicking through {mf|his|her} pages. A sharp bang seems to echo vaguely in the distance and a voice speaks. “Snap out of it!” But Bell's words don't matter she's just another book on the self after all. There's a heavy thud and all goes black. When the commander comes to {mf|he|she} is a person again lying back in the entrance hall with a fresh bruise on {mf|his|her} face. “Are ya back with us?” Bell asks."
+    "enGB": "{name} is a book being read by something incomprehensible. The commander can feel eyes running through {mf|his|her} words, a hand slowly flicking through {mf|his|her} pages. A sharp bang seems to echo vaguely in the distance and a voice speaks. \"Snap out of it!\" But Bell's words don't matter she's just another book on the self after all. There's a heavy thud and all goes black. When the commander comes to {mf|he|she} is a person again lying back in the entrance hall with a fresh bruise on {mf|his|her} face. \"Are ya back with us?\" Bell asks."
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.44",
-    "enGB": "“What happened?” The words come out garbled as the commander's mind slowly recovers. “I don't rightly know. Something was happening to ya. I had to knock you out and drag you outa there. Sorry 'bout the bruise but whatever that was I'm sure it woulda been worse.”"
+    "enGB": "\"What happened?\" The words come out garbled as the commander's mind slowly recovers. \"I don't rightly know. Something was happening to ya. I had to knock you out and drag you outa there. Sorry 'bout the bruise but whatever that was I'm sure it woulda been worse.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.45",
@@ -418,7 +418,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.57",
-    "enGB": "“I... I think those are the townsfolk he took” Bells face is grim as she stares through the bars at the remains of once familiar faces. “We gotta help 'em.”"
+    "enGB": "\"I... I think those are the townsfolk he took\" Bells face is grim as she stares through the bars at the remains of once familiar faces. \"We gotta help 'em.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.58",
@@ -426,23 +426,23 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.28",
-    "enGB": "“I'm sorry Bell they might be passed saving. Are you prepared for that?”"
+    "enGB": "\"I'm sorry Bell they might be passed saving. Are you prepared for that?\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.59",
-    "enGB": "“I know... and if it comes to it I... I can do what needs ta be done. But we 'ave ta try don't we? They deserve that much.”"
+    "enGB": "\"I know... and if it comes to it I... I can do what needs ta be done. But we 'ave ta try don't we? They deserve that much.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.29",
-    "enGB": "“What has he done to these people?!”"
+    "enGB": "\"What has he done to these people?!\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.60",
-    "enGB": "“It's what I was afraid of. It's called fleshwarping. I don't know if he learnt it from Drow or the Nexian fleshforges but its truly nasty stuff. Taking people's bodies and making all kinds of changes. Sewing parts together like some crazed tailor. I don't know what we wants to learn from all this but no knowledge is worth what he's done to these people.”"
+    "enGB": "\"It's what I was afraid of. It's called fleshwarping. I don't know if he learnt it from Drow or the Nexian fleshforges but its truly nasty stuff. Taking people's bodies and making all kinds of changes. Sewing parts together like some crazed tailor. I don't know what we wants to learn from all this but no knowledge is worth what he's done to these people.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.30",
-    "enGB": "“They're nothing but monsters now.”"
+    "enGB": "\"They're nothing but monsters now.\""
   },
   {
     "Key": "Plot.Alignment.Fleshwarps.TreatedAsMonsters",
@@ -450,7 +450,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.31",
-    "enGB": "“Of course. We'll do everything we can.”"
+    "enGB": "\"Of course. We'll do everything we can.\""
   },
   {
     "Key": "Plot.Alignment.Fleshwarps.TreatedAsVictims",
@@ -458,23 +458,23 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.61",
-    "enGB": "We can't just leave 'em here! They're innocent people, just minding their own business before this lot got to 'em. What are we fightin' for is not ta help folks like this.”"
+    "enGB": "\"We can't just leave 'em here! They're innocent people, just minding their own business before this lot got to 'em. What are we fightin' for is not ta help folks like this.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.32",
-    "enGB": "“I'm sorry but the only thing we can do now is put them out of their misery.”"
+    "enGB": "\"I'm sorry but the only thing we can do now is put them out of their misery.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.62",
-    "enGB": "“But... I knew these people how can we just...” Bell's eyes are full of tears “I know they wouldn't want to live like this but surely there's another way. I just wish... I wish I'd gotten here sooner maybe then I coulda saved 'em.” she turns to face the mutants. “I... I am so sorry. I failed you. I failed you all.”"
+    "enGB": "\"But... I knew these people how can we just...\" Bell's eyes are full of tears \"I know they wouldn't want to live like this but surely there's another way. I just wish... I wish I'd gotten here sooner maybe then I coulda saved 'em.\" she turns to face the mutants. \"I... I am so sorry. I failed you. I failed you all.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.33",
-    "enGB": "“We can't help them but we can at least learn from what was done to them. Let's take a look around the lab.”"
+    "enGB": "\"We can't help them but we can at least learn from what was done to them. Let's take a look around the lab.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.63",
-    "enGB": "“You're just gonna read his notes after what it's led too? This kinda knowledge, its evil crazed. You'd be better off not knowing.”"
+    "enGB": "\"You're just gonna read his notes after what it's led too? This kinda knowledge, its evil crazed. You'd be better off not knowing.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.64",
@@ -486,11 +486,11 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.35",
-    "enGB": "“There's nothing we can do for them now. Once we're finished here we'll send a team to investigate.”"
+    "enGB": "\"There's nothing we can do for them now. Once we're finished here we'll send a team to investigate.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.66",
-    "enGB": "Bell nods. “Whatever happens, thank you for trying.”"
+    "enGB": "Bell nods. \"Whatever happens, thank you for trying.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.67",
@@ -514,7 +514,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.70",
-    "enGB": "“This kinda knowledge, its evil, crazed.” Bell warns “You'd be better off not knowing but... if its to 'elp these poor folk out I guess we've got no choice”"
+    "enGB": "\"This kinda knowledge, its evil, crazed.\" Bell warns \"You'd be better off not knowing but... if its to 'elp these poor folk out I guess we've got no choice\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.71",
@@ -558,7 +558,7 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.77",
-    "enGB": "One of the mutants steps forward pointing to a door at the far end of the room “He... that... way. You... stop him... We wait”"
+    "enGB": "One of the mutants steps forward pointing to a door at the far end of the room \"He... that... way. You... stop him... We wait\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.78",
@@ -622,39 +622,39 @@
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.91",
-    "enGB": "“Blast!” Bell shouts at the now empty space “I was sure I had 'em this time. But that creep always seems to find some way to slip off without a scratch. An' now he's gone again an' I don't even 'ave a trail ta follow.”"
+    "enGB": "\"Blast!\" Bell shouts at the now empty space \"I was sure I had 'em this time. But that creep always seems to find some way to slip off without a scratch. An' now he's gone again an' I don't even 'ave a trail ta follow.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.92",
-    "enGB": "“But at least we were able to 'elp out his victims that's the important thing. I just wish we could tell 'em we've stopped him from doing this ever again.”"
+    "enGB": "\"But at least we were able to 'elp out his victims that's the important thing. I just wish we could tell 'em we've stopped him from doing this ever again.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.93",
-    "enGB": "“I suppose we put a stop to 'is opperations for now anyway. I'm sure he'll be back but we'll 'ave slowed him down at least.”"
+    "enGB": "\"I suppose we put a stop to 'is opperations for now anyway. I'm sure he'll be back but we'll 'ave slowed him down at least.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.94",
-    "enGB": "“Anyways I don't think there's much you can do 'ere. I'll stay and look after 'is victims see they don't 'urt themselves nor nobody else. Once I've got 'em some-place safe I'll meet ya back in Drezen an' maybe we can discuss workin' together again.”"
+    "enGB": "\"Anyways I don't think there's much you can do 'ere. I'll stay and look after 'is victims see they don't 'urt themselves nor nobody else. Once I've got 'em some-place safe I'll meet ya back in Drezen an' maybe we can discuss workin' together again.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.49",
-    "enGB": "“The crusades would be honoured to have you Bell.”"
+    "enGB": "\"The crusades would be honoured to have you Bell.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.50",
-    "enGB": "“We're always looking for experienced fighters. Welcome aboard.”"
+    "enGB": "\"We're always looking for experienced fighters. Welcome aboard.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Answer.51",
-    "enGB": "“I don't think it'll work out.”"
+    "enGB": "\"I don't think it'll work out.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.95",
-    "enGB": "“In that case I look forward to fighting by your side boss.”"
+    "enGB": "\"In that case I look forward to fighting by your side boss.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.96",
-    "enGB": "“Well I suppose I'd best be off then. Maybe I'll see you around again but I doubt it.”"
+    "enGB": "\"Well I suppose I'd best be off then. Maybe I'll see you around again but I doubt it.\""
   },
   {
     "Key": "Plot.GatewayToInsanity.Cue.97",
@@ -674,14 +674,14 @@
   },
   {
     "Key": "Plot.CowgirlRecruitment.Cue.0",
-    "enGB": "“Howdy partner I see yall made it back 'ere in once piece. You'll be happy to know I've got Brainweaver's victims safe and under the care of you're medics. They seem a pretty skilled bunch so I've hope they'll be able to do something for 'em. In the mean time I ain't got no more leads on Brainweaver besides 'im being somewhere out there in the Worldwound so it looks like I've got some free time on my hands. Any chance yall could use the help of a 'slinger from the wastes?”"
+    "enGB": "\"Howdy partner I see y'all made it back 'ere in once piece. You'll be happy to know I've got Brainweaver's victims safe and under the care of you're medics. They seem a pretty skilled bunch so I've hope they'll be able to do something for 'em. In the mean time I ain't got no more leads on Brainweaver besides 'im being somewhere out there in the Worldwound so it looks like I've got some free time on my hands. Any chance y'all could use the help of a 'slinger from the wastes?\""
   },
   {
     "Key": "Plot.CowgirlRecruitment.Cue.1",
-    "enGB": "“I'd be happy ta help. This wound of yours is much worse than I ever imagined back 'ome. Puttin' an' end to it seems like quite the worthy cause. 'Sides Brainweavers still out there somewhere workin' alongside you ought ta give me plenty of chances to find out where he's gone.”"
+    "enGB": "\"I'd be happy ta help. This wound of yours is much worse than I ever imagined back 'ome. Puttin' an' end to it seems like quite the worthy cause. 'Sides Brainweavers still out there somewhere workin' alongside you ought ta give me plenty of chances to find out where he's gone.\""
   },
   {
     "Key": "Plot.CowgirlRecruitment.Cue.2",
-    "enGB": "“Well I suppose I'd best be off then. Maybe I'll see you around again but I doubt it.”"
+    "enGB": "\"Well I suppose I'd best be off then. Maybe I'll see you around again but I doubt it.\""
   }
 ]

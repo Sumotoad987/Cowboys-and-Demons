@@ -5,11 +5,11 @@
   },
   {
     "Key": "SpellscarDrifter.Description",
-    "enGB": "The Spellscar Desert is a dangerous wasteland into which few venture without a guide. Spellscar drifters have made themselves at home in these badlands. When not scouring the desert for forgotten treasures or magic hidden by the region’s shifting magic-dead zones, a Spellscar drifter might hire himself out as a guide, bodyguard, or assassin. There are even a few Spellscar drifters who are temporarily deputized by the Grand Duchy of Alkenstar to perform law enforcement tasks beyond the reach of the city’s normal constabulary. Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+    "enGB": "The Spellscar Desert is a dangerous wasteland into which few venture without a guide. Spellscar drifters have made themselves at home in these badlands. When not scouring the desert for forgotten treasures or magic hidden by the region's shifting magic-dead zones, a Spellscar drifter might hire himself out as a guide, bodyguard, or assassin. There are even a few Spellscar drifters who are temporarily deputized by the Grand Duchy of Alkenstar to perform law enforcement tasks beyond the reach of the city's normal constabulary. Spellscar drifters are self-reliant and always keep their firearms loaded in the Spellscar Desert, a rider with a slow draw doesn't live long."
   },
   {
     "Key": "SpellscarDrifter.Description.Short",
-    "enGB": "Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+    "enGB": "Spellscar drifters are self-reliant and always keep their firearms loaded in the Spellscar Desert, a rider with a slow draw doesn't live long."
   },
   {
     "Key": "ToughAsNails.Name",
@@ -17,7 +17,7 @@
   },
   {
     "Key": "ToughAsNails.Description",
-    "enGB": "At 20th level, if the Spellscar drifter confirms a critical hit on an attack made with a firearm, the target is stunned for 1d4 rounds. A successful Will saving throw (DC = 10 + the Spellscar drifter’s base attack bonus) reduces this effect to staggered instead of stunned"
+    "enGB": "At 20th level, if the Spellscar drifter confirms a critical hit on an attack made with a firearm, the target is stunned for 1d4 rounds. A successful Will saving throw (DC = 10 + the Spellscar drifter's base attack bonus) reduces this effect to staggered instead of stunned"
   },
   {
     "Key": "ToughAsNails.Description.Short",
@@ -41,11 +41,11 @@
   },
   {
     "Key": "OldReliable.Description",
-    "enGB": "At 11th level, whenever a Spellscar drifter declares a challenge, the threat range of the Spellscar drifter’s firearm is doubled against the target of her challenge. This increase does not stack with other effects that double the threat range of the weapon."
+    "enGB": "At 11th level, whenever a Spellscar drifter declares a challenge, the threat range of the Spellscar drifter's firearm is doubled against the target of her challenge. This increase does not stack with other effects that double the threat range of the weapon."
   },
   {
     "Key": "OldReliable.Description.Short",
-    "enGB": "The threat range of the Spellscar drifter’s firearms is doubled against the target of her challenge."
+    "enGB": "The threat range of the Spellscar drifter's firearms is doubled against the target of her challenge."
   },
 
   {
@@ -78,7 +78,7 @@
   },
   {
     "Key": "CavalierEasternStarGuarded.Description",
-    "enGB": "At 2nd level, the cavalier gains DR 1/— and a +2 morale bonus on saving throws when wearing light armor or no armor and fighting defensively or using Combat Expertise. At 6th level and every 4 levels thereafter, this DR increases by 1."
+    "enGB": "At 2nd level, the cavalier gains DR 1/- and a +2 morale bonus on saving throws when wearing light armor or no armor and fighting defensively or using Combat Expertise. At 6th level and every 4 levels thereafter, this DR increases by 1."
   },
   {
     "Key": "CavalierEasterStarPierceTheGuard.Name",
@@ -94,7 +94,7 @@
   },
   {
     "Key": "CavalierEasternStarOnePurpose.Description",
-    "enGB": "At 15th level, the cavalier’s mount shares the benefits of the cavalier’s guarded ability. The cavalier must fight defensively or use Combat Expertise to grant these benefits, but the mount need not. In addition, the mount gains all the benefits of the cavalier’s challenge."
+    "enGB": "At 15th level, the cavalier's mount shares the benefits of the cavalier's guarded ability. The cavalier must fight defensively or use Combat Expertise to grant these benefits, but the mount need not. In addition, the mount gains all the benefits of the cavalier's challenge."
   }
 
 ]

@@ -16,6 +16,62 @@
     "enGB": "The time required for you to reload a firearm is reduced to a move action (for a one-handed firearm), or a standard action (two-handed firearm). Reloading a firearm still provokes attacks of opportunity.\r\n\r\nIf you have this feat you may fire an advanced firearm as a full-attack action."
   },
   {
+    "Key": "Feats.AmateurGunslinger.Name",
+    "enGB": "Amateur Gunslinger"
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Wisdom modifier (minimum 1) You can regain grit using the rules for the gunslinger�s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Drifter.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Charisma modifier (minimum 1) You can regain grit using the rules for the gunslinger�s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description.Short",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class."
+  },
+  {
+    "Key": "Feats.BlowoutShot.Name",
+    "enGB": "Blowout Shot"
+  },
+  {
+    "Key": "Feats.BlowoutShot.Description",
+    "enGB": "Benefit: Spend 1 grit point to retrieve a specially prepared dose of black powder from your person. The next time you use the firearm you've loaded with this special black powder, the concussive blast knocks you back 5 feet from the direction at which you were aiming. If there is no available space behind you, you brace yourself against the obstacle and do not move from your square. Any creatures struck by this attack take damage as normal and must succeed at a Reflex save (DC = 10 + 1/2 your gunslinger level + your Int modifier) or be pushed back 10 feet"
+  },
+  {
+    "Key": "Feats.DragonShot.Acid.Name",
+    "enGB": "Dragon Shot (Acid)"
+  },
+  {
+    "Key": "Feats.DragonShot.Fire.Name",
+    "enGB": "Dragon Shot (Fire)"
+  },
+  {
+    "Key": "Feats.DragonShot.Electricity.Name",
+    "enGB": "Dragon Shot (Electricity)"
+  },
+  {
+    "Key": "Feats.DragonShot.Cold.Name",
+    "enGB": "Dragon Shot (Cold)"
+  },
+  {
+    "Key": "Feats.DragonShot.Name",
+    "enGB": "Dragon Shot"
+  },
+  {
+    "Key": "Feats.DragonShot.Description",
+    "enGB": "Benefit: As a swift action, you can spend 1 grit point to convert your gun's damage into acid, fire, electricity, or cold damage for 1 round. You can choose a different damage type each time you use this ability. This still counts as a ranged weapon attack for critical hit multipliers and abilities such as Deadly Aim."
+  },
+  {
+    "Key": "Feats.ExtraGrit.Name",
+    "enGB": "Extra Grit"
+  },
+  {
+    "Key": "Feats.ExtraGrit.Description",
+    "enGB": "Benefit: You gain 2 extra grit points at the start of each day, and your maximum grit increases by 2. This {g|Encyclopedia:Feat}feat{/g} can be taken multiple times. Its effects stack."
+  },
+  {
     "Key": "Feats.WeaponFocus.Musket.Name",
     "enGB": "Weapon Focus (Musket)"
   },

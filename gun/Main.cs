@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using gun.Classes.Gunslinger;
 using gun.Classes.Spellscar_Drifter;
 using gun.Cowgirl;
+using gun.Feats;
 using gun.Firearms;
 using gun.Plot;
 using HarmonyLib;

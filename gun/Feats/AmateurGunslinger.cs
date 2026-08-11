@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gun.Classes.Spellscar_Drifter
+namespace gun.Feats
 {
     internal static class AmateurGunslinger
     {

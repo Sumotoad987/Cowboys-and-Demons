@@ -2,6 +2,7 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Utils;
 using gun.Deeds;
+using gun.Feats;
 using gun.Firearms;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;

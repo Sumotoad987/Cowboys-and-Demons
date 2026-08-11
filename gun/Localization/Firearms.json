@@ -5,11 +5,11 @@
   },
   {
     "Key": "DamagedFirearm.Description",
-    "enGB": "When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+    "enGB": "When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon. A DC 12 Reflex save halves this damage."
   },
   {
     "Key": "Misfire.Early.Description",
-    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon. A DC 12 Reflex save halves this damage."
   },
   {
     "Key": "Misfire.1.5.Name",
@@ -53,7 +53,7 @@
   },
   {
     "Key": "Firearms.Scatter.Description",
-    "enGB": "A weapon with the scatter weapon quality can shoot two different types of ammunition. It can fire normal bullets that target one creature, or it can make a scattering shot, attacking all creatures within a cone.  When a scatter weapon attacks all creatures within a cone, it makes a separate attack roll against each creature within the cone. Each attack roll takes a –2 penalty, and its attack damage cannot be modified by precision damage or damage-increasing feats such as Vital Strike. Effects that grant concealment, such as fog or smoke, or the blur, invisibility, or mirror image spells, do not foil a scatter attack."
+    "enGB": "A weapon with the scatter weapon quality can shoot two different types of ammunition. It can fire normal bullets that target one creature, or it can make a scattering shot, attacking all creatures within a cone.  When a scatter weapon attacks all creatures within a cone, it makes a separate attack roll against each creature within the cone. Each attack roll takes a -2 penalty, and its attack damage cannot be modified by precision damage or damage-increasing feats such as Vital Strike. Effects that grant concealment, such as fog or smoke, or the blur, invisibility, or mirror image spells, do not foil a scatter attack."
   },
   {
     "Key": "Firearms.Early.Reload.Name",
@@ -109,7 +109,7 @@
   },
   {
     "Key": "Firearms.Shotgun.Description",
-    "enGB": "This advanced version of the blunderbuss shoots in a 30-foot cone when firing pellets, and has a 20-foot range increment when firing a bullet (often called a slug). Shotguns can either be simple and functional, or art pieces in their own right, with engravings and inlay on the stocks and breeches. Those used by the upper class are often emblazoned with images of game animals, family crests, or elaborate maker’s marks."
+    "enGB": "This advanced version of the blunderbuss shoots in a 30-foot cone when firing pellets, and has a 20-foot range increment when firing a bullet (often called a slug). Shotguns can either be simple and functional, or art pieces in their own right, with engravings and inlay on the stocks and breeches. Those used by the upper class are often emblazoned with images of game animals, family crests, or elaborate maker's marks."
   },
   {
     "Key": "Firearms.Rifle.Name",
@@ -142,21 +142,5 @@
   {
     "Key": "Firearms.Revolver.Description",
     "enGB": "A revolver is a pistol with a revolving cylinder containing six chambers. Each chamber can hold a metal cartridge, and when one cartridge is fired, the cylinder automatically rotates (no extra hand or action required), readying the next chamber for firing. A revolver uses metal cartridges as ammunition. This is an advanced firearm."
-  },
-  {
-    "Key": "Feats.AmateurGunslinger.Name",
-    "enGB": "Amateur Gunslinger"
-  },
-  {
-    "Key": "Feats.AmateurGunslinger.Description",
-    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Wisdom modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
-  },
-  {
-    "Key": "Feats.AmateurGunslinger.Drifter.Description",
-    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Charisma modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
-  },
-  {
-    "Key": "Feats.AmateurGunslinger.Description.Short",
-    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class."
   }
 ]
