@@ -1,4 +1,10 @@
-﻿using System;
+﻿using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
+using BlueprintCore.Utils;
+using gun.Deeds;
+using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +12,36 @@ using System.Threading.Tasks;
 
 namespace gun.Feats
 {
-    internal class GritFeats
+    internal static class GritFeats
     {
-        //Whip Shot free action that costs 1 grit and requires that you used Pistol Whip on the target this round lets you make a shot on the target and requires ammo as normal
-        //https://aonprd.com/FeatDisplay.aspx?ItemName=Whip-Shot%20Deed
 
+        public const string BlowoutShotAbility = "";
+        public const string BlowoutShotBuff = "";
+
+
+        public static void Configure()
+        {
+           
+        }
+
+
+        public static void BlowoutShot()
+        {//not yet compatible with scatter shot (will only push one target)
+
+            BuffConfigurator.New("BlowoutShotBuff", BlowoutShotBuff)
+                .AddComponent(new BlowoutShot())
+                .SetDisplayName(LocalizationTool.GetString("Feats.BlowoutShot.Name"))
+                .SetDescription(LocalizationTool.GetString("Feats.BlowoutShot.Description"))
+                .SetIcon(BlueprintTool.Get<BlueprintAbility>("7ab6f70c996fe9b4597b8332f0a3af5f").Icon)//copy the icon from bull rush
+                .Configure();
+
+            ActivatableAbilityConfigurator.New("BlowoutShot", BlowoutShotAbility)
+                .SetBuff(BlueprintTool.GetRef<BlueprintBuffReference>(BlowoutShotBuff))
+                .SetDisplayName(LocalizationTool.GetString("Feats.BlowoutShot.Name"))
+                .SetDescription(LocalizationTool.GetString("Feats.BlowoutShot.Description"))
+                .SetIcon(BlueprintTool.Get<BlueprintAbility>("7ab6f70c996fe9b4597b8332f0a3af5f").Icon)//copy the icon from bull rush
+                .Configure();
+        }
 
         //Blowout Shot
         //activatable ability that requires 1 grit
