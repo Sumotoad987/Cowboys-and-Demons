@@ -88,6 +88,7 @@ public static class Main {
                 Mythos.Configure();
                 EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
                 Act3.Configure();
+                GritFeats.Configure();
                 //Game.Instance.AreaLoadingComplete
 
 

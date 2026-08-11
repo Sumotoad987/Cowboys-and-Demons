@@ -30,6 +30,7 @@ namespace gun.Feats
                 .AddInitiatorAttackWithWeaponTrigger(action: ActionsBuilder.New().RestoreResource(Deeds.Grit.GritResource, value: 1), actionsOnInitiator: true, criticalHit: true, category: BaseFirearm.FirearmCategory)//firearms will all use the heavy crossbow category for now
                 .AddInitiatorAttackWithWeaponTrigger(action: ActionsBuilder.New().RestoreResource(Deeds.Grit.GritResource, value: 1), actionsOnInitiator: true, reduceHPToZero: true, category: BaseFirearm.FirearmCategory)//firearms will all use the heavy crossbow category for now
                 .AddPrerequisiteNoFeature(BlueprintTool.GetRef<BlueprintFeatureReference>(Deeds.Grit.GritFeatureGUID))
+                .AddPrerequisiteNoFeature(BlueprintTool.GetRef<BlueprintFeatureReference>(Deeds.Grit.ChaGritFeatureGUID))
                 .AddPrerequisiteNoFeature(BlueprintTool.GetRef<BlueprintFeatureReference>(DrifterGUID))
                 .AddFeatureOnApply(BlueprintTool.GetRef<BlueprintFeatureReference>(Deeds.DeedConfigurator.QuickClearFeatureGUID))
                 .Configure();

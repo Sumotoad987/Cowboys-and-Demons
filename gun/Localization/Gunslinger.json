@@ -32,6 +32,14 @@
     "enGB": "At the start of each day, a gunslinger gains a number of grit points equal to her Wisdom modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Wisdom modifier (minimum 1)"
   },
   {
+    "Key": "Grit.Cha.Description",
+    "enGB": "Instead of using her Wisdom modifier to determine the number of grit points she gains at the start of each day, she uses her Charisma modifier. This ability works in all other ways like the gunslinger’s grit class feature."
+  },
+  {
+    "Key": "Grit.Cha.Description.Short",
+    "enGB": "At the start of each day, a gunslinger gains a number of grit points equal to her Charisma modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Charisma modifier (minimum 1)"
+  },
+  {
     "Key": "TrueGrit.Name",
     "enGB": "True Grit"
   },
@@ -58,5 +66,29 @@
   {
     "Key": "Nimble.Buff.Name",
     "enGB": "AC Bonus (Nimble)"
+  },
+  {
+    "Key": "SeaDog.Name",
+    "enGB": "Seadog's Gait"
+  },
+  {
+    "Key": "SeaDog.Description",
+    "enGB": "At 1st level, the buccaneer gains a +2 bonus on mobility checks. If she spends 1 grit point, she can ignore difficult terrain until the end of her turn. This replaces the quick clear deed."
+  },
+  {
+    "Key": "SeaDog.Ability.Description",
+    "enGB": "Spend 1 grit point, to ignore difficult terrain until the end of your turn"
+  },
+  {
+    "Key": "Jargon.Name",
+    "enGB": "Pirate’s Jargon"
+  },
+  {
+    "Key": "Jargon.Description",
+    "enGB": "At 3rd level, the buccaneer’s baffling palaver of nautical jargon and piratical cant provides a +2 bonus on Bluff and Intimidate checks. Furthermore, she can spend a swift action and 1 grit point to cause a single living creature within 30 feet to make a Will saving throw (DC = 10 + 1/2 her buccaneer level + her Charisma modifier) or become confused for 1 round. This is a mind-affecting language-dependent effect."
+  },
+  {
+    "Key": "Jargon.Ability.Description",
+    "enGB": "Spend a swift action and 1 grit point to cause a single living creature within 30 feet to make a Will saving throw (DC = 10 + 1/2 her buccaneer level + her Charisma modifier) or become confused for 1 round. This is a mind-affecting language-dependent effect."
   }
 ]

@@ -29,8 +29,6 @@ using UnityEngine.Serialization;
 namespace gun.Firearms
 {
     //This is used to bypass armor bonus shield bonus and natural armor bonus on the attack since fire arms target touch AC but are otherwise treated as standard ranged attacks for stuff like deadly aim
-    [ComponentName("Armor Piercing")]
-    [TypeId("cb00ec03dcf641978e4ada52b9805838")]
     public class ArmorPiercing : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateAC>, IRulebookHandler<RuleCalculateAC>, ISubscriber, IInitiatorRulebookSubscriber
     {
         public void OnEventAboutToTrigger(RuleCalculateAC evt)

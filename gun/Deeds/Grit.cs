@@ -45,6 +45,7 @@ namespace gun.Deeds
     {
         public const string GritResourceGUID = "121f2748b31245a49c4da692a38f2c43";
         public const string GritFeatureGUID = "b6472099ad7d43f3a270dc441b6c9c55";
+        public const string ChaGritFeatureGUID = "cc6fd36c2f7c4e01a7675fba10df9871";
         public const string TrueGritFeatureGUID = "06594d741aff436ba6af6fc65f9c593b";
         public static BlueprintAbilityResourceReference GritResource;
         public static BlueprintFeature gritFeature;
@@ -85,16 +86,23 @@ namespace gun.Deeds
                 .AddAbilityResourceTrigger(recoverGrit, resource: GritResource)
                 .Configure()
                 ;
-
+            ChaGrit();
         }
 
-        public static Sprite GetIcon()
+        private static void ChaGrit()
         {
-            byte[] data = File.ReadAllBytes(Main.ModPath + "/Media/Icons/Musket.png");//Will need a proper icon either from in game or elsewhere
-            Texture2D texture2D = new Texture2D(64, 64);
-            texture2D.LoadImage(data);
-            Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
-            return icon;
+
+            FeatureConfigurator.New("ChaGrit", ChaGritFeatureGUID)//looked at the swashbuckler mod to get a sense of what was needed here
+                .SetDisplayName(LocalizationTool.GetString("Grit.Name"))
+                .SetDescription(LocalizationTool.GetString("Grit.Cha.Description"))
+                .SetDescriptionShort(LocalizationTool.GetString("Grit.Cha.Description.Short"))
+                .AddAbilityResources(resource: GritResource, restoreAmount: true)
+                .AddContextRankConfig(ContextRankConfigs.StatBonus(Kingmaker.EntitySystem.Stats.StatType.Charisma, min: 1))
+                .AddIncreaseResourceAmountBySharedValue(resource: GritResource, value: ContextValues.Rank())
+                .AddInitiatorAttackWithWeaponTrigger(action: ActionsBuilder.New().RestoreResource(GritResource, value: 1), actionsOnInitiator: true, criticalHit: true, category: BaseFirearm.FirearmCategory)//firearms will all use the heavy crossbow category for now
+                .AddInitiatorAttackWithWeaponTrigger(action: ActionsBuilder.New().RestoreResource(GritResource, value: 1), actionsOnInitiator: true, reduceHPToZero: true, category: BaseFirearm.FirearmCategory)//firearms will all use the heavy crossbow category for now
+                .SetIsClassFeature(true)
+                .Configure();
         }
     }
 

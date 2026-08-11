@@ -76,7 +76,7 @@ namespace gun.Feats
                 .SetDescription(LocalizationTool.GetString("Feats.BlowoutShot.Description"))
                 .AddFacts([BlueprintTool.GetRef<BlueprintUnitFactReference>(BlowoutShotAbility)])
                 .SetIcon(BlueprintTool.Get<BlueprintAbility>("7ab6f70c996fe9b4597b8332f0a3af5f").Icon)
-                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID,AmateurGunslinger.DrifterGUID,Grit.GritFeatureGUID],1,true)//hope this is right
+                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID,AmateurGunslinger.DrifterGUID,Grit.GritFeatureGUID,Grit.ChaGritFeatureGUID],1,true)//hope this is right
                 .Configure();
         }
 
@@ -187,7 +187,7 @@ namespace gun.Feats
             AbilityConfigurator.New("DragonShot", DragonShotAbility[4])
                 .SetDisplayName(LocalizationTool.GetString("Feats.DragonShot.Name"))
                 .SetDescription(LocalizationTool.GetString("Feats.DragonShot.Description"))
-                .SetIcon(BlueprintTool.Get<BlueprintAbility>("5d7c3a3eed0546a598e3d2a1c7e0026a").Icon)//copy the icon from elemental fist
+                .SetIcon(BlueprintTool.Get<BlueprintFeature>("5d7c3a3eed0546a598e3d2a1c7e0026a").Icon)//copy the icon from elemental fist
                 .AddAbilityVariants([DragonShotAbility[0], DragonShotAbility[1], DragonShotAbility[2], DragonShotAbility[3]])
                 .SetRange(AbilityRange.Personal)
                 .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Swift)
@@ -199,8 +199,8 @@ namespace gun.Feats
                 .SetDisplayName(LocalizationTool.GetString("Feats.DragonShot.Name"))
                 .SetDescription(LocalizationTool.GetString("Feats.DragonShot.Description"))
                 .AddFacts([BlueprintTool.GetRef<BlueprintUnitFactReference>(DragonShotAbility[4])])
-                .SetIcon(BlueprintTool.Get<BlueprintAbility>("5d7c3a3eed0546a598e3d2a1c7e0026a").Icon)//copy the icon from elemental fist
-                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID, AmateurGunslinger.DrifterGUID, Grit.GritFeatureGUID], 1, true)//hope this is right
+                .SetIcon(BlueprintTool.Get<BlueprintFeature>("5d7c3a3eed0546a598e3d2a1c7e0026a").Icon)//copy the icon from elemental fist
+                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID, AmateurGunslinger.DrifterGUID, Grit.GritFeatureGUID, Grit.ChaGritFeatureGUID], 1, true)//hope this is right
                 .AddPrerequisiteStatValue(Kingmaker.EntitySystem.Stats.StatType.SkillKnowledgeArcana,5)
                 .Configure();
         }
@@ -215,7 +215,7 @@ namespace gun.Feats
                 .SetDescription(LocalizationTool.GetString("Feats.ExtraGrit.Description"))
                 .AddIncreaseResourceAmount(Grit.GritResource,2)
                 .SetRanks(20)//I think this means it can be selected multiple times
-                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID, AmateurGunslinger.DrifterGUID, Grit.GritFeatureGUID], 1, true)//hope this is right
+                .AddPrerequisiteFeaturesFromList([AmateurGunslinger.BaseGUID, AmateurGunslinger.DrifterGUID, Grit.GritFeatureGUID, Grit.ChaGritFeatureGUID], 1, true)//hope this is right
                 .Configure();
         }
         

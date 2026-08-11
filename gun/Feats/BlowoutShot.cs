@@ -40,7 +40,7 @@ namespace gun.Feats
                 
                 //copied the below from the bullrush manuever before editing
                 Vector3 normalized3 = (evt.Initiator.Position - evt.Target.Position).normalized;
-                evt.Initiator.Ensure<UnitPartForceMove>().Push(-normalized3, 5.Feet().Meters, false);//push the user back 5 feet
+                evt.Initiator.Ensure<UnitPartForceMove>().Push(normalized3, 5.Feet().Meters, false);//push the user back 5 feet
 
                 int DC = 10;
 
@@ -60,7 +60,7 @@ namespace gun.Feats
                 Context.TriggerRule(save);
                 if (!save.IsPassed)
                 {//if they failed the save
-                    evt.Target.Ensure<UnitPartForceMove>().Push(normalized3, 10.Feet().Meters, false);//push them back 10 feet
+                    evt.Target.Ensure<UnitPartForceMove>().Push(-normalized3, 10.Feet().Meters, false);//push them back 10 feet
                 }
                 
             }
