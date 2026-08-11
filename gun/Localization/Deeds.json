@@ -1,0 +1,150 @@
+[
+  {
+    "Key": "Deeds.QuickClear.Name",
+    "enGB": "Quick Clear"
+  },
+  {
+    "Key": "Deeds.QuickClear.Description",
+    "enGB": "At 1st level, as a standard action, the gunslinger can remove the broken condition from a single firearm she is currently wielding, as long as that condition was gained by a firearm misfire. The gunslinger must have at least 1 grit point to perform this deed. Alternatively, if the gunslinger spends 1 grit point to perform this deed, she can perform quick clear as a move-equivalent action instead of a standard action."
+  },
+  {
+    "Key": "Deeds.QuickClear.Standard.Name",
+    "enGB": "Quick Clear (Standard)"
+  },
+  {
+    "Key": "Deeds.QuickClear.Standard.Description",
+    "enGB": "As a standard action, the gunslinger can remove the broken condition from a single firearm she is currently wielding. The gunslinger must have at least 1 grit point to perform this deed. "
+  },
+  {
+    "Key": "Deeds.QuickClear.Move.Name",
+    "enGB": "Quick Clear (Move)"
+  },
+  {
+    "Key": "Deeds.QuickClear.Move.Description",
+    "enGB": "The gunslinger can remove the broken condition from a single firearm she is currently wielding as a move action if she spends 1 grit point."
+  },
+  {
+    "Key": "Deeds.SlingerInitiative.Name",
+    "enGB": "Gunslinger Initiative"
+  },
+  {
+    "Key": "Deeds.SlingerInitiative.Description",
+    "enGB": "At 3rd level, as long as the gunslinger has at least 1 grit point, she gains a +2 bonus on initiative checks."
+  },
+  {
+    "Key": "Deeds.Targeting.Name",
+    "enGB": "Targeting"
+  },
+  {
+    "Key": "Deeds.Targeting.Description",
+    "enGB": "At 7th level, as a full-round action, the gunslinger can make a single firearm attack and choose part of the body to target. She gains the following effects depending on the part of the body targeted. This deed costs 1 grit point to perform no matter which part of the creature she targets.\r\n\r\n    Arms: On a hit, the target takes no damage from the hit but is disarmed.\r\n    Head: On a hit, the target is damaged normally, and is also confused for 1 round. This is a mind-affecting effect.\r\n    Legs: On a hit, the target is damaged normally and knocked prone.\r\n"
+  },
+  {
+    "Key": "Deeds.Targeting.Head.Name",
+    "enGB": "Targeting (Headshot)"
+  },
+  {
+    "Key": "Deeds.Targeting.Head.Description",
+    "enGB": "On a hit, the target is damaged normally, and is also confused for 1 round. This is a mind-affecting effect."
+  },
+  {
+    "Key": "Deeds.Targeting.Arms.Name",
+    "enGB": "Targeting (Arms)"
+  },
+  {
+    "Key": "Deeds.Targeting.Arms.Description",
+    "enGB": "On a hit, the target takes no damage from the hit but is disarmed for 1 round plus 1 additional round for each 5 by which the hit roll exceeds their AC."
+  },
+  {
+    "Key": "Deeds.Targeting.Legs.Name",
+    "enGB": "Targeting (Legs)"
+  },
+  {
+    "Key": "Deeds.Targeting.Legs.Description",
+    "enGB": "Legs: On a hit, the target is damaged normally and knocked prone."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Standard.Name",
+    "enGB": "Bleeding Shot"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Standard.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 1 grit point as a free action to have that attack deal extra bleed damage. The amount of bleed damage is equal to the gunslinger's Dexterity modifier."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Strength.Name",
+    "enGB": "Bleeding Shot (Strength)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Strength.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Strength bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Constitution.Name",
+    "enGB": "Bleeding Shot (Constitution)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Constitution.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Constitution bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Dexterity.Name",
+    "enGB": "Bleeding Shot (Dexterity)"
+  },
+  {
+    "Key": "Deeds.BleedingShot.Dexterity.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 2 grit points as a free action to have that attack deal 1 point of Dexterity bleed damage."
+  },
+  {
+    "Key": "Deeds.BleedingShot.Description",
+    "enGB": "At 11th level, when the gunslinger hits a living creature with a firearm attack, she can spend 1 grit point as a free action to have that attack deal extra bleed damage. The amount of bleed damage is equal to the gunslinger's Dexterity modifier. Alternatively, the gunslinger can spend 2 grit points to deal 1 point of Strength, Dexterity, or Constitution bleed damage (gunslinger's choice) instead."
+  },
+  {
+    "Key": "Bleed.Standard.Name",
+    "enGB": "Bleed"
+  },
+  {
+    "Key": "Bleed.Standard.Description",
+    "enGB": "This creature takes {g|Encyclopedia:HP}hit point{/g} {g|Encyclopedia:Damage}damage{/g} each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Strength.Name",
+    "enGB": "Strength Bleed"
+  },
+  {
+    "Key": "Bleed.Strength.Description",
+    "enGB": "This creature takes strength damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Constitution.Name",
+    "enGB": "Constitution Bleed"
+  },
+  {
+    "Key": "Bleed.Constitution.Description",
+    "enGB": "This creature takes constitution damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Bleed.Dexterity.Name",
+    "enGB": "Dexterity Bleed"
+  },
+  {
+    "Key": "Bleed.Dexterity.Description",
+    "enGB": "This creature takes Dexterity damage each turn equal to the dexterity modifier of the gunslinger who wounded them. Bleeding can be stopped through the application of any effect that {g|Encyclopedia:Healing}cures{/g} hit point damage (even if the bleed is {g|Encyclopedia:AbilityDamage}ability damage{/g})."
+  },
+  {
+    "Key": "Deeds.Evasive.Name",
+    "enGB": "Gunslinger's Evasion"
+  },
+  {
+    "Key": "Deeds.Evasive.Description",
+    "enGB": "At 15th level, when the gunslinger has at least 1 grit point, she gains the benefit of the evasion, uncanny dodge, and improved uncanny dodge rogue class features. She uses her gunslinger level as her rogue level for improved uncanny dodge. "
+  },
+  {
+    "Key": "Deeds.StunningShot.Name",
+    "enGB": "Stunning Shot"
+  },
+  {
+    "Key": "Deeds.StunningShot.Description",
+    "enGB": "At 19th level, when a gunslinger hits a creature, she can spend 2 grit points to stun the creature for 1 round. The creature must make a Fortitude saving throw (the DC = 10 + 1/2 the gunslinger's level + the gunslinger's Wisdom modifier). If the creature fails, it is stunned for 1 round."
+  }
+]

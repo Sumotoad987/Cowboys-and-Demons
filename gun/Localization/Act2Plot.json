@@ -1,0 +1,183 @@
+[
+  {
+    "Key": "Plot.CowgirlMeeting.Title",
+    "enGB": "Lone Rider"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.0",
+    "enGB": "One rarely enocunters a lone traveler in a place as harsh as the worldwound. Yet as the Commander crests a craggy hilltop that is exactly what {mf|he|she} finds. In the valley below a figure knees down in the dirt with an unnaturaly still horse by their side. Anywhere else such as sight would little more than an oddity yet here nothing is quite so simple. The sight of something so mundane sets the commander's company strangely on edge."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.1",
+    "enGB": "From the safety of the hilltop the Commander decides too..."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.0",
+    "enGB": "... watch the stranger closely."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.2",
+    "enGB": "The Commander's keen eyes make out a body lying dead in the dirt. The stranger seems to be searching the body for something."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.3",
+    "enGB": "But the stranger is too far away to make out what their are doing."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.1",
+    "enGB": "...try and identify the stranger."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.4",
+    "enGB": "The unusual clothes and weapons worn by the stranger marks her out as a native of Alkenstar a nation in Garund famous for it's advanced technology. Most notably it is one of the few places which holds the secrets of gunsmithing. Allowing them to create powerful firearms such she bears."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.5",
+    "enGB": "The unusual clothes and weaponry worn by the stranger suggests they're not from around here but the Commander has never seen the like of them before."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.2",
+    "enGB": "...sense the air for any sign of illusions."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.6",
+    "enGB": "It's hard to tell amidst the raw chaos of the Worldwound but there is a trace of something in the air. There was magic here but whatever it was it's gone now."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.7",
+    "enGB": "Any signs of magic are lost amidst the raw chaos of the Wound."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.3",
+    "enGB": "...move in closer."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.8",
+    "enGB": "It would seem the Commander is not the only one interested in this strange precence within the Wound. From the scant cover of withering vegetation the Commander spots a motly gang of demons and cultists creeping through the valley towards the stranger."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.9",
+    "enGB": "Still possessing the element of surprise the Commander..."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.4",
+    "enGB": "...charges into the fray."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.10",
+    "enGB": "The Commander bursts into the fray meeting the demons head on. The sudden onslaught catches the demons off guard inflicting serious damage and forcing them back into the valley wall. Even so the Commander is greatly outnumbered and slowly the battle begins to turn against {mf|him|her}"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.11",
+    "enGB": "The slope proves rougher than expected and the Commander is exhuasted before {mf|he|she} even reaches the bottom. When the two forces meet the demons hold their ground and begin to push the Commander back uphill."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.5",
+    "enGB": "...clambers down the rockface to outflank the enemy."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.12",
+    "enGB": "The Commander slips around and strikes the enemy from the rear inflicting serious damage and forcing them back into the valley wall. Even so the Commander is greatly outnumbered and slowly the battle begins to turn against {mf|him|her}"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.13",
+    "enGB": "The slope proves rougher than expected and the Commander is exhuasted before {mf|he|she} even reaches the bottom. When the two forces meet the demons hold their ground and begin to push the Commander back uphill."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.14",
+    "enGB": "A sudden bang as loud as thunder echoes through the valley. Metal pellets rend through demon hide as the stranger joins the battle. For a moment everything seems to slow as all eyes turn to the newcomer and the smoking metal rod in her hands."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.15",
+    "enGB": "\"So these are demons then ey? Seem they'll bleed just like the rest of us.\" she mutters before firing again."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.16",
+    "enGB": "With the strangers help the tide turns in the Commander's favour and the demons soon lie dead and {mf|his|her} feet."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.17",
+    "enGB": "As the smoke clears the stranger steps forward \"Thanks for the help there. Bell Tarvil, Shieldmarshal of Alkenstar at your service\" she tips her hat the commanders way."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.6",
+    "enGB": "Offer a hand: \"I'm {name} pleasure to make your acquaintance\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.7",
+    "enGB": "\"You fought well yourself. I'm {name} Commander of the Fifth Crusade\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.18",
+    "enGB": "\"Ah so you're the one I heard about back in Kenebres. Things are rough back there but I reckon they'd've been worse without your help. Anyway you're probably wondering what brings a gal like me all the way out here all by my lonesome. I'm on the trail of a villain. He's a real monster who loves to delve into all the worst kinds of magic, alchemy and any other kind of dark knowledge he can get his hands on.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.8",
+    "enGB": "\"Who is he?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.9",
+    "enGB": "\"Is he working with the demons?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.10",
+    "enGB": "\"What makes him so important to travel halfway around the world for?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.11",
+    "enGB": "\"Is there anything I can do to help?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.12",
+    "enGB": "\"Would you consider joining the crusade?\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.19",
+    "enGB": "\"He's taken to calling himself the Brainweaver. He's a master of the twisted art of fleshwarping and head of a cult of crazies who think he understands the mysteries of reality or some such rot.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.20",
+    "enGB": "\"I don't think so but I wouldn't put it past him to make a deal with 'em. Him an' his cronies are dedicated to Yog-Sothoth which is whole other brand of madness. I'm not sure why they came round 'ere but I'd guess either it cause he wanted to study the worldwound or he thought's it'd be a good place to lay low after all the heat on 'em back home.\"",
+    "ProcessTemplate": "false"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.21",
+    "enGB": "\"If it were just 'im well... But it's not. Before I left home he went on another one of his rampages and this time he took a whole lot of people prisoner. I hate to imagine what kind of horrors he has in mind for 'em so I've been keeping as hard on his trail as I can. I hope that at least if he can't settle down he won't have time for whatever else he's up ta.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.22",
+    "enGB": "Theres something more too it than that, something personal, but whatever it is she's not letting on."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.23",
+    "enGB": "\"I don't think so but thank you for asking. Right now I've gotta keep after him and from what I've heard you've got plenty of problems of your own to deal with. But I'll remember your offer, try an' keep ya in the loop.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.24",
+    "enGB": "She gives a dry laugh \"You sure are eager to get new recruits aren't ya. As for me, well. I 'ave a responsibility to rescue my own people first. But.. hmmm. I can see you've got a worthy cause of your own going on here. I had planned on bringing 'em all back home but maybe I'll stick around seems there's plenty of good to be done 'round here. Until then I wish you the best of luck and maybe I'll take down a few demons for ya along the way.\""
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.25",
+    "enGB": "\"Well if this lot are anything to go by it's probably not safe to stick around these parts too long. 'Sides I'd best get back on the hunt. May we both live long enough for our paths to cross again.\" With a final nod in the commanders direction the Shieldmarshal swings up on her horse and rides away."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.14",
+    "enGB": "Search the area."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.26",
+    "enGB": "The Commander spots the body of a humanoid clearly killed by a bullet wound. The figure wore a tattered grey cloak and an amulet bearing the image of a black spiral over a silver portal. By his side is the battered remains of a book with a large hole has been burned through its centre. It looks like the cover once bore the same symbol as the cultists amulet and the spine shows the title 'Gateways of Mystery'"
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Answer.15",
+    "enGB": "Examine the book."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.27",
+    "enGB": "The book is too heavily damaged to make out much beyond a few sentences here are there. But something about even those few words is profoundly unsettling. It hints at secrets at the edge of time, bears fragments of diagrams of the most horrid monstrous forms and whispers that true enlightenment lies in the mysteries hidden between the stars."
+  },
+  {
+    "Key": "Plot.CowgirlMeeting.Cue.28",
+    "enGB": "There is however one section that catches the Commanders eye. An essay on planer gateways and passages between worlds. It speaks of how such passageways warp the space around them interfering with normal teleportation yet to one with true understanding that distorted space can allow for a whole other kind of transport."
+  }
+]

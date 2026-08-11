@@ -1,0 +1,100 @@
+[
+  {
+    "Key": "SpellscarDrifter.Name",
+    "enGB": "Spellscar Drifter"
+  },
+  {
+    "Key": "SpellscarDrifter.Description",
+    "enGB": "The Spellscar Desert is a dangerous wasteland into which few venture without a guide. Spellscar drifters have made themselves at home in these badlands. When not scouring the desert for forgotten treasures or magic hidden by the region’s shifting magic-dead zones, a Spellscar drifter might hire himself out as a guide, bodyguard, or assassin. There are even a few Spellscar drifters who are temporarily deputized by the Grand Duchy of Alkenstar to perform law enforcement tasks beyond the reach of the city’s normal constabulary. Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+  },
+  {
+    "Key": "SpellscarDrifter.Description.Short",
+    "enGB": "Spellscar drifters are self-reliant and always keep their firearms loaded—in the Spellscar Desert, a rider with a slow draw doesn’t live long."
+  },
+  {
+    "Key": "ToughAsNails.Name",
+    "enGB": "Tough As Nails"
+  },
+  {
+    "Key": "ToughAsNails.Description",
+    "enGB": "At 20th level, if the Spellscar drifter confirms a critical hit on an attack made with a firearm, the target is stunned for 1d4 rounds. A successful Will saving throw (DC = 10 + the Spellscar drifter’s base attack bonus) reduces this effect to staggered instead of stunned"
+  },
+  {
+    "Key": "ToughAsNails.Description.Short",
+    "enGB": "The Spellscar drifter can stun or stagger an enemy on a critical hit with a firearm."
+  },
+  {
+    "Key": "SpellSevered.Name",
+    "enGB": "Spell Severed"
+  },
+  {
+    "Key": "SpellSevered.Description",
+    "enGB": "At 12th level, a Spellscar drifter becomes permanently marked by long exposure to the Spellscar Desert. The Spellscar drifter gains spell resistance equal to 10 + her character level."
+  },
+  {
+    "Key": "SpellSevered.Description.Short",
+    "enGB": "The Spellscar drifter gains spell resistance equal to 10 + her character level."
+  },
+  {
+    "Key": "OldReliable.Name",
+    "enGB": "Old Reliable"
+  },
+  {
+    "Key": "OldReliable.Description",
+    "enGB": "At 11th level, whenever a Spellscar drifter declares a challenge, the threat range of the Spellscar drifter’s firearm is doubled against the target of her challenge. This increase does not stack with other effects that double the threat range of the weapon."
+  },
+  {
+    "Key": "OldReliable.Description.Short",
+    "enGB": "The threat range of the Spellscar drifter’s firearms is doubled against the target of her challenge."
+  },
+
+  {
+    "Key": "OrderOfTheEasternStar.Name",
+    "enGB": "Order of the Eastern Star"
+  },
+  {
+    "Key": "OrderOfTheEasternStar.Description",
+    "enGB": "This cavalier order exists to keep dangerous secrets hidden from the world and secretly protect the world against unimaginable threats from beyond the mortal realms. These cavaliers scout and observe, concerning themselves not with the trivial pursuit of morality, but rather with ensuring the survival of society itself. Edicts: The cavalier must preserve the secrets of his order while acting to protect civilization against occult threats. He must thwart the schemes of otherworldly horrors and must give his order a full accounting of any potential threats."
+  },
+  {
+    "Key": "CavalierEasternStarChallenge.Name",
+    "enGB": "Challenge"
+  },
+  {
+    "Key": "CavalierEasternStarChallenge.Description",
+    "enGB": "Whenever a cavalier of the order of the eastern star issues a challenge, she receives a +1 dodge bonus to AC and a +1 insight bonus on saves against the attacks and abilities of the target of his challenge. She must be wearing light armor or no armor to receive these bonuses. These bonuses increase by 1 for every 4 class levels the cavalier possesses."
+  },
+  {
+    "Key": "CavalierEasternStarSkills.Name",
+    "enGB": "Skills"
+  },
+  {
+    "Key": "CavalierEasternStarSkills.Description",
+    "enGB": "A cavalier belonging to the order of the eastern star adds Knowledge (arcana) to her class skills. She receives a bonus on Knowledge (arcana) checks equal to 1/2 his cavalier level (minimum +1)."
+  },
+  {
+    "Key": "CavalierEasternStarGuarded.Name",
+    "enGB": "Guarded"
+  },
+  {
+    "Key": "CavalierEasternStarGuarded.Description",
+    "enGB": "At 2nd level, the cavalier gains DR 1/— and a +2 morale bonus on saving throws when wearing light armor or no armor and fighting defensively or using Combat Expertise. At 6th level and every 4 levels thereafter, this DR increases by 1."
+  },
+  {
+    "Key": "CavalierEasterStarPierceTheGuard.Name",
+    "enGB": "Pierce the Guard"
+  },
+  {
+    "Key": "CavalierEasterStarPierceTheGuard.Description",
+    "enGB": "At 8th level, the cavalier's weapons are treated as having the cavalier's {g|Encyclopedia:Alignment}alignment{/g} for the purpose of overcoming the {g|Encyclopedia:Damage_Reduction}damage reduction{/g} of extraplaner creatures. Against an extraplaner target of her challenge, the cavalier automatically overcomes all damage reduction that creature possesses."
+  },
+  {
+    "Key": "CavalierEasternStarOnePurpose.Name",
+    "enGB": "One Purpose"
+  },
+  {
+    "Key": "CavalierEasternStarOnePurpose.Description",
+    "enGB": "At 15th level, the cavalier’s mount shares the benefits of the cavalier’s guarded ability. The cavalier must fight defensively or use Combat Expertise to grant these benefits, but the mount need not. In addition, the mount gains all the benefits of the cavalier’s challenge."
+  }
+
+]

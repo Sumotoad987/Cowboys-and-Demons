@@ -21,6 +21,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using UnityModManagerNet;
+using static UnityModManagerNet.UnityModManager;
 using static UnityModManagerNet.UnityModManager.Param;
 
 namespace gun;
@@ -39,7 +40,6 @@ public static class Main {
     public static bool Load(UnityModManager.ModEntry modEntry) {
         Log = modEntry.Logger;
         ModPath = modEntry.Path;
-
         HarmonyInstance = new Harmony(modEntry.Info.Id);
         try {
             HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
@@ -62,9 +62,9 @@ public static class Main {
                     return;
                 }
                 Initialized = true;
-
                 LoadGunAssets();
                 
+                LocalizationTool.LoadLocalizationPacks(Directory.GetFiles(Path.Combine(ModPath, "Localization")));//hoping this will load all of them
 
                 Log.Log("Patching blueprints.");
                 

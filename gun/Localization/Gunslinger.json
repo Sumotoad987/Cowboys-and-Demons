@@ -1,0 +1,62 @@
+[
+  {
+    "Key": "Gunslinger.Class.Name",
+    "enGB": "Gunslinger"
+  },
+  {
+    "Key": "Gunslinger.Class.Description",
+    "enGB": "For a renegade few, battle sounds different than it does for the typical fighter. The clash of steel and the sizzle of spell energy are drowned out by the thunderous rhythm of gunfire—the pounding beat of the gunslinger.\r\n\r\nGunslingers are a bold and mysterious lot. While many treat the secrets of black powder with the same care and reverence that a wizard typically reserves for his spellbook, most gunslingers know that firearms are a secret that cannot remain concealed forever. While current firearms are simple, often imprecise, and even dangerous devices, they are a technology on the move, and one that will become even more powerful when it is fully fused with magic."
+  },
+  {
+    "Key": "Gunslinger.Proficiencies.Name",
+    "enGB": "Gunslinger Proficiencies"
+  },
+  {
+    "Key": "Gunslinger.Proficiencies.Description",
+    "enGB": "Gunslingers are proficient with all simple and martial weapons, and with all firearms. They are proficient with all light armor."
+  },
+  {
+    "Key": "Gunslinger.Class.DescriptionShort",
+    "enGB": "Brave, clever, and frequently foolhardy gunslingers are thunderous artillery, often found where the fighting is fiercest."
+  },
+  {
+    "Key": "Grit.Name",
+    "enGB": "Grit"
+  },
+  {
+    "Key": "Grit.Description",
+    "enGB": "A gunslinger makes her mark upon the world with daring deeds. Some gunslingers claim they belong to a mystical way of the gun, but it's more likely that the volatile nature of firearms simply prunes the unlucky and careless from their ranks. Whatever the reason, all gunslingers have grit. In game terms, grit is a fluctuating measure of a gunslinger's ability to perform amazing actions in combat. At the start of each day, a gunslinger gains a number of grit points equal to her Wisdom modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Wisdom modifier (minimum 1), though some feats and magic items may affect this maximum. A gunslinger spends grit to accomplish deeds (see below), and regains grit in the following ways.\r\n\r\nCritical Hit with a Firearm: Each time the gunslinger confirms a critical hit with a firearm attack while in the heat of combat, she regains 1 grit point.\r\n\r\nKilling Blow with a Firearm: When the gunslinger reduces a creature to 0 or fewer hit points with a firearm attack while in the heat of combat, she regains 1 grit point."
+  },
+  {
+    "Key": "Grit.Description.Short",
+    "enGB": "At the start of each day, a gunslinger gains a number of grit points equal to her Wisdom modifier (minimum 1). Her grit goes up or down throughout the day, but usually cannot go higher than her Wisdom modifier (minimum 1)"
+  },
+  {
+    "Key": "TrueGrit.Name",
+    "enGB": "True Grit"
+  },
+  {
+    "Key": "TrueGrit.Description",
+    "enGB": "At 20th level, a gunslinger recoveres 1 grit each time she spends it allowing her to perform deeds for 1 grit less so long as she has enough grit to perform them at their standard cost."
+  },
+  {
+    "Key": "GunTraining.Name",
+    "enGB": "Gun Training"
+  },
+  {
+    "Key": "GunTraining.Description",
+    "enGB": "Starting at 5th level, a gunslinger gains a bonus equal to her Dexterity modifier on damage rolls with firearms."
+  },
+  {
+    "Key": "Nimble.Name",
+    "enGB": "Nimble"
+  },
+  {
+    "Key": "Nimble.Description",
+    "enGB": "Starting at 2nd level, a gunslinger gains a +1 dodge bonus to AC while wearing light or no armor. Anything that causes the gunslinger to lose her Dexterity bonus to AC also causes the gunslinger to lose this dodge bonus. This bonus increases by +1 for every four levels beyond 2nd level (to a maximum of +5 at 20th level)."
+  },
+  {
+    "Key": "Nimble.Buff.Name",
+    "enGB": "AC Bonus (Nimble)"
+  }
+]

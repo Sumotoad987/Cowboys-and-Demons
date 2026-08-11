@@ -26,7 +26,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="LocalizedStrings.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	<Target Name="ILRepack" AfterTargets="Build">
 		<ItemGroup>
@@ -59,6 +58,9 @@
 		<PackageReference Include="ILRepack.MSBuild.Task" Version="2.*" />
 		<PackageReference Include="WW-Blueprint-Core" Version="*-*" />
 		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="Localization\*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	<Target Name="GenerateCustomPropsFile" Condition="$(WrathInstallDir) == ''">
 		<Exec Command="findstr /C:&quot;Mono path[0]&quot; &quot;$(WrathData)\Player.log&quot;" IgnoreExitCode="true" ConsoleToMSBuild="true">

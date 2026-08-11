@@ -1,0 +1,162 @@
+[
+  {
+    "Key": "DamagedFirearm.Name",
+    "enGB": "Damaged Firearm"
+  },
+  {
+    "Key": "DamagedFirearm.Description",
+    "enGB": "When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+  },
+  {
+    "Key": "Misfire.Early.Description",
+    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2. If an early firearm with the broken condition misfires again, it explodes. Each firearm has a burst size noted in parentheses after its misfire value. Any creature within this burst (including the firearm's wielder) takes damage as if it had been hit by the weapon—a DC 12 Reflex save halves this damage."
+  },
+  {
+    "Key": "Misfire.1.5.Name",
+    "enGB": "Misfire 1 (5ft)"
+  },
+  {
+    "Key": "Misfire.12.5.Name",
+    "enGB": "Misfire 1-2 (5ft)"
+  },
+  {
+    "Key": "Misfire.12.10.Name",
+    "enGB": "Misfire 1-2 (10ft)"
+  },
+  {
+    "Key": "Misfire.Advanced.Description",
+    "enGB": "If the natural result of your attack roll falls within a firearm's misfire value, that shot misses, even if you would have otherwise hit the target. When a firearm misfires, it gains the broken condition. While it has the broken condition its misfire value increases by 2."
+  },
+  {
+    "Key": "Misfire.1.A.Name",
+    "enGB": "Misfire 1"
+  },
+  {
+    "Key": "Misfire.12.A.Name",
+    "enGB": "Misfire 1-2"
+  },
+  {
+    "Key": "Firearms.Capacity.6.Name",
+    "enGB": "Capacity 6"
+  },
+  {
+    "Key": "Firearms.Capacity.6.Description",
+    "enGB": "A firearm's capacity is the number of shots it can hold at one time."
+  },
+  {
+    "Key": "Firearms.Scatter.30.Name",
+    "enGB": "Scatter (30ft)"
+  },
+  {
+    "Key": "Firearms.Scatter.15.Name",
+    "enGB": "Scatter (15ft)"
+  },
+  {
+    "Key": "Firearms.Scatter.Description",
+    "enGB": "A weapon with the scatter weapon quality can shoot two different types of ammunition. It can fire normal bullets that target one creature, or it can make a scattering shot, attacking all creatures within a cone.  When a scatter weapon attacks all creatures within a cone, it makes a separate attack roll against each creature within the cone. Each attack roll takes a –2 penalty, and its attack damage cannot be modified by precision damage or damage-increasing feats such as Vital Strike. Effects that grant concealment, such as fog or smoke, or the blur, invisibility, or mirror image spells, do not foil a scatter attack."
+  },
+  {
+    "Key": "Firearms.Early.Reload.Name",
+    "enGB": "Muzzle Loading"
+  },
+  {
+    "Key": "Firearms.Early.Reload.Description",
+    "enGB": "Early firearms are muzzle-loaded, requiring bullets or pellets and black powder to be rammed down the muzzle.. It is a standard action to load a one-handed early firearm and a full-round action to load a two-handed early firearm."
+  },
+  {
+    "Key": "Firearms.Advanced.Reload.Name",
+    "enGB": "Chamber Loading"
+  },
+  {
+    "Key": "Firearms.Advanced.Reload.Description",
+    "enGB": "Advanced firearms are chamber-loaded. It is a move action to load a one-handed or two-handed advanced firearm to its full capacity. The Rapid Reload feat reduces this to a free action (allowing you to ignore the requirement to reload between shots)."
+  },
+  {
+    "Key": "Firearms.Reload.Name",
+    "enGB": "Reload"
+  },
+  {
+    "Key": "Firearms.RapidReload.Name",
+    "enGB": "Rapid Reload"
+  },
+  {
+    "Key": "Firearms.AP.Name",
+    "enGB": "Armor Penetrating"
+  },
+  {
+    "Key": "Firearms.AP.Description",
+    "enGB": "Firearms penetrate most forms of armor: bypassing shield, armor, and natural armor bonuses to AC"
+  },
+  {
+    "Key": "Firearms.Musket.Name",
+    "enGB": "Musket"
+  },
+  {
+    "Key": "Firearms.Musket.Description",
+    "enGB": "This long-barreled firearm has a much greater range than a pistol. A musket uses either a bullet and 1 dose of black powder or a single alchemical cartridge as its ammunition. This is an early firearm."
+  },
+  {
+    "Key": "Firearms.Pistol.Name",
+    "enGB": "Pistol"
+  },
+  {
+    "Key": "Firearms.Pistol.Description",
+    "enGB": "The basic single-shot pistol is one of the most common firearms, although it is still rare enough to be an object of envy or curiosity to most. This is an early firearm."
+  },
+  {
+    "Key": "Firearms.Shotgun.Name",
+    "enGB": "Shotgun"
+  },
+  {
+    "Key": "Firearms.Shotgun.Description",
+    "enGB": "This advanced version of the blunderbuss shoots in a 30-foot cone when firing pellets, and has a 20-foot range increment when firing a bullet (often called a slug). Shotguns can either be simple and functional, or art pieces in their own right, with engravings and inlay on the stocks and breeches. Those used by the upper class are often emblazoned with images of game animals, family crests, or elaborate maker’s marks."
+  },
+  {
+    "Key": "Firearms.Rifle.Name",
+    "enGB": "Rifle"
+  },
+  {
+    "Key": "Firearms.GatewayRifle.Name",
+    "enGB": "Mind-Render Rifle"
+  },
+  {
+    "Key": "Firearms.GatewayRifle.Description",
+    "enGB": "Whenever this +3 keen rifle confirms a critical hit the target suffers an additional 1d6 intelligence damage."
+  },
+  {
+    "Key": "Firearms.GatewayRifle.Enchant.Name",
+    "enGB": "Mind-Render"
+  },
+  {
+    "Key": "Firearms.GatewayRifle.Enchant.Description",
+    "enGB": "Whenever this weapon confirms a critical hit the target suffers an additional 1d6 intelligence damage."
+  },
+  {
+    "Key": "Firearms.Rifle.Description",
+    "enGB": "This improvement on the musket features a grooved barrel that imparts a twisting, spiral motion to the bullet as it exits, stabilizing it and preventing the end-over-end tumbling common to projectiles from simpler firearms. As a result, a rifle can fire significantly farther and with more accuracy than early long-bore firearms. A rifle uses metal cartridges as ammunition. This is an advanced firearm."
+  },
+  {
+    "Key": "Firearms.Revolver.Name",
+    "enGB": "Revolver"
+  },
+  {
+    "Key": "Firearms.Revolver.Description",
+    "enGB": "A revolver is a pistol with a revolving cylinder containing six chambers. Each chamber can hold a metal cartridge, and when one cartridge is fired, the cylinder automatically rotates (no extra hand or action required), readying the next chamber for firing. A revolver uses metal cartridges as ammunition. This is an advanced firearm."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Name",
+    "enGB": "Amateur Gunslinger"
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Wisdom modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Drifter.Description",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class. At the start of the day, you gain grit equal to your Charisma modifier (minimum 1) You can regain grit using the rules for the gunslinger’s grit class feature."
+  },
+  {
+    "Key": "Feats.AmateurGunslinger.Description.Short",
+    "enGB": "You gain grit and the ability to perform the quick clear deed from the gunslinger class."
+  }
+]

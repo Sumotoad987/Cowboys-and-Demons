@@ -1,0 +1,218 @@
+[
+  {
+    "Key": "Cowgirl.Name",
+    "enGB": "Bell"
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Name",
+    "enGB": "???"
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Description",
+    "enGB": "There is something strange about this woman. Perhaps it is nothing more than the side effects of prolonged exposure to occult forces in her work or a mutation from the mana wastes. Whatever it is it makes her differnt."
+  },
+  {
+    "Key": "Cowgirl.Secret.Template.Description.Short",
+    "enGB": "There is something strange about this woman."
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.0",
+    "enGB": "Bell looks up from cleaning her gun and gives you a wave as you approach. “Howdy partner”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.0",
+    "enGB": "I'd like to know a bit more about you."
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.1",
+    "enGB": "“Sure what do ya want ta know?”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.1",
+    "enGB": "What are things like back home?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.2",
+    "enGB": "“Well I'm from this little frontier town out in the Spellscar Desert. Things are rough but we all stick together to survive. The whole place is riddled with the remnants of broken magic. Leftovers of da war between Nex and Geb. In some ways I guess its a bit like yer worldwound but less... I don't know less evil more mundane and desolate. On toppa that magic don't work so good there. That's why we've got some 'a the best alchemists an' engineers in all Golarion. A lotta people look at the place an' just see it as a desolate wasteland, a harsh reminder of the consequences of war, that or they look at Alkenstar City and see a hub of innovation and technology. In many ways it's all of those things but ta me it's just home.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.2",
+    "enGB": "Do you miss it?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.3",
+    "enGB": "“Suppose I do. But I can't go back while Brainweaver's still at large. Brining him in is my responsibility. 'Sides this Worldwound a problem for all of Golarion and I'm sure I'm not the only 'omesick solider you've got under yer command, I'll manage. An' one day this wound'll close and we can all go 'ome to a better, safer, world.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.3",
+    "enGB": "Anyone you've left behind there?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.4",
+    "enGB": "“I knew everyone back there. It was just one of those places ya know. Still if you're looking for anyone specific there's Aunty. She ain't my real aunt but she's da one what raised me after... Well that's a long story but suffice it ta say I was an orphan since before I can remember. But she's a good soul. Ran the local temple of Sarenrae an' made sure I was looked after. I miss having her council but I'm just glad she's back there safe an' sound an' far from all this evil.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.4",
+    "enGB": "What about lovers?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.5",
+    "enGB": "“That's always been complicated... but the short answer is no I don't have anyone like that.” she doesn't seem willing to elaborate any further. "
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.5",
+    "enGB": "Why did you want to join the crusades?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.6",
+    "enGB": "“The truth is I'd probably have come joined up a lot sooner but I didn't think things were as bad as they are. Ya see we hear a lotta wild stories back home. People like to exaggerate so when we heard about the worldwound most of us just assumed it was another wild tale grown outta proportion in the retelling. After all home's a long way from 'ere and we'd never met no-one who'd actually been here just people what said a friend of a friend knew someone who'd fought. But now that I'm here I can see if anything the stories were underselling just how bad things are out here. A demon lord walking through a city like he owns the place. Literal armys of da things marching around of Golarion soil. Not ta mention the corruption in the land itself. This battle needs ta be fought an' I'm happy to help anyway I can.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.6",
+    "enGB": "You called yourself a Shieldmarshal what does that mean?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.7",
+    "enGB": "“Well I ain't always proud of the title.” she fidgets with a golden badge the shape of a shield on her chest. “It's supposed ta mean that we're the defenders of the people of the Duchy of Alkenstar. We keep the peace and protect folks from bandits and monsters and other nasty stuff that comes in off the wastes. But there's plenty of sheildmarshals who ain't so honest. Particularly in Alkenstar City there's a lotta folks on the take from corrupt politicians, rich merchants, and worse. But I signed up to help look after the town that took care o' me all my life. That's what da badge means to me.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.7",
+    "enGB": "Thanks for telling me."
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.8",
+    "enGB": "“No problem.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.8",
+    "enGB": "Chasing a criminal all the way around the world must have taken a lot of dedication. What made it worth coming all this way on your own?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.9",
+    "enGB": "“You say what he did ta those people back there. He's a true monster and he needs to be stopped. I've seen him do all kinds of other unspeakable things and I've been trying ta take him down for years. When I heard he'd left to 'ead for this place I knew I coudln't just sit back and 'ope someone else'd deal with him. I'm the one who knows 'im and I'm gonna stop 'im before he if it's the last thing I do.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.10",
+    "enGB": "Her anger is more than just that of an officer and a criminal. Its more than just the abstract crimes or evils he's done. This feud is personal."
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.11",
+    "enGB": "There's a rage behind her eyes but perhaps it's nothing more than the fury of one whose seen a monster get away with terrible things."
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.9",
+    "enGB": "There's more going on between you and the Brainweaver than your letting on."
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.12",
+    "enGB": "Her face falls at the accusation “I don't like ta talk about it yer right.” her voice is grave her eyes downcast. “I knew 'im as a kid. He was a little monster even then and I don't just mean figuratively he was born spawn of Yog-Sothoth, a product of the cult. But he was still a thinking being with a soul all his own so Aunty bleeding heart that she is took him in as well as me. Her eyes grow a little wet, her voice wavers but holds. “No matter how hard she tried ta redeem 'im to teach him to be better and 'elp him find tha light, he never did. He ran away and went on a rampage when he was ten. She tried to find him and take him back in. Ya know to help. I don't know what he said to her but she came back a different person. It was like he cut a whole in her very heart and the scar of it's been with her every since. She's still the kindest person I know but it's like a part of her is closed off an' every time he does something foul she blames herself. She thinks if she'd just tried harder maybe he'd have turned out different.” She looked up staring you right in the eye. “I don't think he every wanted to be better and ya can't redeem someone by force. For everyone's sake this sorry story has ta end.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.10",
+    "enGB": "What do you think of the crusades?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.13",
+    "enGB": "“It's a good cause and a well trained army. Still most of the old Mendevian veterans a bit strict for my liking. Maybe that's what ya need to withstand fighting the Abyss so long but I think some of them see the world as all black and white and can be a bit quick ta judge folks.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.11",
+    "enGB": "How are the Brainweaver's victim's doing?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.14",
+    "enGB": "“They're better thanks ta you. Yer clerics are 'opeful they'll find a way to get their mind back at least and maybe restore at least some o' there bodies back ta normal.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.15",
+    "enGB": "“There's alive at least,” she gives a grim smile “Yer clerics are looking after 'em but it don't look good. It was hard enough just getten 'em here let alone having them stay calm enough ta try and treat em.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.12",
+    "enGB": "There's something off about you. What exactly are you?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.16",
+    "enGB": "“I grew up in the spellscar desert surrounded by all sorts of errant magic and have spent years chasing down the 'ead of a cult of Yog Sothoth. That kinda stuff would leave a mark on anyone.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.17",
+    "enGB": "It's not a lie but she is keeping something back."
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.13",
+    "enGB": "Any thoughts on my mythic powers?"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.19",
+    "enGB": "“Well I reckon it ain't right ta judge someone based on what kinda powers they have but on what they do with 'em.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.20",
+    "enGB": "“In this case your powers seem to match your nature. The light inside ya shines out on those around you and you use it to help and protect others. So wherever these powers came from I for one don't have a problem with 'em”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.21",
+    "enGB": "“I can see the light you shine out on everyone around ya but having that light don't make ya a saint. Yer a person just like that rest of us and I 'ope you remember that cause a lot of folks'll treat ya like yer a something else cause of these powers. Don't let it go to yer head.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.22",
+    "enGB": "“I can see the light you shine out on everyone around ya but having that light don't make ya a saint. With power that looks like yours you can get away with all sorts of things because folk'll only be looking at the surface. I pray Sarenrae will show you the path to be worthy of the light you've been given.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.23",
+    "enGB": "“Yer powers have set ya up as judge jury and often times executioner. I'm just glad it ain't gone to yer head and that you remember that not everything’s a simple right or wrong.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.24",
+    "enGB": "“Yer powers have set ya up as judge jury and often times executioner. That's a lot of power for one person ta have. I see you try and remain impartial but sometimes true justice is more complex than that. A system needs to be flexible enough to allow folks a chance for redemption.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.25",
+    "enGB": "“Yer powers have set ya up as judge jury and often times executioner. And that's too much power for one person ta have. I can understand that dealing with a crisis like this sometimes calls for harsher methods but I reckon you've gone too far. Just because someone has broken the law don't mean there's no hope for 'em. I pray you'll learn this.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.26",
+    "enGB": "“Yer powers seem ta fray reality at the edges but that ain't yer fault. You pull a lot of crazy stuff but yer hearts in the right place. I just hope yer powers don't run away with you some day.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.27",
+    "enGB": "“Still sometimes I wonder if even you can control what's happening around ya. You break a lot a rules and bend even more which given the stakes I can understand just be careful you don't break something important.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.28",
+    "enGB": "“Even so I worry about you sometimes. Yer powers are just so wild and out of control and you don't seem worried about the harm you do along the way. All I ask is that you be careful. It may seem like a lot of fun at the time but there are a lotta people who depend on you that ya might hurt if you keep carrying on like this.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.29",
+    "enGB": "“I know a lot of folks judge you for how these powers have manifested in ya but I won't. Your heart is good. Even if its been touched by the magic of the Abyss it ain't been conquered. Stay true to who you are and you'll be a real hero no matter what ya look like.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.30",
+    "enGB": "“I know a lot of folks judge you for how these powers have manifested but I won't. You've been touched by the Abyss but you've not let it consume you. Remember that you are not yer powers and you can decide to be better even if all the world prejudges ya. An' I'll be here if ya need me.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.31",
+    "enGB": "“I worry about ya. The Abyss has it's hook in you and you don't seem inclined ta fight it. You don't have ta be this way you can be better than people expect. Don't let these place claim yer soul too.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.32",
+    "enGB": "“I know Sarenrae tends to make an exception when it comes to the undead but in this case I won't blame ya. Just be careful. Undeath can rob you of so much of what makes you who ya are. Be careful you don't give up something ya can't get back.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.33",
+    "enGB": "“I know Sarenrae tends to make an exception when it comes to the undead but I won't try and smite ya if that's what yer worried about. Just be careful undeath can rob you of so much of what make you who you are. Be careful you don't give up something ya can't get back.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.34",
+    "enGB": "“I know Sarenrae tends to make an exception when it comes to the undead but I won't try and smite ya if that's what yer worried about. Still I won't be able ta stand by and watch if you keep down this road. From all I've seen the crusades need ya so I won't fight ya but if you don't turn back it'll only be a matter of time 'fore I can't stay 'ere any more.”"
+  },
+  {
+    "Key": "Plot.Cowgirl.Answer.14",
+    "enGB": "I have to go"
+  },
+  {
+    "Key": "Plot.Cowgirl.Cue.35",
+    "enGB": "“Nice chattin' to ya'”"
+  }
+]

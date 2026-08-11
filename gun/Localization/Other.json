@@ -1,0 +1,30 @@
+[
+  {
+    "Key": "Finnean",
+    "enGB": "Finnean the Talking Weapon"
+  },
+  {
+    "Key": "Finnean.Lich",
+    "enGB": "Finnean"
+  },
+  {
+    "Key": "Finnean.Lich.Flavor",
+    "enGB": "This weapon was once the seat of Finnean's soul. Now that the soul of the Sarkorian Pathfinder has left the weapon, it has fallen silent forever."
+  },
+  {
+    "Key": "AberrantBile.Name",
+    "enGB": "Aberrant Bile"
+  },
+  {
+    "Key": "AberrantBile.Description",
+    "enGB": "Aberrant bile has  worked its way into your lungs. Dealing 2 inteligence damage once per hour requires 3 successful fortitude saves to cure."
+  },
+  {
+    "Key": "Plot.Leave",
+    "enGB": "Leave"
+  },
+  {
+    "Key": "Plot.Continue",
+    "enGB": "Continue."
+  }
+]

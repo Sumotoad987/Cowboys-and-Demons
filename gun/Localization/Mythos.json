@@ -1,0 +1,14 @@
+[
+  {
+    "Key": "Mythos.WarpSpace.Name",
+    "enGB": "Warp Space"
+  },
+  {
+    "Key": "Mythos.WarpSpace.Description",
+    "enGB": "Gateways between planes can warp the space around them interfering with normal teleportation yet to one with true understanding that distorted space can allow for a whole other kind of transport. This ability can be used at will and functions as dimension door however it can only be used while under the effects of Tear Proximity."
+  },
+  {
+    "Key": "Mythos.WarpSpace.Description.Short",
+    "enGB": "This ability can be used at will and functions as dimension door however it can only be used while under the effects of Tear Proximity."
+  }
+]
