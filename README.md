@@ -2,24 +2,50 @@
 
 Adds the [Gunslinger](https://aonprd.com/ClassDisplay.aspx?ItemName=Gunslinger) class as well as firearms and some associated feats such as weapon focus and firearm proficiency. 
 
+Features
+
+Firearms
+
+    New kind of weapon requiring firearm proficiency
+    You should get one in your starting equipment as a gunslinger or they can be purchased from the exotic weapons provider in the crusader camp and Drezen as well as the chaplain under magical equipment in the roguelike DLC. Early firearms (that is muskets and pistols) can also be purchased from the blacksmith in Kenebres.
+    Should match the tabletop rules as best as I could manage.
+    Each shot has to be loaded which requires a full round action but can be reduced by feats and equipment (If reduced to a free action allows for a full attack to be completed successfully)
+    Bypasses armor, natural armor, and shields (essentially targets touch AC but can still be used for Deadly Aim and similar feats)
+    Can misfire potentially causing an damage to the wielder
+    For full rules see the pathfinder rules reference
+
+Gunslinger Class
+
+    A class centered around the use of firearms
+    Mostly copied from the tabletop
+    Some changes to fit the game
+    Not all deeds have been implemented as yet
+
+Spellscar Drifter
+
+    A cavalier archetype for firearm users
+    As with gunslinger has a fixed list of deeds rather than the full list
+
+Custom Companion
+
+    Added Bell Tarvil a shieldmarshal from Alkenstar as a new companion
+    Met on the road in Act 2
+    Appears in Drezen in Act 3 and will give you a quest leading to her recruitment
+
+
 ##Instalation Guide
-Hopefully Modfinder will be able to sort this out but for manual install it is important to note this mod had to be split into two parts. This repo contains the content of the mod so the code, blueprint, mechanics, feats, etc. The [Cowboy's and Demons Assets](https://github.com/Sumotoad987/Cowboys-and-Demons-Assets) mod contains the 3d model used for the firearms in game.
+Hopefully Modfinder will be able to sort this out but for manual install it is important to note this mod had to be split into two parts. This repo contains the content of the mod so the code, blueprint, mechanics, feats, etc. The [Cowboy's and Demons Assets](https://github.com/Sumotoad987/Cowboys-and-Demons-Assets) mod contains the 3d model used for the firearms in game however the releases here include both mods in a single combined install.
 All this is due to the fact that assets can only be added (with great difficulty) through a Wrath Template mod while much of the content was far easier to implement in a using Blueprint Core.
 (I intend to write a tutorial to explain how all this works in case anyone else wants to add 3d models to the game at a later stage)
 
 ##This mod is a work in progress and has several known issues but most of the core features are functional.
-* Projectiles not working: Currently there is a bug when a character attacks with the weapon the game tries to fire a projectile but fails for reasons unknown. I've written a work around but it may have some unforeseen issues down the road.
 * Animations: The Musket and Rifle animate fairly well, though the hand positions can be a little fiddly. Pistols and Revolvers are a little off particularly if you try to dual wield them.
 * Dual Weilding: Whilst technically you can dual wield pistols and revolvers and mechanically most of that works the animation is dodge and the second pistol floats in the air pointing in random directions.
-* Capacity: I haven't implemented any firearms with a capacity of more than 1 round this includes if you are trying to dual wield. until you have Rapid Reload and an Advanced Weapon you'll only be able to fire one shot per attack.
-* Bleeding Shot will only apply constitution bleed for some reason.
-* Misfire the icon for damaged firearm as well as its name do not apear correctly on the player icon.
-* Damage firearm's null icon does not disapear when the condition is removed (however it ceases to have a mechanical effect.)
 
 ##Changes from Tabletop
 * Removed several gunslinger deeds which were either very hard to implement in game or would have not do anything within the scope of the game.
 * Rapid Reload is a single feat for all firearms rather than needing to chose a new type each time
-* Deeds which ae free actions after you hit have been changed into activatable abilities used before you make the attack.
+* Deeds which are free actions after you hit have been changed into activatable abilities used before you make the attack.
 * Gun Training applies to all firearms not just one at a time
 * Misfire has been tweaked. If you roll a misfire you get the damaged firearm condition which lasts 1 hour (the time it would take to fix in tabletop rules). Damaged firearm increases your misfire range. If you misfire with an early firearm and have the damaged firearm condition your firearm deals its weapon damage to you and a 5ft burst around you. The firearm is not destroyed.
 * Probably some other things I've forgotten.
@@ -35,4 +61,5 @@ All this is due to the fact that assets can only be added (with great difficulty
 ## Thanks to
 * Wolfie's [Modding Wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) for getting me started.
 * Kurufinve for the Unity template needed to add assets to the game.
+* Casdragon for help fixing compatibility issues with other owlmods
 * The many WotR mods out there on Github which I looked at for guidance.
