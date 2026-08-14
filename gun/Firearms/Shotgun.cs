@@ -56,20 +56,20 @@ namespace gun.Firearms
         public static void Configure()
         {
             //WeaponVisualParameters Uses crossbow animation style
-            WeaponVisualParameters visuals = DefineVisualParameters("44a27185a1f8d7e45b12166585953e04");
+            WeaponVisualParameters visuals = DefineVisualParameters("1e95371c40db6cb408499e16a68ec5be");
             //defines the damage dice stuff
             DiceFormula Dice = new DiceFormula();
             Dice.m_Rolls = 1;
             Dice.m_Dice = DiceType.D10;
 
             //creates an Icon
-            byte[] data = File.ReadAllBytes(Main.ModPath + "/Media/Icons/Rifle.png");
+            byte[] data = File.ReadAllBytes(Main.ModPath + "/Media/Icons/Shotgun.png");
             Texture2D texture2D = new Texture2D(64, 64);
             texture2D.LoadImage(data);
             Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
 
             //creates the rifle weapon type by calling from base firearm
-            CreateWeapon("Shotgun", WeaponID, false, Kingmaker.Utility.FeetExtension.Feet(20), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire12_A, true,30);
+            CreateWeapon("Shotgun", WeaponID, false, Kingmaker.Utility.FeetExtension.Feet(20), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire12_A, true,1,30);
 
 
             //create a basic rifle and all the normal variants

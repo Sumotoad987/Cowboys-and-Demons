@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Utils;
 using gun.Classes.Gunslinger;
 using gun.Classes.Spellscar_Drifter;
@@ -8,6 +9,8 @@ using gun.Firearms;
 using gun.Plot;
 using HarmonyLib;
 using Kingmaker;
+using Kingmaker.AreaLogic.Cutscenes;
+using Kingmaker.AreaLogic.Cutscenes.Commands;
 using Kingmaker.Blueprints.CharGen;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
@@ -21,6 +24,7 @@ using Owlcat.Runtime.Core.Utils;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager;
 using static UnityModManagerNet.UnityModManager.Param;
@@ -49,6 +53,11 @@ public static class Main {
             throw;
         }
         return true;
+    }
+
+    public static void OnGUI(UnityModManager.ModEntry modEntry) {
+        
+
     }
 
     [HarmonyPatch(typeof(BlueprintsCache))]
@@ -82,13 +91,14 @@ public static class Main {
                 Pistol.Configure();
                 Rifle.Configure();
                 Revolver.Configure();
-                //Shotgun.Configure();
+                Shotgun.Configure();
                 Plot.Flags.Configure();
                 Act2.Configure();
                 Mythos.Configure();
                 EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
                 Act3.Configure();
                 GritFeats.Configure();
+                Buccaneer.Configure();
                 //Game.Instance.AreaLoadingComplete
 
 
@@ -154,5 +164,7 @@ public static class Main {
             
         }
     }
+
+
 
 }

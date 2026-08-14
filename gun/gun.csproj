@@ -60,7 +60,8 @@
 		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Update="Localization\*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Localization\*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Media\*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	<Target Name="GenerateCustomPropsFile" Condition="$(WrathInstallDir) == ''">
 		<Exec Command="findstr /C:&quot;Mono path[0]&quot; &quot;$(WrathData)\Player.log&quot;" IgnoreExitCode="true" ConsoleToMSBuild="true">

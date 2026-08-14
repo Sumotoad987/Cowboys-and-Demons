@@ -18,7 +18,7 @@ namespace gun.Firearms
 {
     internal static class Musket
     {
-        const string WeaponID =    "91dab8ca9ac84a9db579e39f16aed207";
+        public const string WeaponID =    "91dab8ca9ac84a9db579e39f16aed207";
         public static string[] BasicItemIDs = {
             "8b8b35697df54364bfaa2512dff806af",//standard
             "20bd807392ea4504af92874a78bc5bbc",//plus 1

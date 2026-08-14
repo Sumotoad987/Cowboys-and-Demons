@@ -68,27 +68,47 @@
     "enGB": "AC Bonus (Nimble)"
   },
   {
-    "Key": "SeaDog.Name",
+    "Key": "Buccaneer.SeaDog.Name",
     "enGB": "Seadog's Gait"
   },
   {
-    "Key": "SeaDog.Description",
+    "Key": "Buccaneer.SeaDog.Description",
     "enGB": "At 1st level, the buccaneer gains a +2 bonus on mobility checks. If she spends 1 grit point, she can ignore difficult terrain until the end of her turn. This replaces the quick clear deed."
   },
   {
-    "Key": "SeaDog.Ability.Description",
+    "Key": "Buccaneer.SeaDog.Ability.Description",
     "enGB": "Spend 1 grit point, to ignore difficult terrain until the end of your turn"
   },
   {
-    "Key": "Jargon.Name",
+    "Key": "Buccaneer.Jargon.Name",
     "enGB": "Pirate’s Jargon"
   },
   {
-    "Key": "Jargon.Description",
+    "Key": "Buccaneer.Jargon.Description",
     "enGB": "At 3rd level, the buccaneer’s baffling palaver of nautical jargon and piratical cant provides a +2 bonus on Bluff and Intimidate checks. Furthermore, she can spend a swift action and 1 grit point to cause a single living creature within 30 feet to make a Will saving throw (DC = 10 + 1/2 her buccaneer level + her Charisma modifier) or become confused for 1 round. This is a mind-affecting language-dependent effect."
   },
   {
-    "Key": "Jargon.Ability.Description",
+    "Key": "Buccaneer.Jargon.Ability.Description",
     "enGB": "Spend a swift action and 1 grit point to cause a single living creature within 30 feet to make a Will saving throw (DC = 10 + 1/2 her buccaneer level + her Charisma modifier) or become confused for 1 round. This is a mind-affecting language-dependent effect."
+  },
+  {
+    "Key": "Buccaneer.Grog.Name",
+    "enGB": "Liquid Courage"
+  },
+  {
+    "Key": "Buccaneer.Grog.Description",
+    "enGB": "At 2nd level, a buccaneer gains the ability to fortify her grit with strong drink. The act of drinking is a standard action that provokes attacks of opportunity, and each drink provides 1 grog point. Grog points can be used in place of grit points to fuel deeds or grit feats (including those requiring a minimum of 1 grit point to use). The buccaneer can gain a maximum number of grog points each day equal to her Constitution modifier (minimum 1), and they last for 1 hour or until used, whichever comes first. She gains a morale bonus on saves against fear and a dodge bonus to AC against attacks of opportunity equal to her current grog point total. This ability replaces the nimble ability."
+  },
+  {
+    "Key": "Buccaneer.Grog.Buff.Name",
+    "enGB": "Grog"
+  },
+  {
+    "Key": "Buccaneer.Name",
+    "enGB": "Buccaneer"
+  },
+  {
+    "Key": "Buccaneer.Description",
+    "enGB": "Freebooters who cling to the convoluted codes that rule independent ships, the buccaneer is a gunslinger of the high seas. Their exploits are fueled by the thrill of danger and often by the temporary courage provided by grog."
   }
 ]

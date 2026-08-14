@@ -183,44 +183,71 @@ namespace gun.Firearms
 
     public static class ReloadSpeedCalc 
     {
-        public static void Update (UnitEntityData unit)
+
+        public static int Calculate (UnitEntityData unit)
         {
             bool isAdvanced = unit.GetFirstWeapon().GetEnchantment(BlueprintTool.Get<BlueprintItemEnchantment>(BaseFirearm.AdvancedClipGUID)) != null;
             //bool isEarly = unit.GetFirstWeapon().GetEnchantment(BlueprintTool.Get<BlueprintItemEnchantment>(BaseFirearm.ClipGUID)) != null;
             bool hasRapidReload = unit.GetFeature(BlueprintTool.Get<BlueprintFeature>(RapidReload.RapidReloadGUID)) != null;
-            Main.Log.Log("Adding Reload");
+            //Main.Log.Log("Adding Reload");
             if (isAdvanced)
             {
-                Main.Log.Log("Advanced Weapon");
+                //Main.Log.Log("Advanced Weapon");
                 if (!hasRapidReload)
                 {
-                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadAdvancedGUID));//then its a move action to reload
-                    Main.Log.Log("Not Rapid");
+                    return 0;
+                    //unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadAdvancedGUID));//then its a move action to reload
+                    //Main.Log.Log("Not Rapid");
                 }
 
-            } else
+            }
+            else
             {
-                Main.Log.Log("Early Weapon");
+                //Main.Log.Log("Early Weapon");
                 bool TwoHanded = unit.GetFirstWeapon().Blueprint.IsTwoHanded;
 
 
                 if (!TwoHanded && hasRapidReload)
                 {//if its a one handed weapon with rapid reload
-
-                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadMoveGUID));//then its a move action to reload
-                    Main.Log.Log("Reload (Move)");
+                    return 1;
+                    //unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadMoveGUID));//then its a move action to reload
+                    //Main.Log.Log("Reload (Move)");
                 }
                 else if (TwoHanded == hasRapidReload)
                 {//(!TwoHanded && !hasRapidReload) || (TwoHanded && hasRapidReload)
                     //if its a one handed weapon without rapid reload or a two handed weapoin with it
-                    Main.Log.Log("Reload (Standard)");
-                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadStandardGUID));//its a standard action
+                    //Main.Log.Log("Reload (Standard)");
+                    return 2;
+                   // unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadStandardGUID));//its a standard action
                 }
                 else
                 {
-                    Main.Log.Log("Reload (Full Round)");
-                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadFullRoundGUID));//its a full round action
+                    return 3;
+                    //Main.Log.Log("Reload (Full Round)");
+                    //unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadFullRoundGUID));//its a full round action
                 }
+            }
+            return -1;//reload free
+        }
+        public static void Update (UnitEntityData unit)
+        {
+            switch (Calculate(unit)) {
+                case 0://reload advanced
+                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadAdvancedGUID));
+                    break;
+                case 1://reload move
+                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadMoveGUID));
+                    break;
+                case 2://reload standard
+                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadStandardGUID));
+                    break;
+                case 3://reload Full Round
+                    unit.AddFact(BlueprintTool.Get<BlueprintAbility>(BaseFirearm.ReloadFullRoundGUID));
+                    break;
+                case -1:
+                    Clear(unit);
+                    break;
+
             }
         }
 

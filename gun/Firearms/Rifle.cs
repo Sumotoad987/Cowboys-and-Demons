@@ -81,7 +81,7 @@ namespace gun.Firearms
             WeaponEnchantmentConfigurator.New("GatewayLootRifleEnhancementID", GatewayLootRifleEnhancementID)
                 .SetDescription(LocalizationTool.GetString("Firearms.GatewayRifle.Enchant.Description"))
                 .SetEnchantName(LocalizationTool.GetString("Firearms.GatewayRifle.Enchant.Name"))
-                .AddInitiatorAttackRollTrigger(ActionsBuilder.New().DealStatDamage(new DiceFormula(1,DiceType.D6),Kingmaker.EntitySystem.Stats.StatType.Intelligence,new ContextTargetUnit()),criticalHit:true)
+                .AddInitiatorAttackRollTrigger(ActionsBuilder.New().DealStatDamage(new DiceFormula(1,DiceType.D6),Kingmaker.EntitySystem.Stats.StatType.Intelligence,new ContextTargetUnit(),source: new CasterUnit()),criticalHit:true)
                 .Configure();//hopefully this does 1d6 int damage on a crit
 
             CreateWeaponItem("Rifle" + "Gateway", GatewayLootRifleID, WeaponID, 5000)

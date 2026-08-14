@@ -2,7 +2,7 @@
   "Id": "gun",
   "DisplayName": "Cowboys and Demons",
   "Author": "Tom Armstrong",
-  "Version": "0.3.2",
+  "Version": "0.3.3",
   "ManagerVersion": "0.27.11",
   "Requirements": ["WrathPatches"],
   "AssemblyName": "gun.dll",

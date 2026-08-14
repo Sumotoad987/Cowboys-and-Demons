@@ -68,6 +68,7 @@ namespace gun.Classes.Gunslinger
                 .SetIsArcaneCaster(false)
                 .SetPrestigeClass(false)
                 .AddPrerequisiteIsPet(not:true)
+                //.AddToArchetypes(Buccaneer.GUID)
                 ;
             GunslingerConfig.Configure();
 

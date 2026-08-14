@@ -17,7 +17,7 @@ namespace gun.Firearms
 {
     internal static class Pistol
     {
-        const string WeaponID = "dc569aa7-030e-4aa0-9c8b-6f7ca45ead11";
+        public const string WeaponID = "dc569aa7-030e-4aa0-9c8b-6f7ca45ead11";
         public static string[] BasicItemIDs = {
             "5f7be1d1-41e8-43c0-aec9-41ffe8f5c2ee",//standard
             "afc13a04-9f93-42ef-a1cf-0a24bfd2e485",//plus 1

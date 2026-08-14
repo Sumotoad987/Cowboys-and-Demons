@@ -11,6 +11,8 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Components;
@@ -32,6 +34,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
+using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
@@ -78,8 +81,7 @@ namespace gun.Firearms
         public static void Configure()
         {
             FirearmProficiency.Configure();//create the firearm proficiency feat
-            Scatter.Configure();
-
+            
             MakeProjectile();//create the bullet
             //WeaponCategoryExtension.Data[59].SubCategories.Remove((WeaponSubCategory cat) => cat == WeaponSubCategory.Disabled);
             //may need to alter the order depending on how each bit interacts with the others
@@ -110,7 +112,59 @@ namespace gun.Firearms
             //define misfire
             MisfireEnhancement.Configure();
             //define scatter
-            
+            Scatter.Configure();
+
+
+            //update feats the require weapon focus to allow for the new kinds of weapon focus
+            FeatureConfigurator.For("308cd7dc4f10efd428f531bbf4f2823d")//update penetrating strike
+                .AddComponent(new PenetratingStrikeFirearm(false, 10, new Kingmaker.UnitLogic.Mechanics.ContextValue()))//add a check for weapon focus on firearms
+                .RemoveComponents((BlueprintComponent comp) =>
+                {
+                    return comp.GetType() == typeof(PrerequisiteFeature);//remove the prerequisite feature
+                })
+                .AddPrerequisiteFeaturesFromList(["1e1f627d26ad36f43bbd26cc2bf8ac7e"],amount:1)
+                .Configure();
+
+            FeatureConfigurator.For("eb6eb946c68ef094f89c7633f5bfdc9b")//update greater penetrating strike
+                .AddComponent(new PenetratingStrikeFirearm(false, 10, new Kingmaker.UnitLogic.Mechanics.ContextValue()))//add a check for weapon focus on firearms
+                .RemoveComponents((BlueprintComponent comp) =>
+                {
+                    if (comp.GetType() == typeof(PrerequisiteFeature))
+                    {
+                        return ((PrerequisiteFeature)comp).Feature == BlueprintTool.Get<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");//if the prereq is weapon focus remove it
+                    }
+                    return false;//otherwise do nothing
+                })//No need to add a prereq feature list since it already requires penetrating strike which requires weapon focus so may as well just remove the requirement for weapon focus entirely
+                .Configure();
+
+            FeatureConfigurator.For("bcbd674ec70ff6f4894bb5f07b6f4095")//update dazling display
+                .RemoveComponents((BlueprintComponent comp) =>
+                {
+                    return comp.GetType() == typeof(PrerequisiteFeature);//remove the prerequisite feature
+                })
+                .AddPrerequisiteFeaturesFromList(["1e1f627d26ad36f43bbd26cc2bf8ac7e"], amount: 1)
+                .Configure();
+
+            AbilityConfigurator.For("5f3126d4120b2b244a95cb2ec23d69fb")//update dazling display action
+                .RemoveComponents((BlueprintComponent comp) =>
+                {
+                    return comp.GetType() == typeof(AbilityCasterHasChosenWeapon);//remove the check for a chosen wepaon
+                })
+                //and replace it with a new one that acounts for firearms
+                .AddComponent(new AbilityCasterHasChosenWeaponFix(BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>("1e1f627d26ad36f43bbd26cc2bf8ac7e"),0, BlueprintTool.GetRef<BlueprintUnitFactReference>("4d2b28040c8d4552aa401cc627881b09")))
+                .Configure();
+
+            FeatureConfigurator.For("61a17ccbbb3d79445b0926347ec07577")//update shatter defenses
+                .RemoveComponents((BlueprintComponent comp) =>
+                {
+                    if (comp.GetType() == typeof(PrerequisiteFeature))
+                    {
+                        return ((PrerequisiteFeature)comp).Feature == BlueprintTool.Get<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");//if the prereq is weapon focus remove it
+                    }
+                    return false;//otherwise do nothing
+                })//No need to add a prereq feature list since it already requires penetrating strike which requires weapon focus so may as well just remove the requirement for weapon focus entirely
+                .Configure();
+
         }
 
         public static void MakeProjectile()
@@ -412,6 +466,7 @@ namespace gun.Firearms
                 .Configure()
                 ; 
             
+            
             //Greater Weapon Focus
             Icon = BlueprintTool.Get<BlueprintParametrizedFeature>("09c9e82965fb4334b984a1e9df3bd088").Icon;//greater weapon focus icon
             FeatureConfigurator.New("WeaponFocusGreater" + name, FocusIDs[1])
@@ -534,6 +589,20 @@ namespace gun.Firearms
                  .AddToGroups(Kingmaker.Blueprints.Classes.FeatureGroup.CombatFeat)
                  .Configure()
                  ;
+
+            FeatureConfigurator.For("308cd7dc4f10efd428f531bbf4f2823d")//update penetrating strike
+               .EditComponent<PrerequisiteFeaturesFromList>((PrerequisiteFeaturesFromList prereq) => {
+
+                   prereq.m_Features.AddItem(BlueprintTool.GetRef<BlueprintFeatureReference>(FocusIDs[0]));//add weapon focus for this weapon to the list of possible prereqs
+               })
+               .Configure();
+
+            FeatureConfigurator.For("bcbd674ec70ff6f4894bb5f07b6f4095")//update dazzling display
+               .EditComponent<PrerequisiteFeaturesFromList>((PrerequisiteFeaturesFromList prereq) => {
+
+                   prereq.m_Features.AddItem(BlueprintTool.GetRef<BlueprintFeatureReference>(FocusIDs[0]));//add weapon focus for this weapon to the list of possible prereqs
+               })
+               .Configure();
         }
 
         //makes the standard +1,+2,+3,+4,+5 weapons
@@ -647,7 +716,7 @@ namespace gun.Firearms
             DamageDescription.Common.Alignment = 0;
             DamageDescription.Common.Precision = false;
             DamageDescription.Physical.Material = 0;
-            DamageDescription.Physical.Form = PhysicalDamageForm.Piercing;
+            DamageDescription.Physical.Form = PhysicalDamageForm.Piercing | PhysicalDamageForm.Bludgeoning;
             return DamageDescription;
         }
     }

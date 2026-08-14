@@ -295,6 +295,7 @@ namespace gun.Plot
             IntroductionDialogue();
             GatewaytoInsanity();
             Fleshwarps();
+            DemonsHeresy();
         }
 
         private static void CowgirlDrezenSpawn()
@@ -309,6 +310,47 @@ namespace gun.Plot
                 );
         }
 
+        private static void DemonsHeresy()
+        {
+            CueConfigurator.New("CowgirlDemonsHeresy", "ad2bc52ec54544efa1aac3583880d700")
+                .SetText(LocalizationTool.GetString("Plot.DemonsHerey.Cowgirl.1"))
+                .SetSpeaker(CowgirlUnit.GetSpeaker())
+                .SetShowOnce()
+                .Configure();
+            CueSequenceConfigurator.For("698a1c39b353b5843a9da22297885457").AddToCues("ad2bc52ec54544efa1aac3583880d700").Configure();
+
+            CueConfigurator.New("CowgirlDemonsHeresy2", "3914ab87d2044c04b2f15525a03e57a5")
+                .SetText(LocalizationTool.GetString("Plot.DemonsHerey.Cowgirl.2"))
+                .SetSpeaker(CowgirlUnit.GetSpeaker())
+                .SetShowOnce()
+                .Configure();
+            CueSequenceConfigurator.For("4f3d48e00c4a2104bb1502bf92171913").AddToCues("3914ab87d2044c04b2f15525a03e57a5").Configure();
+
+            CueConfigurator.New("CowgirlDemonsHeresy3", "daf0ddd7bd0b44fcb3fc981bf3a7522a")
+                .SetText(LocalizationTool.GetString("Plot.DemonsHerey.Cowgirl.3"))
+                .SetSpeaker(CowgirlUnit.GetSpeaker())
+                .SetShowOnce()
+                .Configure();
+            CueSequenceConfigurator.For("cb78d8dde11091b45a6bc24a3ccc95a7").AddToCues("daf0ddd7bd0b44fcb3fc981bf3a7522a").Configure();
+            
+        }
+
+        private static void KnowTheyEnemy()
+        {
+            CueConfigurator.New("CowgirlKnowThyEnemy", "2dcf9624734f484db17cc60d95ecc303")
+               .SetText(LocalizationTool.GetString("Plot.KnowThyEnemy.Cowgirl.1"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+            CueSequenceConfigurator.For("48d9dddefe6db3148be8ba512a65d257").AddToCues("2dcf9624734f484db17cc60d95ecc303").Configure();
+
+            CueConfigurator.New("CowgirlKnowThyEnemy2", "17783c0023924c278a0045961e38c40b")
+               .SetText(LocalizationTool.GetString("Plot.KnowThyEnemy.Cowgirl.2"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+            CueSequenceConfigurator.For("23d431e01ba69d74a921d1c897c5b203").AddToCues("17783c0023924c278a0045961e38c40b").Configure();
+        }
         private static void IntroductionDialogue()
         {//This one is the dialogue she has when you first meet her in drezen and she asks for your help
             

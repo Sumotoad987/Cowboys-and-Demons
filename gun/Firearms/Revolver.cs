@@ -13,7 +13,7 @@ namespace gun.Firearms
 {
     internal static class Revolver
     {
-        const string WeaponID = "3658f7e49f214a20afae7754b0e44e61";
+        public const string WeaponID = "3658f7e49f214a20afae7754b0e44e61";
         public static string[] BasicItemIDs = {
             "fdd20dd46492465fba197deda9e84b0d",
             "b394131b25d4447397b253759f2d5222",

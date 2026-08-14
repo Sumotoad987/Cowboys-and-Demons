@@ -24,7 +24,6 @@ namespace gun.Classes.Gunslinger
         public const string GunTrainingGUID = "82a28cc03df64b48900bbe487a5ad8dc";
         public static void Configure()
         {
-            Kingmaker.UnitLogic.Mechanics.ContextValue TrainingValue = new Kingmaker.UnitLogic.Mechanics.ContextValue();
             FeatureConfigurator.New("GunTraining", GunTrainingGUID)
                 .SetDisplayName(LocalizationTool.GetString("GunTraining.Name"))
                 .SetDescription(LocalizationTool.GetString("GunTraining.Description"))
