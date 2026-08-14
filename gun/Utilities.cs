@@ -6,6 +6,7 @@ using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.DialogSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
@@ -234,6 +235,13 @@ namespace gun
             texture2D.LoadImage(data);
             Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
             return icon;
+        }
+
+        public static IntConstant MakeIntConstant (int value)
+        {
+            IntConstant output = new IntConstant();
+            output.Value = value;
+            return output;
         }
 
     }

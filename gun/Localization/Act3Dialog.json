@@ -12,11 +12,23 @@
     "enGB": "\"So she made a mistake\" Bell give Arueshalae a reassuring smile, \"We all make 'em. Even the best of us stumble along the way. Redemption's ain't just some switch ya flip an' suddenly yer good. Give her time. The important thing is she's trying ta be better.\""
   },
   {
-    "Key": "Plot.KnowTheyEnemy.Cowgirl.1",
+    "Key": "Plot.KnowThyEnemy.Cowgirl.1",
     "enGB": "\"Wow that looks nasty. Why would anyone want ta do that to themselves.\""
   },
   {
-    "Key": "Plot.KnowTheyEnemy.Cowgirl.2",
+    "Key": "Plot.KnowThyEnemy.Cowgirl.2",
     "enGB": "\"I don't know what game he's playin' but this guy seems a nasty piece a' work. I doubt we can trust a word he says...\" Bell trails off considering. \"On the other hand, maybe he does actually wanta die. It'd be no surprise realy. Who'd wanta live as a horrid swarm o' locust like that.\""
+  },
+  {
+    "Key": "Plot.AttackOutOfNowhere.Cowgirl.1",
+    "enGB": "\"Ugh not another one. I've seen enough folks transformed inta monsters ta last a lifetime. At least we can kill this wretched thing and put a stop ta this one.\""
+  },
+  {
+    "Key": "Plot.AttackOutOfNowhere.Cowgirl.2",
+    "enGB": "Bell meets the tortured man's gaze.\"I've seen things like what's been done to ya. I can't promise it'll be easy but we 'elped them and we're gonna help you to. Right partner?\""
+  },
+  {
+    "Key": "Plot.AttackOutOfNowhere.Cowgirl.3",
+    "enGB": "Bell turns away tears forming in her eyes. \"Not again... why are we always too late?\""
   }
 ]

@@ -96,9 +96,10 @@ public static class Main {
                 Act2.Configure();
                 Mythos.Configure();
                 EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
-                Act3.Configure();
+                
                 GritFeats.Configure();
                 Buccaneer.Configure();
+                Act3.Configure();
                 //Game.Instance.AreaLoadingComplete
 
 

@@ -55,7 +55,7 @@ namespace gun.Plot
         public static ActionsBuilder IncrementFlag(int value,string GUID)
         {
             ActionsBuilder actions = ActionsBuilder.New();
-            actions.IncrementFlagValue(GUID, true, new EvaluatorInt(value));
+            actions.IncrementFlagValue(GUID, true, Utilities.MakeIntConstant(value));
             return actions;
 
         }

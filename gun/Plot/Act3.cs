@@ -14,6 +14,7 @@ using BlueprintCore.Conditions.Builder.StoryEx;
 using BlueprintCore.Utils;
 using gun.Cowgirl;
 using gun.Firearms;
+using HarmonyLib;
 using Kingmaker;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.QuestSystem;
@@ -296,6 +297,8 @@ namespace gun.Plot
             GatewaytoInsanity();
             Fleshwarps();
             DemonsHeresy();
+            KnowTheyEnemy();
+            AttackOutOfNowhere();
         }
 
         private static void CowgirlDrezenSpawn()
@@ -350,6 +353,57 @@ namespace gun.Plot
                .SetShowOnce()
                .Configure();
             CueSequenceConfigurator.For("23d431e01ba69d74a921d1c897c5b203").AddToCues("17783c0023924c278a0045961e38c40b").Configure();
+        }
+
+        private static void AttackOutOfNowhere()
+        {
+            CueConfigurator.New("CowgirlAttackOutOfNowhere", "779dcc24ab29494196ff23d065f04484")
+               .SetText(LocalizationTool.GetString("Plot.AttackOutOfNowhere.Cowgirl.1"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+
+            CueSequenceConfigurator.New("CowgirlAttackOutOfNowhereSequence", "2b53c716bae543e4bd895fd0dd66a935")
+                .SetCues("779dcc24ab29494196ff23d065f04484")
+                .Configure();
+
+            SequenceExitConfigurator.New("CowgirlAttackOutOfNowhereSequenceExit", "1f40adbeaeba4b2499f90101ee396a1c")
+                .SetAnswers(BlueprintTool.Get<BlueprintAnswersList>("a01c59afcc9038c46a8bee2de45427cf"))
+                .Configure();
+
+            CueConfigurator.For("685f62f95dd7729468700c592c0dba50")
+                .SetContinueValue(Utilities.MakeCueSelection("2b53c716bae543e4bd895fd0dd66a935"))
+                .Configure();
+
+            CueConfigurator.New("CowgirlAttackOutOfNowhere2", "4d344bf1f9df4c559f2bf8575b3b2877")
+               .SetText(LocalizationTool.GetString("Plot.AttackOutOfNowhere.Cowgirl.2"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[32],negate:true))//only shows if you did not kill the fleshwarps
+               .SetShowOnce()
+               .Configure();
+
+            CueConfigurator.New("CowgirlAttackOutOfNowhere3", "8c5121a13902492193b4dd77601f2fae")
+               .SetText(LocalizationTool.GetString("Plot.AttackOutOfNowhere.Cowgirl.3"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[32]))//only shows if you did kill the fleshwarps
+               .SetShowOnce()
+               .Configure();
+
+            CueSequenceConfigurator.For("857ff0ba913203b44b9518208941c986").AddToCues("4d344bf1f9df4c559f2bf8575b3b2877", "8c5121a13902492193b4dd77601f2fae").Configure();
+
+            //Aeon option to heal them
+            AnswerConfigurator.For("a560f1cb487f95048a68f6b7466c08e5").ModifyOnSelect((ActionList actions) =>
+            {
+                actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(2)).IncrementFlagValue(Flags.CowgirlRespect, true, Utilities.MakeIntConstant(2)).Build();
+            }).Configure();//gain 2 approval and 2 respect for curing them here and now
+
+            AnswerConfigurator.For("a1523af1c25c8d442a51cd7f5532c22e").ModifyOnSelect((ActionList actions) =>
+            {
+                actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-2)).IncrementFlagValue(Flags.CowgirlRespect, true, Utilities.MakeIntConstant(1)).Build();
+            }).Configure(); 
+
+            AnswerConfigurator.For("8478ea1abb38ba5419da0f020ab88d3a").SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(2))).Configure();
+            AnswerConfigurator.For("534f458dd75d6d543a66390244e395d3").SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-1))).Configure();
         }
         private static void IntroductionDialogue()
         {//This one is the dialogue she has when you first meet her in drezen and she asks for your help
@@ -448,7 +502,7 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.CowgirlQuest1Intro.Cue.8"))
                 .SetAnswers(CowgirlQuest1DialogueAnswers[7])
                 .SetOnStop(ActionsBuilder.New()
-                    .GiveObjective(BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(ReachTheGatewayToInsanityGUID)).IncrementFlagValue(Flags.BeganGatewayToInsanity,true,new EvaluatorInt(1))//add the quest
+                    .GiveObjective(BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(ReachTheGatewayToInsanityGUID)).IncrementFlagValue(Flags.BeganGatewayToInsanity,true,Utilities.MakeIntConstant(1))//add the quest
                     .AddAll(Flags.IncrementFlag(-1,Flags.CowgirlInDrezen).Build()))//Remove Bell from Drezen for now
                 .SetSpeaker(CowgirlUnit.GetSpeaker())
                 .Configure();
@@ -1002,13 +1056,13 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity31", GatewayToInsanityCues[31])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.31"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[9]))
-               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(),new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm),true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(),new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm),true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity32", GatewayToInsanityCues[32])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.32"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[9]))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
               .Configure();
 
             #endregion
@@ -1032,13 +1086,13 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity33", GatewayToInsanityCues[33])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.33"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[10]))
-               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity34", GatewayToInsanityCues[34])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.34"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[10]))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
               .Configure();
 
             #endregion
@@ -1062,7 +1116,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity35", GatewayToInsanityCues[35])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.35"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[11]))
-               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().DealAbilityDamage(new PlayerCharacter(), new DiceFormula(), 4, Kingmaker.EntitySystem.Stats.StatType.Intelligence).IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity36", GatewayToInsanityCues[36])
@@ -1185,7 +1239,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity43", GatewayToInsanityCues[43])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.43"))
               .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[13]))
-              .SetOnShow(ActionsBuilder.New().TimeSkip(minutesToSkip: new EvaluatorInt(10)).Conditional(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,999,1), Flags.IncrementFlag(1,Flags.GatewayToInsanityLongTime)))
+              .SetOnShow(ActionsBuilder.New().TimeSkip(minutesToSkip: Utilities.MakeIntConstant(10)).Conditional(ConditionsBuilder.New().FlagInRange(Flags.GatewayToInsanityAlarm,999,1), Flags.IncrementFlag(1,Flags.GatewayToInsanityLongTime)))
               //10 mins pass and if alarm raised mark long time
               .SetContinueValue(Utilities.MakeCueSelection(GatewayToInsanityCues[44]))
               .Configure();
@@ -1256,7 +1310,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity50", GatewayToInsanityCues[50])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.50"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[14]))
-               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity51", GatewayToInsanityCues[51])
@@ -1288,7 +1342,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity52", GatewayToInsanityCues[52])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.52"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[15]))
-               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity53", GatewayToInsanityCues[53])
@@ -1320,7 +1374,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity54", GatewayToInsanityCues[54])
                .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.54"))
                .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[16]))
-               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(Flags.GatewayToInsanityAlarm), true, Utilities.MakeIntConstant(1)))
                .Configure();
 
             CueConfigurator.New("GatewayToInsanity55", GatewayToInsanityCues[55])
@@ -1395,7 +1449,7 @@ namespace gun.Plot
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[11]))
                 .SetAlignmentShift(TreatedFleshwarpsAsMonsters)
-                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, new EvaluatorInt(-2)))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-2)))
                 .Configure();
 
             AlignmentShift TriedToHelpFleshwarps = new AlignmentShift();
@@ -1409,7 +1463,7 @@ namespace gun.Plot
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[12]))
                 .SetAlignmentShift(TriedToHelpFleshwarps)
-                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true, new EvaluatorInt(2)))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true, Utilities.MakeIntConstant(2)))
                 .Configure();
         }
 
@@ -1429,7 +1483,7 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.32"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityPages[11]))
-                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, new EvaluatorInt(-2)).SetObjectiveStatus(HelpTheFleshwarpsQuestGUID, status: Kingmaker.Designers.Quests.Common.SummonPoolCountTrigger.ObjectiveStatus.Fail))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-2)).SetObjectiveStatus(HelpTheFleshwarpsQuestGUID, status: Kingmaker.Designers.Quests.Common.SummonPoolCountTrigger.ObjectiveStatus.Fail))
                 .Configure();
 
             CueConfigurator.New("GatewayToInsanity62", GatewayToInsanityCues[62])
@@ -1442,10 +1496,10 @@ namespace gun.Plot
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[17]))
                 .SetOnSelect(ActionsBuilder.New()
-                    .IncrementFlagValue(Flags.CowgirlApproval, true, new EvaluatorInt(-1))//lose 1 approval
-                    .IncrementFlagValue(Flags.CowgirlRespect, true, new EvaluatorInt(-1))//and one respect
-                    .IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, new EvaluatorInt(1))//and you've taken a long tiem
-                    .TimeSkip(minutesToSkip: new EvaluatorInt(30)))
+                    .IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-1))//lose 1 approval
+                    .IncrementFlagValue(Flags.CowgirlRespect, true, Utilities.MakeIntConstant(-1))//and one respect
+                    .IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, Utilities.MakeIntConstant(1))//and you've taken a long tiem
+                    .TimeSkip(minutesToSkip: Utilities.MakeIntConstant(30)))
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC17", GatewayToInsanityChecks[17])
@@ -1470,7 +1524,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity65", GatewayToInsanityCues[65])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.65"))
               .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[17]))
-              .SetOnShow(UpdateMadness.MadnessActionBuilder(1).IncrementFlagValue(Flags.CowgirlRespect, true, new EvaluatorInt(-1)))
+              .SetOnShow(UpdateMadness.MadnessActionBuilder(1).IncrementFlagValue(Flags.CowgirlRespect, true, Utilities.MakeIntConstant(-1)))
               .Configure();
 
             AnswerConfigurator.New("GatewayToInsanityA34", GatewayToInsanityAnswers[34])
@@ -1525,13 +1579,13 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity68", GatewayToInsanityCues[68])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.68"))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[18]))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps,true,new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps,true,Utilities.MakeIntConstant(1)))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity69", GatewayToInsanityCues[69])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.69"))
               .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[18]))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, new EvaluatorInt(1)).TimeSkip(minutesToSkip: new EvaluatorInt (10)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, Utilities.MakeIntConstant(1)).TimeSkip(minutesToSkip: Utilities.MakeIntConstant (10)))
               .Configure();
             #endregion
 
@@ -1541,8 +1595,8 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Answer.37"))
                 .SetShowOnce()
                 .SetNextCue(Utilities.MakeCueSelection(GatewayToInsanityChecks[19]))
-                .SetOnSelect(ActionsBuilder.New().TimeSkip(minutesToSkip: new EvaluatorInt(30))
-                .IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, new EvaluatorInt(1)))//and you've taken a long tiem
+                .SetOnSelect(ActionsBuilder.New().TimeSkip(minutesToSkip: Utilities.MakeIntConstant(30))
+                .IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, Utilities.MakeIntConstant(1)))//and you've taken a long tiem
                 .Configure();
 
             CheckConfigurator.New("GatewayToInsanityC19", GatewayToInsanityChecks[19])
@@ -1588,14 +1642,14 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity73", GatewayToInsanityCues[73])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.73"))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, Utilities.MakeIntConstant(1)))
               .SetConditions(ConditionsBuilder.New().CheckPassed(GatewayToInsanityChecks[20]))
               .Configure();
 
             CueConfigurator.New("GatewayToInsanity74", GatewayToInsanityCues[74])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.74"))
               .SetConditions(ConditionsBuilder.New().CheckFailed(GatewayToInsanityChecks[20]))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, new EvaluatorInt(1)).TimeSkip(minutesToSkip: new EvaluatorInt(10)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.GatewayToInsanityLongTime, true, Utilities.MakeIntConstant(1)).TimeSkip(minutesToSkip: Utilities.MakeIntConstant(10)))
               .Configure();
             #endregion
 
@@ -1611,7 +1665,7 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity75", GatewayToInsanityCues[75])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.75"))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, Utilities.MakeIntConstant(1)))
               .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[39]))
               .Configure();
 
@@ -1629,7 +1683,7 @@ namespace gun.Plot
 
             CueConfigurator.New("GatewayToInsanity76", GatewayToInsanityCues[76])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.76"))
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, new EvaluatorInt(1)))
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.TreatedFleshwarps, true, Utilities.MakeIntConstant(1)))
               .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[40]))
               .Configure();
 
@@ -1879,7 +1933,7 @@ namespace gun.Plot
             CueConfigurator.New("GatewayToInsanity94", GatewayToInsanityCues[94])
               .SetText(LocalizationTool.GetString("Plot.GatewayToInsanity.Cue.94"))
               .SetConditions(ConditionsBuilder.New().AnswerSelected(GatewayToInsanityAnswers[32],true,true))//so long as you have not killed the fleshwarps
-              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlInDrezen,true,new EvaluatorInt(1)))//put her back in drezen
+              .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlInDrezen,true,Utilities.MakeIntConstant(1)))//put her back in drezen
               .Configure();
 
            AnswerConfigurator.New("GatewayToInsanityA52", GatewayToInsanityAnswers[52])
@@ -1917,7 +1971,7 @@ namespace gun.Plot
 
             AnswerConfigurator.New("GatewayToInsanityA53", GatewayToInsanityAnswers[53])
                 .SetText(LocalizationTool.GetString("Plot.Leave"))
-                .SetOnSelect(ActionsBuilder.New().FinishObjective(ReachTheGatewayToInsanityGUID).IncrementFlagValue(Flags.CompletedGatewayToInsanity,true, new EvaluatorInt(1)))//complete reach the gateway to insanity
+                .SetOnSelect(ActionsBuilder.New().FinishObjective(ReachTheGatewayToInsanityGUID).IncrementFlagValue(Flags.CompletedGatewayToInsanity,true, Utilities.MakeIntConstant(1)))//complete reach the gateway to insanity
                 .Configure();
         }
 

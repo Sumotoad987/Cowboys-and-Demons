@@ -60,6 +60,10 @@
 		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Reference Include="PresentationCore" />
+	  <Reference Include="WindowsBase" />
+	</ItemGroup>
+	<ItemGroup>
 		<None Update="Localization\*" CopyToOutputDirectory="PreserveNewest" />
 		<None Update="Media\*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>

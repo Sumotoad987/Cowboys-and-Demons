@@ -357,7 +357,7 @@ namespace gun.Cowgirl
 
             CueConfigurator.New("CowgirlGeneral10", DialogCue[10])
                .SetText(LocalizationTool.GetString("Plot.Cowgirl.Cue.10"))
-               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.SuspectsCowgirl,true,new EvaluatorInt(1)))
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.SuspectsCowgirl,true,Utilities.MakeIntConstant(1)))
                .SetSpeaker(CowgirlUnit.GetSpeaker())
                .SetAnswers(DialogAnswer[0], DialogAnswer[8], DialogAnswer[9], DialogAnswer[10], DialogAnswer[11], DialogAnswer[12], DialogAnswer[13], DialogAnswer[14])
                .Configure();
@@ -633,7 +633,7 @@ namespace gun.Cowgirl
 
             CueConfigurator.New("CowgirlRecruitment2", RecruitmentDialogCue[2])
                .SetText(LocalizationTool.GetString("Plot.CowgirlRecruitment.Cue.2"))
-               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlInDrezen,true,new EvaluatorInt(-1)))
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlInDrezen,true,Utilities.MakeIntConstant(-1)))
                .SetSpeaker(CowgirlUnit.GetSpeaker())
                .Configure();
         }
@@ -782,7 +782,7 @@ namespace gun.Cowgirl
         public override void RunAction()
         {
             //iset the flags for her being in drezen and in the party
-            ActionsBuilder.New().IncrementFlagValue(gun.Plot.Flags.CowgirlInParty, true, new EvaluatorInt(1)).IncrementFlagValue(gun.Plot.Flags.CowgirlInDrezen, true, new EvaluatorInt(1)).Build().Run();
+            ActionsBuilder.New().IncrementFlagValue(gun.Plot.Flags.CowgirlInParty, true, Utilities.MakeIntConstant(1)).IncrementFlagValue(gun.Plot.Flags.CowgirlInDrezen, true, Utilities.MakeIntConstant(1)).Build().Run();
 
             //spawn a CowgirlUnit
 

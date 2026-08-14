@@ -87,7 +87,7 @@ namespace gun.Firearms
                     {
                         evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).RemoveRank();//then remove one round
                     }
-                    SoundPlayer Bang = new SoundPlayer(System.IO.Path.Combine(Main.ModPath, "Media\\Sounds\\bang_01.wav"));
+                    SoundPlayer Bang = new SoundPlayer(GunSound.GetSoundFile());
                     Bang.Play();
                 }
             }
@@ -143,7 +143,7 @@ namespace gun.Firearms
                     }
                     
                 }
-                SoundPlayer Bang = new SoundPlayer(System.IO.Path.Combine(Main.ModPath, "Media\\Sounds\\bang_01.wav"));
+                SoundPlayer Bang = new SoundPlayer(GunSound.GetSoundFile());
                 Bang.Play();
 
             }
@@ -202,6 +202,19 @@ namespace gun.Firearms
         public Capacity(int cap)
         {
             count = cap;
+        }
+    }
+
+    public static class GunSound
+    {
+        public static string GetSoundFile()
+        {
+            float vol = Kingmaker.Settings.SettingsController.SoundSettingsController.m_Settings.VolumeMaster/100;
+            vol *= Kingmaker.Settings.SettingsController.SoundSettingsController.m_Settings.VolumeSFX/100;
+            vol *= 10;
+            int volume = Mathf.FloorToInt(vol) * 10;
+            Main.Log.Log(volume.ToString());
+            return System.IO.Path.Combine(Main.ModPath, "Media\\Sounds\\bang" + volume + ".wav");
         }
     }
 }
