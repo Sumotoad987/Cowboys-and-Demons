@@ -26,5 +26,57 @@
   {
     "Key": "Plot.Continue",
     "enGB": "Continue."
+  },
+  {
+    "Key": "FusedDemon.Name",
+    "enGB": "Sinful Thought"
+  },
+  {
+    "Key": "FusedDemon.Description",
+    "enGB": "A monstrous patchwork of demonkind."
+  },
+  {
+    "Key": "FusedDemon.ManyMinds.Name",
+    "enGB": "Many Minds Make Light Work"
+  },
+  {
+    "Key": "FusedDemon.ManyMinds.Description",
+    "enGB": "With so many separate minds sinful thought is able to split its attension between multiple tasks at once allowing it to cast all spells as though quickened."
+  },
+  {
+    "Key": "FusedDemon.DistributedPsyche.Name",
+    "enGB": "Distributed Psyche"
+  },
+  {
+    "Key": "FusedDemon.DistributedPsyche.Description",
+    "enGB": "Each brain acts as a backup for the others protecting the monster from spells that target the mind. Either that or its simply so crazed already there's no room for other effects."
+  },
+  {
+    "Key": "FusedDemon.ExposedBrains.Name",
+    "enGB": "Exposed Brain Tissue"
+  },
+  {
+    "Key": "FusedDemon.ExposedBrains.Description",
+    "enGB": "Countless brains have be weaved together in this unholy abonination so much so they burst from its flesh like boils. Most of the Sinful toughts body is made up of brain tissue granting it a towering intellect but making the distiction between brain and body disapear. Sinful thoughts intelligence and wisdom are tied to its HP diminishing as it takes damage."
+  },
+  {
+    "Key": "Lobotomised.Name",
+    "enGB": "Lobotomised"
+  },
+  {
+    "Key": "Lobotomised.Description",
+    "enGB": "Almost the entirity of this creatures brain has been removed leaving it with nothing but hate and pain. This creature has no inteligence, wisdom or charisma and is immune to any effect that requires a mind. Additionally its unthinking fury grants it a +10 bonus to attack and damage rolls."
+  },
+  {
+    "Key": "Lobotomised.Marilith.Name",
+    "enGB": "Lobotomised Marilith"
+  },
+  {
+    "Key": "Lobotomised.Nalfeshnee.Name",
+    "enGB": "Lobotomised Nalfeshnee"
+  },
+  {
+    "Key": "Lobotomised.Vrolikai.Name",
+    "enGB": "Lobotomised Vrolikai"
   }
 ]

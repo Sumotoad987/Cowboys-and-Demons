@@ -9,6 +9,7 @@ using gun.Firearms;
 using gun.Plot;
 using HarmonyLib;
 using Kingmaker;
+using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Cutscenes.Commands;
 using Kingmaker.Blueprints.CharGen;
@@ -74,7 +75,7 @@ public static class Main {
                 Initialized = true;
                 LoadGunAssets();
                 
-                LocalizationTool.LoadLocalizationPacks(Directory.GetFiles(Path.Combine(ModPath, "Localization")));//hoping this will load all of them
+                LocalizationTool.LoadLocalizationPacks(Directory.GetFiles(Path.Combine(ModPath, "Localization")));
 
                 Log.Log("Patching blueprints.");
                 
@@ -92,16 +93,17 @@ public static class Main {
                 Rifle.Configure();
                 Revolver.Configure();
                 Shotgun.Configure();
+                Blunderbuss.Configure();
                 Plot.Flags.Configure();
                 Act2.Configure();
                 Mythos.Configure();
                 EventBus.Subscribe(new WorldMapEncounter(-70,4,-65,6,Flags.MetCowgirl, Act2.CowgirlMeetingEvent));
-                
+                MusketMaster.Configure();
                 GritFeats.Configure();
                 Buccaneer.Configure();
                 Act3.Configure();
-                //Game.Instance.AreaLoadingComplete
-
+                Act4.Configure();
+                //EventBus.Subscribe(new WeaverLairMapFix());
 
             } catch (Exception e) {
                 Log.Log(string.Concat("Failed to initialize.", e));

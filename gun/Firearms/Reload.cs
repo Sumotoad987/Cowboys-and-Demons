@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Utils;
+using gun.Classes.Gunslinger;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -204,8 +205,8 @@ namespace gun.Firearms
             else
             {
                 //Main.Log.Log("Early Weapon");
-                bool TwoHanded = unit.GetFirstWeapon().Blueprint.IsTwoHanded;
-
+                bool TwoHanded = unit.GetFirstWeapon().Blueprint.IsTwoHanded && unit.GetFeature(BlueprintTool.Get<BlueprintFeature>(MusketMaster.FastMusketEffect)) == null;
+                //weapon is considered two handed if it is a two handed weapon and the user does not have the fast musket feat
 
                 if (!TwoHanded && hasRapidReload)
                 {//if its a one handed weapon with rapid reload

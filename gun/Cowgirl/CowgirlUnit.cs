@@ -29,6 +29,7 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.ContextData;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -157,10 +158,15 @@ namespace gun.Cowgirl
             "83aed4ca32cb4e3db007576c0529fb2e",
             "a5acd0dd24094ff988aecad63d875865",
         };
+        public static string[] CompanionStoryGUID =
+        {
+            "5216b6b6ec2143eaacd9b8f4a0dee196"
+        };
 
         public static void Configure()
         {
             Secrets.Configure();
+            CompanionStory();
             UnitConfigurator Cowgirl = UnitConfigurator.New("CowgirlUnit", GUID).CopyFrom(UnitHelper.CustomCompanion());
             Cowgirl.AddUnitIsStoryCompanion();
             Cowgirl.SetDisplayName(LocalizationTool.GetString("Cowgirl.Name"));
@@ -168,8 +174,8 @@ namespace gun.Cowgirl
             //Cowgirl.SetColor(); Not sure what to do with this one
             Cowgirl.SetRace(BlueprintTool.GetRef<BlueprintRaceReference>("0a5d473ead98b0646b94495af250fdc4"));//human (sort of)
             //will need to make a portrait
-            Portrait.Configure();
-            Cowgirl.SetPortrait(Portrait.GUID);
+            CowgirlPortrait.Configure();
+            Cowgirl.SetPortrait(CowgirlPortrait.GUID);
 
             Cowgirl.SetStrength(8);
             Cowgirl.SetDexterity(18);
@@ -178,6 +184,8 @@ namespace gun.Cowgirl
             Cowgirl.SetWisdom(14);
             Cowgirl.SetCharisma(16);
             
+
+
             Cowgirl.SetSpeed(Kingmaker.Utility.FeetExtension.Feet(30));
             Cowgirl.SetAlignment(Kingmaker.Enums.Alignment.ChaoticGood);
 
@@ -192,7 +200,6 @@ namespace gun.Cowgirl
             CowgirlFeatures.SetHideNotAvailibleInUI(true);
             CowgirlFeatures.SetHideInCharacterSheetAndLevelUp(true);
             CowgirlFeatures.AddFacts([Secrets.MonsterTemplateGUID]);
-
 
             CowgirlFeatures.AddClassLevels(archetypes: [SpellscarDrifter.SpellscarDrifterGUID], characterClass: "3adc3439f98cb534ba98df59838f02c7", doNotApplyAutomatically: false, levels: 10, levelsStat: Kingmaker.EntitySystem.Stats.StatType.Dexterity, raceStat: Kingmaker.EntitySystem.Stats.StatType.Charisma, selections: DefineClassChoices(), skills: [StatType.SkillKnowledgeArcana, StatType.SkillMobility, StatType.SkillPerception, StatType.SkillUseMagicDevice, StatType.SkillPersuasion, StatType.SkillLoreReligion]);
             CowgirlFeatures.Configure();
@@ -229,6 +236,15 @@ namespace gun.Cowgirl
             RecruitmentDialog();
         }
 
+        private static void CompanionStory()
+        {
+            CompanionStoryConfigurator.New("CowgirlStory0", CompanionStoryGUID[0])
+                .SetCompanion(GUID)
+                .SetGender(Gender.Female)
+                .SetTitle("Cowgirl.CompanionStory.0.Title")
+                .SetDescription("Cowgirl.CompanionStory.0.Text")
+                .Configure();
+        }
         private static void GeneralDialogue()
         {//this one is what she normal has as dialogue in Drezen (might move this to another class since it's not exclusive to Act 3
             DialogConfigurator CowgirlDialog = DialogConfigurator.New("CowgirlDialgoue", Dialog);
@@ -627,7 +643,7 @@ namespace gun.Cowgirl
 
             CueConfigurator.New("CowgirlRecruitment1", RecruitmentDialogCue[1])
                .SetText(LocalizationTool.GetString("Plot.CowgirlRecruitment.Cue.1"))
-               .SetOnShow(ActionsBuilder.New().Add(new RecruitSpeaker()))
+               .SetOnShow(ActionsBuilder.New().Add(new RecruitSpeaker()).UnlockCompanionStory(CompanionStoryGUID[0]))
                .SetSpeaker(CowgirlUnit.GetSpeaker())
                .Configure();
 
@@ -741,9 +757,10 @@ namespace gun.Cowgirl
             CowgirlEquipment.RunAction();
             CowgirlEquipment.m_ItemToGive = BlueprintTool.GetRef<BlueprintItemReference>("fb4e768611f820b4186a004cbd70ead6");
             CowgirlEquipment.RunAction();
-
+            
             int experience = Game.Instance.Player.MainCharacter.Value.Descriptor.Progression.Experience;
             companion.Descriptor.Progression.AdvanceExperienceTo(experience, log: false);
+           
 
 
         }

@@ -9,7 +9,7 @@
   },
   {
     "Key": "Plot.DemonsHerey.Cowgirl.3",
-    "enGB": "\"So she made a mistake\" Bell give Arueshalae a reassuring smile, \"We all make 'em. Even the best of us stumble along the way. Redemption's ain't just some switch ya flip an' suddenly yer good. Give her time. The important thing is she's trying ta be better.\""
+    "enGB": "\"So she made a mistake\" Bell gives Arueshalae a reassuring smile, \"We all make 'em. Even the best of us stumble along the way. Redemption's ain't just some switch ya flip an' suddenly yer good. Give her time. The important thing is she's trying ta be better.\""
   },
   {
     "Key": "Plot.KnowThyEnemy.Cowgirl.1",
@@ -30,5 +30,41 @@
   {
     "Key": "Plot.AttackOutOfNowhere.Cowgirl.3",
     "enGB": "Bell turns away tears forming in her eyes. \"Not again... why are we always too late?\""
+  },
+  {
+    "Key": "Plot.Wayward.Cowgirl",
+    "enGB": "\"Well ain't this quite a sight.\" Bell waves a hand to encompase the shattered alter and repentant cultists \"I had a feeling there was more to this kid than meets the eye but this is something else. I say we follow her lead on this one. Whatever she's got going on it working wonders.\""
+  },
+  {
+    "Key": "Plot.PriceOfKnowledge.Cowgirl.1",
+    "enGB": "\"Another scholar drawn to madness like a moth to a flame.\" Bell puts her head in her hands \"You'd think what with all their knowledge they'd be smart enough ta know that some things are hidden for a reason. Still at least she's only risked herself this time.\""
+  },
+  {
+    "Key": "Plot.PriceOfKnowledge.Cowgirl.2",
+    "enGB": "\"Guys like this really baffle me. I mean why bother preserving this knowledge if ya don't want no one ta have it? Surely it would 'ave be easier to just let the demons destroy it then go through all the trouble to keep it intact only ta stand an eternal guard makin' sure nobody reads it.\""
+  },
+  {
+    "Key": "Plot.PriceOfKnowledge.Cowgirl.3",
+    "enGB": "\"You will never undertand us. You unnatural thing.\""
+  },
+  {
+    "Key": "Plot.PriceOfKnowledge.Cowgirl.4",
+    "enGB": "\"Says the walking corpse.\""
+  },
+  {
+    "Key": "Plot.Wintersun.Cowgirl.1",
+    "enGB": "Bell clutches her head and winces in pain as you aproach the gate. \"Ohh there's something wrong with this place. I can feel it in the air.\"The guards gaze seems to skip over her as though their minds can't quite register her."
+  },
+  {
+    "Key": "Plot.MidnightFane.Cowgirl.1",
+    "enGB": "Bell leans forward to whisper in your ear \"Hold up a second who's this? I thought you were in charge.\""
+  },
+  {
+    "Key": "Plot.MidnightFane.Cowgirl.2",
+    "enGB": "\"She's the Queen of Mendev\""
+  },
+  {
+    "Key": "Plot.MidnightFane.Cowgirl.3",
+    "enGB": "\"I thought we were in Sarkoris...\" Bell mutters as she steps back"
   }
 ]

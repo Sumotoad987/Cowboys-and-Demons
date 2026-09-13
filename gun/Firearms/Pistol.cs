@@ -1,4 +1,5 @@
-﻿using BlueprintCore.Blueprints.References;
+﻿using BlueprintCore.Blueprints.Configurators.Items.Weapons;
+using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
@@ -48,6 +49,8 @@ namespace gun.Firearms
         };
 
         public const string GatewayLootPistolID = "5f1372bcb8f3461ab3927131669c139b";
+
+        public const string PistolofInfiniteSky = "561192dcaacf4fe79d796deacb9a2596";
         public static void Configure()
         {
             //WeaponVisualParameters Uses crossbow animation style
@@ -64,7 +67,7 @@ namespace gun.Firearms
             Sprite icon = Sprite.Create(texture2D, new Rect(0f, 0f, 64, 64), new Vector2(0f, 0f));
 
             //creates the pistol weapon type by calling from base firearm
-            CreateWeapon("Pistol", WeaponID, true, Kingmaker.Utility.FeetExtension.Feet(20), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire1_5);
+            CreateWeapon("Pistol", WeaponID, true, Kingmaker.Utility.FeetExtension.Feet(30), Dice, DamageCriticalModifierType.X4, 20, DefaultFirearmDamageType(), icon, 9, visuals, MisfireEnhancement.Misfire1_5);
 
             //create a basic pistol and all the normal variants
             CreateBasicWeapons("Pistol", BasicItemIDs, WeaponID, 1000);
@@ -73,6 +76,15 @@ namespace gun.Firearms
                 .AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("80bb8a737579e35498177e1e3c75899b"),
                                    BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("629c383ffb407224398bb71d1bd95d14"))
                 .Configure();
+
+            CreateWeaponItem("PistolInfinateSky", PistolofInfiniteSky, WeaponID, 73300)
+                .AddToEnchantments(BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>("bdba267e951851449af552aa9f9e3992"))
+                .RemoveFromEnchantments(BaseFirearm.ClipGUID, MisfireEnhancement.Misfire1_5)//does not have a clip and can't misfire
+
+                .SetDisplayNameText(LocalizationTool.GetString("Firearms.PistolInfinateSky.Name"))
+                .SetDescriptionText(LocalizationTool.GetString("Firearms.PistolInfinateSky.Description"))
+                .Configure();
+
 
             //setup any special enchanted variants we want to be in game
             //put all relevant versions into the shops

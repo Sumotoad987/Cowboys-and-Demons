@@ -632,7 +632,7 @@ namespace gun.Firearms
             ItemWeaponConfigurator BasicWeapon = ItemWeaponConfigurator.New(name, ID);
             BasicWeapon.SetCost(cost);
             BasicWeapon.SetType(BlueprintTool.GetRef<BlueprintWeaponTypeReference>(TypeID));
-            WeaponVisualParameters visuals = Utilities.Clone(BlueprintTool.Get<BlueprintItemWeapon>("19a5092244dcf99478dcd73c974828b1").m_VisualParameters);//copy the visual parameters off the standard heavy crossbow
+            WeaponVisualParameters visuals = Utilities.Clone(BlueprintTool.Get<BlueprintItemWeapon>("19a5092244dcf99478dcd73c974828b1").m_VisualParameters);
             BasicWeapon.SetVisualParameters(visuals);
             //BasicWeapon.ModifyVisualParameters((WeaponVisualParameters vis) => vis.m_Projectiles = new BlueprintProjectileReference[] {});
             //BasicWeapon.Configure();

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace gun.Cowgirl
 {
-    internal static class Portrait
+    internal static class CowgirlPortrait
     {
         public static string GUID = "ec5ae22c250641bdb16f0c0cd5601f58";
         public static PortraitData data;

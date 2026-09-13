@@ -21,6 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Kingmaker.Kingdom.Settlements.SettlementGridTopology;
 
 namespace gun
 {
@@ -242,6 +243,14 @@ namespace gun
             IntConstant output = new IntConstant();
             output.Value = value;
             return output;
+        }
+
+        public static DialogSpeaker GetSpeaker(string GUID)
+        {
+            DialogSpeaker CowgirlSpeaker = new DialogSpeaker();
+            CowgirlSpeaker.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(GUID);
+            CowgirlSpeaker.m_SpeakerPortrait = BlueprintTool.GetRef<BlueprintUnitReference>(GUID);
+            return CowgirlSpeaker;
         }
 
     }

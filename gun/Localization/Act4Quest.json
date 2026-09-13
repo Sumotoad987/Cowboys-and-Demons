@@ -1,0 +1,62 @@
+[
+  {
+    "Key": "Plot.CowgirlQuest2.Area.Name",
+    "enGB": "Brainweaver's Lair"
+  },
+  {
+    "Key": "Plot.DistortedPortal.Title",
+    "enGB": "Distorted Portal"
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.0",
+    "enGB": "The Commander steps out into the portal expecting to arrive on the other side as has happened with so many others. Yet this time the commander finds {mf|him|her}self nowhere. {mf|He|She} stands on emptiness. Bell, a short distance in front, stands with her head cocked to one side concentrating. The commander spots another figure further ahead, they look strangely familiar. Squinting the commander realises why. The other figure is {mf|him|her}! A perfect copy which matches every movement. As the commander looks around {mf|he|she} finds {mf|him|her}self watching and being watched by seemingly endless copies of {mf|him|her}self. Reaching out to touch the mirrors surface the commander feels a pressure on {mf|his|her} back. Looking over {mf|his|her} shoulder {mf|he|she} can see {mf|his|her} own hand pressed up against {mf|him|her}. These are no reflections. Somehow the commander is standing beside, above, below, in front, and behind {mf|him|her}self."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.1",
+    "enGB": ""
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.4",
+    "enGB": "The commander closes {mf|his|her} mind. Convincing {mf|him|her}self that its just like being in a hall of mirrors or trapped by illusion. This shouldn't be possible but the impossibility can be ignored until its over."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.3",
+    "enGB": "The commander's mind trembles against the impossible. Which of these commander's is real? Are they all real are none of them? What is happening here should not be possible, it is not possible, but maybe reality is impossible. Maybe reality is just a crutch used to hide from the true chaos of existence."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.5",
+    "enGB": "\"It's alright partner\" Bell calls. \"This portals just a bit damaged is all. Left us stuck in warped space I... I can find out way out.\" Her voice is confident but she's hiding something. The commander..."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Answer.0",
+    "enGB": "...watches Bell carefully."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Answer.1",
+    "enGB": "...tries to navigate {mf|him|her}self to make sure Bell's not leading them astray."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Answer.2",
+    "enGB": "...tries to understand the nature of the place they are in."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.6",
+    "enGB": "Bell moves without hesitation. She seems to know exactly where you need to go without looking as though she has some special sense. Some way of understanding space that can allows her to navigate even a place so warped as this one."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.7",
+    "enGB": "Bell moves without hesitation. She seems to know exactly where you need to go but it means nothing to the commander. Up and down left and right it feels like you should be doubling back on yourself at times yet you never seem to wind up in the same place. As time wears on the commander's concept of space seems to collapse in on itself. Was there ever such a thing as forwards?"
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.10",
+    "enGB": "As the commander watches Bell moving through this space {mf|he|she} begins to realise what is happening. There are more than three directions here and those typical three have somehow been folded over each other. Somehow Bell is leading you in that fourth direction, passing through folds one by one as you drift ever closer to your goal. Just a little nudge in that direction could work wonders on teleportation. That is if it could be applied outside this place and if one's mind could contain four directions at once."
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.11",
+    "enGB": "As the commander watches Bell moving through this space {mf|he|she} begins to realise what is happening. Space is a lie! There is no such thing as distance or speed they are nothing but phantasms of the mind used in a vain attempt to comprehend the incomprehensible. The commander tries to dismiss the notion but a niggling doubt remains. Could it be true?"
+  },
+  {
+    "Key": "Plot.DistortedPortal.Cue.12",
+    "enGB": "The empty void doesn't seem to change as the commander advances through it yet with a sudden pop {mf|he|she} arrives at the other side. They topple forth into an Abyssal cavern. Demons prowl about moaning, their faces blank and lifeless. They move on instinct alone all thought removed they know nothing but hate and rage and lash out at the newcomer."
+  }
+]

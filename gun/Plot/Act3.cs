@@ -39,6 +39,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Kingmaker.Kingdom.Settlements.SettlementGridTopology;
 using static UnityEngine.Rendering.DebugUI;
 
 namespace gun.Plot
@@ -299,6 +300,10 @@ namespace gun.Plot
             DemonsHeresy();
             KnowTheyEnemy();
             AttackOutOfNowhere();
+            TheWayward();
+            PriceOfKnowledge();
+            Wintersun();
+            MidnightFane();
         }
 
         private static void CowgirlDrezenSpawn()
@@ -363,14 +368,15 @@ namespace gun.Plot
                .SetShowOnce()
                .Configure();
 
-            CueSequenceConfigurator.New("CowgirlAttackOutOfNowhereSequence", "2b53c716bae543e4bd895fd0dd66a935")
-                .SetCues("779dcc24ab29494196ff23d065f04484")
-                .Configure();
-
             SequenceExitConfigurator.New("CowgirlAttackOutOfNowhereSequenceExit", "1f40adbeaeba4b2499f90101ee396a1c")
                 .SetAnswers(BlueprintTool.Get<BlueprintAnswersList>("a01c59afcc9038c46a8bee2de45427cf"))
                 .Configure();
 
+            CueSequenceConfigurator.New("CowgirlAttackOutOfNowhereSequence", "2b53c716bae543e4bd895fd0dd66a935")
+                .SetCues("779dcc24ab29494196ff23d065f04484")
+                .SetExit("1f40adbeaeba4b2499f90101ee396a1c")
+                .Configure();
+            
             CueConfigurator.For("685f62f95dd7729468700c592c0dba50")
                 .SetContinueValue(Utilities.MakeCueSelection("2b53c716bae543e4bd895fd0dd66a935"))
                 .Configure();
@@ -404,6 +410,115 @@ namespace gun.Plot
 
             AnswerConfigurator.For("8478ea1abb38ba5419da0f020ab88d3a").SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(2))).Configure();
             AnswerConfigurator.For("534f458dd75d6d543a66390244e395d3").SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-1))).Configure();
+        }
+
+        private static void TheWayward()
+        {
+            CueConfigurator.New("CowgirlWayward", "d8820b680e4c4efe9afab5af412cb65d")
+               .SetText(LocalizationTool.GetString("Plot.Wayward.Cowgirl"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+
+            SequenceExitConfigurator.New("CowgirlTheWaywardSequenceExit", "af38010f33af4467a325244c398fb435")
+                .SetAnswers(BlueprintTool.Get<BlueprintAnswersList>("2d4f9ed56bc5cb746ada8824e3ddb46d"))
+                .Configure();
+
+            CueSequenceConfigurator.New("CowgirlWaywardSequence", "5500d74f1c1446d79d605c8dfd7cb101")
+                .SetCues("d8820b680e4c4efe9afab5af412cb65d")
+                .SetExit("af38010f33af4467a325244c398fb435")
+                .Configure();
+
+            CueConfigurator.For("b6d96764c58f07743af6f8d91bd6bbcd").SetContinueValue(Utilities.MakeCueSelection("d8820b680e4c4efe9afab5af412cb65d")).Configure();
+
+            AnswerConfigurator.For("8d0c830d47400324c899ecab987f440e").ModifyOnSelect((ActionList actions) => { actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(2)).Build(); }).Configure();
+            AnswerConfigurator.For("5cf417aef34a6c349af0b0ce0d39baf4").ModifyOnSelect((ActionList actions) => { actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(1)).Build(); }).Configure();
+            AnswerConfigurator.For("8ec6787dc3ca63f469d9554a433b893b").ModifyOnSelect((ActionList actions) => { actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-1)).Build(); }).Configure();
+            AnswerConfigurator.For("42bd63f9b8758d24386a72f33dfc4f94").ModifyOnSelect((ActionList actions) => { actions = ActionsBuilder.New().AddAll(actions).IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-2)).Build(); }).Configure();
+        }
+
+        private static void PriceOfKnowledge()
+        {
+            CueConfigurator.New("CowgirlPriceOfKnowledge1", "d239eaa6d095425394fcf13a532d85ac")
+               .SetText(LocalizationTool.GetString("Plot.PriceOfKnowledge.Cowgirl.1"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+
+            CueSequenceConfigurator.For("a940e81c9d5242e4683fe54e6923f89c").AddToCues("d239eaa6d095425394fcf13a532d85ac").Configure();//add it to both varients of the opening dialog
+            CueSequenceConfigurator.For("65f292a6269dfa848aa324591bbc875a").AddToCues("d239eaa6d095425394fcf13a532d85ac").Configure();
+
+            
+            CueConfigurator.New("CowgirlPriceOfKnowledge2", "d9eb1b01300948279b5064ed79391061")
+               .SetText(LocalizationTool.GetString("Plot.PriceOfKnowledge.Cowgirl.2"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .SetContinueValue(Utilities.MakeCueSelection("e325d9e24e704de080564cbccac9cc2a"))
+               .Configure();
+
+            DialogSpeaker Siabrae = new DialogSpeaker();
+            Siabrae.m_SpeakerPortrait = BlueprintTool.GetRef<BlueprintUnitReference>("91e65b4320ecd7a4eb4d06e63bfb846a");
+
+            CueConfigurator.New("CowgirlPriceOfKnowledge3", "e325d9e24e704de080564cbccac9cc2a")
+               .SetText(LocalizationTool.GetString("Plot.PriceOfKnowledge.Cowgirl.3"))
+               .SetSpeaker(Siabrae)
+               .SetContinueValue(Utilities.MakeCueSelection("23cab2668b59426e96bfda5837286518"))
+               .SetShowOnce()
+               .Configure();
+
+            CueConfigurator.New("CowgirlPriceOfKnowledge4", "23cab2668b59426e96bfda5837286518")
+               .SetText(LocalizationTool.GetString("Plot.PriceOfKnowledge.Cowgirl.4"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+            CueSequenceConfigurator.For("52c1f2f301e5e454996c47d6895cb8c1").AddToCues("d9eb1b01300948279b5064ed79391061").Configure();
+        }
+
+        private static void Wintersun()
+        {
+            CueConfigurator.New("CowgirlWintersun1", "2dddf76a0711479bb444df50b43058e5")
+               .SetText(LocalizationTool.GetString("Plot.Wintersun.Cowgirl.1"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+            CueSequenceConfigurator.For("ca001d1f2efe3154898b41568d25d8a4").AddToCues("2dddf76a0711479bb444df50b43058e5").Configure();
+        }
+
+        private static void MidnightFane()
+        {
+            CueConfigurator.New("CowgirlMidnightFane1", "d349d17e7d6e4b42a4565963bbd6018e")
+              .SetText(LocalizationTool.GetString("Plot.MidnightFane.Cowgirl.1"))
+              .SetSpeaker(CowgirlUnit.GetSpeaker())
+              .SetShowOnce()
+              .Configure();
+
+            AnswerConfigurator.New("CowgirlMidnightFane2", "f0aaf6fa31294ffc99b28df5e6c37bb8")
+                .SetText(LocalizationTool.GetString("Plot.MidnightFane.Cowgirl.2"))
+                .SetNextCue(Utilities.MakeCueSelection("6c7917a136c8492b90ab86c9ceaca8e6"))
+                .Configure();
+
+            CueConfigurator.New("CowgirlMidnightFane3", "6c7917a136c8492b90ab86c9ceaca8e6")
+              .SetText(LocalizationTool.GetString("Plot.MidnightFane.Cowgirl.3"))
+              .SetSpeaker(CowgirlUnit.GetSpeaker())
+              .SetShowOnce()
+              .Configure();
+
+            SequenceExitConfigurator.New("CowgirlMidnightFaneSequenceExit", "82434a24490a462597c2a25065608af3")
+                .SetContinueValue(Utilities.MakeCueSelection("42ca940dd83aa1d49bcdcbe60cb0af29"))
+                .Configure();
+
+            CueSequenceConfigurator.New("CowgirlMidnightFaneSequence", "9541b65bda5642438d4cc2a704c13502")
+                .SetCues("d349d17e7d6e4b42a4565963bbd6018e")
+                .SetExit("42ca940dd83aa1d49bcdcbe60cb0af29")
+                .Configure();
+
+            CueConfigurator.For("d1391ecf28cfd3e4e9965b7aa93f453e").ModifyContinueValue((CueSelection cues) =>
+            {
+                BlueprintCueBaseReference reference = cues.Cues[0];
+                cues.Cues = new List<BlueprintCueBaseReference>();
+                cues.Cues.Add(BlueprintTool.GetRef<BlueprintCueBaseReference>("9541b65bda5642438d4cc2a704c13502"));
+                cues.Cues.Add(reference);
+            }).Configure();
         }
         private static void IntroductionDialogue()
         {//This one is the dialogue she has when you first meet her in drezen and she asks for your help

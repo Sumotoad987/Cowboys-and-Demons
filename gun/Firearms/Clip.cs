@@ -88,7 +88,7 @@ namespace gun.Firearms
                         evt.Initiator.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BaseFirearm.RoundsGUID)).RemoveRank();//then remove one round
                     }
                     SoundPlayer Bang = new SoundPlayer(GunSound.GetSoundFile());
-                    Bang.Play();
+                    Bang.Play();//this need to be replaced with proper sound system
                 }
             }
         }

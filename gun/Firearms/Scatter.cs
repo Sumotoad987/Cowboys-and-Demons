@@ -6,13 +6,17 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.BasicEx;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
+using gun.Plot;
 using HarmonyLib;
 using Kingmaker;
 using Kingmaker.Armies.TacticalCombat;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Crusade.GlobalMagic.Executors;
+using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -127,6 +131,8 @@ namespace gun.Firearms
 
         public override void RunAction()
         {
+            
+            //Game.Instance.LoadArea(BlueprintTool.Get<BlueprintArea>(Act4.WeaversLairArea), BlueprintTool.Get<BlueprintAreaEnterPoint>("d44f991b94581de43936b1ce0bf63add"), AutoSaveMode.None, forceUnload: false, null, null);
             if (base.Target.Unit == null)
             {
                 PFLog.Default.Error("Target unit is missing");
@@ -139,6 +145,7 @@ namespace gun.Firearms
                 PFLog.Default.Error("Caster is missing");
                 return;
             }
+            Main.Log.Log(maybeCaster.Position + "");
             ItemEntityWeapon weapon = maybeCaster.GetFirstWeapon();
             int BAB = maybeCaster.Stats.BaseAttackBonus;
             int penalty = 0;
@@ -149,7 +156,6 @@ namespace gun.Firearms
                 {
                     MakeAttack(maybeCaster, weapon, base.Target.Unit, penalty + 2,num);
                     penalty = penalty + 5;
-                    Main.Log.Log("Full attack varient");
                     num++;
                 }
                 
@@ -166,7 +172,6 @@ namespace gun.Firearms
 
                         MakeAttack(maybeCaster, weapon, base.Target.Unit, penalty + 2, num);
                         penalty = penalty + 5;
-                        Main.Log.Log("Full attack varient");
                         rounds--;
                         num++;
                     }
@@ -179,7 +184,7 @@ namespace gun.Firearms
             //yield return new WaitForSeconds(5);
             await Task.Delay(1000 * num);
             WeaponStats = new RuleCalculateWeaponStats(Initiator, weapon, Kingmaker.Items.Slots.LimbType.PrimaryHand);
-            Rulebook.Trigger(WeaponStats);
+            Rulebook.Trigger(base.AbilityContext.RulebookContext, WeaponStats);
             RuleAttackRoll AttackRoll = new RuleAttackRoll(Initiator, Target, WeaponStats, AttackBonusPenalty)
             {
                 AutoHit = false,
@@ -192,16 +197,13 @@ namespace gun.Firearms
 
             };
 
-            Rulebook.Trigger(AttackRoll);
+            Rulebook.Trigger(base.AbilityContext.RulebookContext, AttackRoll);
             if (AttackRoll.IsHit)
             {
-                Main.Log.Log("Attack Hit");
                 RuleDealDamage ruleDealDamage = CreateRuleDealDamage(Initiator, Target, true, AttackRoll);
-                Main.Log.Log("Created Damage");
                 if (ruleDealDamage.DamageBundle != null)
                 {
-                    Rulebook.Trigger(ruleDealDamage);
-                    Main.Log.Log("Dealt Damage");
+                    Rulebook.Trigger(base.AbilityContext.RulebookContext, ruleDealDamage);
                 }
             }
         }
@@ -213,6 +215,7 @@ namespace gun.Firearms
             {
                 DisablePrecisionDamage = true,
                 AttackRoll = AttackRoll
+
             };
         }
 

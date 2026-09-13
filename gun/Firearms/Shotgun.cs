@@ -75,7 +75,6 @@ namespace gun.Firearms
             //create a basic rifle and all the normal variants
             CreateBasicWeapons("Shotgun", BasicItemIDs, WeaponID, 5000);
 
-
             //setup any special enchanted variants we want to be in game
             //put all relevant versions into the shops
             AddWeapontoShop(BasicItemIDs, 3);//put the basic +1,+2 etc. in the chapter 3 exotic weapons vendor

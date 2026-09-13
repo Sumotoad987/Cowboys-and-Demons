@@ -16,6 +16,14 @@
     "enGB": "There is something strange about this woman."
   },
   {
+    "Key": "Cowgirl.CompanionStory.0.Title",
+    "enGB": "The Shieldmarshal"
+  },
+  {
+    "Key": "Cowgirl.CompanionStory.0.Text",
+    "enGB": "A strange wanderer from a distant land who has set herself the course to defend her people from things beyond their comprehension. She has seen things that would break the minds of others and witnessed horrors that should've eaten away at any hope for the mortal soul. What drives one to persist in the face of such things. Going so far as to travel half-way around the world in pursuit of a criminal? Is it a sense of justice? Is it compassion for the victims? Hope that they could yet be saved? Or is it something more personal?"
+  },
+  {
     "Key": "Plot.Cowgirl.Cue.0",
     "enGB": "Bell looks up from cleaning her gun and gives you a wave as you approach. \"Howdy partner\""
   },

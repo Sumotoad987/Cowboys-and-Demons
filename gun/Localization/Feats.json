@@ -518,5 +518,93 @@
   {
     "Key": "Feats.WeaponTraining.CrossbowsAndFirearms.Description",
     "enGB": "Whenever a fighter {g|Encyclopedia:Attack}attacks{/g} with a weapon from this group, he gains a +1 {g|Encyclopedia:Bonus}bonus{/g} on attack and {g|Encyclopedia:Damage}damage rolls{/g}. This group includes all crossbows and firearms."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Blunderbuss.Name",
+    "enGB": "Weapon Focus (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Blunderbuss.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using blunderbuss."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Blunderbuss.Name",
+    "enGB": "Greater Weapon Focus (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Greater.Blunderbuss.Description",
+    "enGB": "You gain a +1 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Attack}attack rolls{/g} you make using blunderbuss."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Blunderbuss.Name",
+    "enGB": "Weapon Specialization (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Blunderbuss.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using blunderbuss."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Blunderbuss.Name",
+    "enGB": "Greater Weapon Specialization (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Greater.Blunderbuss.Description",
+    "enGB": "You gain a +2 {g|Encyclopedia:Bonus}bonus{/g} on all {g|Encyclopedia:Damage}damage rolls{/g} you make using blunderbuss."
+  },
+  {
+    "Key": "Feats.ImprovedCritical.Blunderbuss.Description",
+    "enGB": "When using the weapon you selected, your {g|Encyclopedia:Critical}threat range{/g} is doubled."
+  },
+  {
+    "Key": "Feats.ImprovedCritical.Blunderbuss.Name",
+    "enGB": "Improved Critical (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponFocus.Mythic.Blunderbuss.Description",
+    "enGB": "You're a mythical master of your chosen weapon./nBenefit: Double the {g|Encyclopedia:Bonus}bonuses{/g} on your {g|Encyclopedia:Attack}attack rolls{/g} from Weapon Focus and Greater Weapon Focus."
+  },
+  {
+    "Key": "Feats.WeaponFocus.Mythic.Blunderbuss.Name",
+    "enGB": "Weapon Focus Mythic (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Mythic.Blunderbuss.Description",
+    "enGB": "The {g|Encyclopedia:Damage}damage{/g} you deal with your chosen weapon is truly awesome to behold./nBenefit: When using your chosen weapon, you gain a {g|Encyclopedia:Bonus}bonus{/g} equal to half your mythic rank on damage rolls. This stacks with the bonus from Weapon Specialization and Greater Weapon Specialization."
+  },
+  {
+    "Key": "Feats.WeaponSpecialization.Mythic.Blunderbuss.Name",
+    "enGB": "Weapon Specialization Mythic (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.ImprovedCritical.Mythic.Blunderbuss.Description",
+    "enGB": "Your {g|Encyclopedia:Critical}critical{/g} strikes with your chosen weapon are deadlier than most./nBenefit: Your critical multiplier with your chosen weapon is increased by 1."
+  },
+  {
+    "Key": "Feats.ImprovedCritical.Mythic.Blunderbuss.Name",
+    "enGB": "Improved Critical Mythic (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.ImprovedImprovedCritical.Blunderbuss.Description",
+    "enGB": "Choose one type of weapon for which you have the Improved Critical feat. When using the weapon you selected, its {g|Encyclopedia:Critical}critical threat range{/g} is increased by one."
+  },
+  {
+    "Key": "Feats.ImprovedImprovedCritical.Blunderbuss.Name",
+    "enGB": "Improved Improved Critical (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.ImprovedImprovedImprovedCritical.Blunderbuss.Description",
+    "enGB": "Choose one type of weapon for which you have the Improved Improved Critical feat. When using the weapon you selected, its {g|Encyclopedia:Critical}critical threat range{/g} is increased by one. Again."
+  },
+  {
+    "Key": "Feats.ImprovedImprovedImprovedCritical.Blunderbuss.Name",
+    "enGB": "Improved Improved Improved Critical (Blunderbuss)"
+  },
+  {
+    "Key": "Feats.ImprovedImprovedImprovedCriticalImproved.Blunderbuss.Description",
+    "enGB": "Choose one type of weapon for which you have the Improved Improved Improved Critical feat. When using the weapon you selected, its {g|Encyclopedia:Critical}critical{/g} multiplier is increased by one."
+  },
+  {
+    "Key": "Feats.ImprovedImprovedImprovedCriticalImproved.Blunderbuss.Name",
+    "enGB": "Improved Improved Improved Critical Improved (Blunderbuss)"
   }
 ]

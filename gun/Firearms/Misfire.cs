@@ -49,60 +49,6 @@ namespace gun.Firearms
 
         }
 
-        public void CreateCharacter(List<LevelPlanData> plan, UnitPartDollData doll)
-        {
-            int characterLevel = 10;
-            Main.Log.Log("Got Level as:" + characterLevel);
-            int bonus = BlueprintRoot.Instance.Progression.XPTable.GetBonus(characterLevel);
-            Main.Log.Log("Got Bonus as:" + bonus);
-            BlueprintUnit unit = UnitHelper.CustomCompanion();
-            Main.Log.Log("Got Unit");
-            UnitEntityData unitEntityData = Game.Instance.CreateUnitVacuum(unit);
-            Main.Log.Log("Made Vacuum");
-            unitEntityData.Descriptor.Progression.AdvanceExperienceTo(bonus, log: false);
-            Main.Log.Log("SetXP");
-            unitEntityData.Ensure<UnitPartImportableCompanion>().ImportedLevel = plan.Max((LevelPlanData p) => p.Level);
-            foreach (LevelPlanData item in plan)
-            {
-                unitEntityData.Descriptor.Progression.AddLevelPlan(item);
-            }
-
-            LevelUpController levelUpController = LevelUpController.Start(unitEntityData, LevelUpState.CharBuildMode.CharGen);
-            levelUpController.ApplyPlanAsFarAsPossible();
-            levelUpController.Commit();
-            foreach (LevelPlanData item2 in plan)
-            {
-                if (item2.Level > unitEntityData.Descriptor.Progression.CharacterLevel)
-                {
-                    unitEntityData.Descriptor.Progression.AddLevelPlan(item2);
-                }
-            }
-
-            doll?.CopyTo(unitEntityData);
-            Main.Log.Log("Copied Doll");
-            Transform parent = unitEntityData.View.transform.parent;
-            Main.Log.Log("got parent");
-            Utils.EditorSafeDestroy(unitEntityData.View);
-            Main.Log.Log("destroyed old view");
-            unitEntityData.AttachToViewOnLoad(null);
-            Main.Log.Log("cleared attached view");
-            unitEntityData.View.transform.SetParent(parent);
-            Main.Log.Log("applied parent");
-            Game.Instance.Player.AddCompanion(unitEntityData);
-            Main.Log.Log("added companion");
-            unitEntityData.IsInGame = true;
-            Main.Log.Log("Set in Game");
-            UnityEngine.Vector3 vector = Game.Instance.Player.MainCharacter.Value.Position;
-            Main.Log.Log("Set Position");
-            /*if ((bool)(UnityEngine.Object)(object)AstarPath.active)
-            {
-                FreePlaceSelector.PlaceSpawnPlaces(2, unitEntityData.View.Corpulence, vector);
-                vector = FreePlaceSelector.GetRelaxedPosition(1, projectOnGround: true);
-            }*/
-
-            unitEntityData.Position = vector;
-        }
-
         public void OnEventDidTrigger(RuleAttackRoll evt)
         {
 
@@ -113,7 +59,7 @@ namespace gun.Firearms
                 {
                     tempRange += 2;
                 }
-                if ((int)evt.D20 <= tempRange)//if we are within the missfire range
+                if ((int)evt.D20 <= tempRange && evt.ConcealmentCheck.Success == true)//if we are within the missfire range
                 {
                     //evt.AutoMiss = true;
                     evt.Result = AttackResult.Miss;//the attack is treated as a miss

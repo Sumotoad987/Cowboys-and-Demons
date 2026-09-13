@@ -132,6 +132,14 @@
     "enGB": "Whenever this weapon confirms a critical hit the target suffers an additional 1d6 intelligence damage."
   },
   {
+    "Key": "Firearms.PistolInfinateSky.Name",
+    "enGB": "Pistol of the Infinite Sky"
+  },
+  {
+    "Key": "Firearms.PistolInfinateSky.Description",
+    "enGB": "An infinity symbol is engraved on both sides of this +5 pistol’s mother of pearl grip, and the barrel is adorned with gold depicting the moon, planets, and stars against a night sky of the pistol’s cold black steel. This pistol never needs to be reloaded. After one shot is fired, a bullet and powder magically appear in the chamber. This ammunition never suffers a misfire."
+  },
+  {
     "Key": "Firearms.Rifle.Description",
     "enGB": "This improvement on the musket features a grooved barrel that imparts a twisting, spiral motion to the bullet as it exits, stabilizing it and preventing the end-over-end tumbling common to projectiles from simpler firearms. As a result, a rifle can fire significantly farther and with more accuracy than early long-bore firearms. A rifle uses metal cartridges as ammunition. This is an advanced firearm."
   },
@@ -142,5 +150,29 @@
   {
     "Key": "Firearms.Revolver.Description",
     "enGB": "A revolver is a pistol with a revolving cylinder containing six chambers. Each chamber can hold a metal cartridge, and when one cartridge is fired, the cylinder automatically rotates (no extra hand or action required), readying the next chamber for firing. A revolver uses metal cartridges as ammunition. This is an advanced firearm."
+  },
+  {
+    "Key": "Firearms.Blunderbuss.Name",
+    "enGB": "Blunderbuss"
+  },
+  {
+    "Key": "Firearms.Blunderbuss.Description",
+    "enGB": "This weapon fires pellets or a bullet from its trumpet-shaped barrel, making it an effective fowling weapon or closefighting personal defense weapon. The blunderbuss fires in a 15-foot cone when firing pellets, and has a 10-foot range increment when firing a bullet. A blunderbuss uses a bullet or pellets and a single dose of black powder or a single alchemical cartridge as ammunition. This is an early firearm."
+  },
+  {
+    "Key": "Firearms.ShockwaveBlunderbuss.Name",
+    "enGB": "Shockwave Blunderbuss"
+  },
+  {
+    "Key": "Firearms.ShockwaveBlunderbuss.Description",
+    "enGB": "Whenever the wielder makes a scatter shot with this +2 thundering burst blunderbuss, she attempts a free combat maneuver check to trip each creature struck by the pellets. The wielder uses their CMB or the shockwave blunderbuss’s Combat Maneuver Bonus of +20 whichever is better for these trip attempts."
+  },
+  {
+    "Key": "Firearms.Shockwave.Enchant.Name",
+    "enGB": "Shockwave"
+  },
+  {
+    "Key": "Firearms.Shockwave.Enchant.Description",
+    "enGB": "Whenever the wielder makes a scatter shot with this weapon, she attempts a free combat maneuver check to trip each creature struck by the pellets. The wielder uses their CMB or +20 whichever is better for these trip attempts."
   }
 ]
