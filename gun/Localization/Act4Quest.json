@@ -58,5 +58,82 @@
   {
     "Key": "Plot.DistortedPortal.Cue.12",
     "enGB": "The empty void doesn't seem to change as the commander advances through it yet with a sudden pop {mf|he|she} arrives at the other side. They topple forth into an Abyssal cavern. Demons prowl about moaning, their faces blank and lifeless. They move on instinct alone all thought removed they know nothing but hate and rage and lash out at the newcomer."
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.0",
+    "enGB": "Brainweaver: A horrid stench fills the air, it reeks of death, decay and vileness. It is as though even the stones were rotting away. Something speaks from the air with the sound of ten voices. They speak out of sync and in different tongues, some simply gibber incoherently, but from amidst the noise the commander can make out words spoken in {mf|his|her} own tongue. \"Ah Bell, I was wondering how long it would take you to track me down. Your determination never ceases to be predictable.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.1",
+    "enGB": "The commander spies a tell-tale blur in the air. It would seem the speaker possesses some kind of natural invisibility."
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.2",
+    "enGB": "\"Ah but it seems you've brought the commander of the crusade with you. How... interesting. {mf|his|her} mythic powers present a fascinating opportunity for study. Unfortunately I don't have the time for a biopsy. A pity but there are greater mysteries to uncover. The greatest gate in the history of Golarion will provide the keys to the universe I'm sure of it. \""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Answer.0",
+    "enGB": "What were those things back there?"
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.3",
+    "enGB": "\"Feral mindless things aren't they. I will admit I was surprised so many survived the procedure, not many creatures can endure after most of the brain has been removed. Unfortunately that experiment was something of a failure. I had hoped to extract the secrets of the wound from their minds but they knew little of interest. Now if I'd been able to capture Areelu Vorlesh, her mind would have made a truly fascinating study.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.4",
+    "enGB": "Arueshalae covers her mouth in horror. \"That's horrible. I know they've done terrible things but no one deserves that.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.5",
+    "enGB": "\"Ah the repentant demon. I do hope your survive. I should like to know just what makes your mind tick.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.6",
+    "enGB": "Bell steps in from of Arueshalae. \"You keep your nasty tentacles off-a her. This one's under my protection and I'm not gonna let you take anyone else from me. You hear me! Not one more!\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Answer.1",
+    "enGB": "What are you?"
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.7",
+    "enGB": "\"Hasn't she told you yet... I suppose you never did like to share your secrets. To busy burying anything you think is too dangerous to know.\" a twisted reflected of a laugh burst forth from the darkness. \"I am a spawn of Yog-Sothoth. I am born of the Lurker at the Threshold. I am a creature beyond this world and bear secrets greater than reality itself.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Answer.2",
+    "enGB": "Why are you doing this?"
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.8",
+    "enGB": "\"Because I am a scholar. I shall study this world and the minds of its people. I shall tear back the veil you call reality and see what lies beneath.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Answer.3",
+    "enGB": "[Attack] I can sense the wrongness in your very existence and your every deed is a crime against all reality. For this you must be destroyed."
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.9",
+    "enGB": "\"I see your touched by the aeons. Such foolish creatures, blessed with a shred of understanding over the cosmic forces of the universe yet dedicated to remaining in ignorance. Working so hard to maintain the lie that is reality.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Answer.4",
+    "enGB": "[Attack] Your hideous 'experiment' ends today!"
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.10",
+    "enGB": "\"As interesting as it might be to watch you struggle against forces you can't understand I have more important work to do. Besides with you here in the abyss I can work on the Golarion side of the Wound unobstructed.\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.11",
+    "enGB": "\"You're not getting away. Not this time!\""
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.12",
+    "enGB": "\"Oh I'm not am I. You have no idea how wrong you are foolish child. Allow me to introduce you to the result of my experiments in the abyss. A beautiful creature wouldn't you say.\" The ground shakes as a hulking demon staggers into the chamber brain tissue bursting like boils all over its body. In the moment of distraction Brainweaver opens up another portal. Bell whips up her gun and fires a shot as he retreats thought the rift. The bullet does little more than wound him but in the flash you can see the siloette of Brainweaver's form against the rift. His body is a mess of tendrils and twisted flesh covered in teeth. A cruel half melted aproximation of a human head bursts from the top of his bloated body."
+  },
+  {
+    "Key": "Plot.BrainweaverAct4.Cue.13",
+    "enGB": "\"Blast!\" Bell shouts at the closing rift stomping her foot against the ground in frustration. She turns to the demon now blocking the way forward. \"Well at least we can put this thing outta its misery.\""
   }
+
 ]

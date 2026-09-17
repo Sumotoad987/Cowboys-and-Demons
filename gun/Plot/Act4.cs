@@ -374,7 +374,7 @@ namespace gun.Plot
         {
             BookPageConfigurator.New("CowgirlDistortedPortalPage1", pages[1])
                .SetTitle(LocalizationTool.GetString("Plot.DistortedPortal.Title"))
-               .SetCues(cues[6], cues[7], cues[8], cues[9], cues[10], cues[11])
+               .SetCues(cues[6], cues[7], cues[8], cues[9], cues[10], cues[11], cues[12])
                .SetAnswers()
                .Configure();
 
