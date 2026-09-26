@@ -249,7 +249,7 @@ namespace gun.Cowgirl
         {//this one is what she normal has as dialogue in Drezen (might move this to another class since it's not exclusive to Act 3
             DialogConfigurator CowgirlDialog = DialogConfigurator.New("CowgirlDialgoue", Dialog);
             CowgirlDialog.SetType(DialogType.Common);
-            CowgirlDialog.SetFirstCue(Utilities.MakeCueSelection(Act3.CowgirlQuest1DialogueCues[0], DialogCue[0], RecruitmentDialogCue[0]));
+            CowgirlDialog.SetFirstCue(Utilities.MakeCueSelection(Act3.CowgirlQuest1DialogueCues[0], Act4.QuestIntroCues[0], DialogCue[0], RecruitmentDialogCue[0]));
             CowgirlDialog.Configure();
 
             CueConfigurator.New("CowgirlGeneral0", DialogCue[0])

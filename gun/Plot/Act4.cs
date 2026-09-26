@@ -11,6 +11,8 @@ using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.StoryEx;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using gun;
@@ -79,6 +81,8 @@ namespace gun.Plot
         public const string LobotomisedFeature = "a6641c0cf0954dd18bae45275b72dcfd";
         public const string LobotomisedNalfeshnee = "586bb5d98fbc48359b23c1f2de14a55e";
         public const string LobotomisedVrolikai = "2984aff65a424f9bb2a820f166b3df67";
+        public static string[] QuestIntroCues = { };
+        public static string[] QuestIntroAnswers = { };
 
         public static void Configure()
         {
@@ -109,6 +113,71 @@ namespace gun.Plot
 
         }
 
+        private static void CowgirlQuestIntro()
+        {
+            CueConfigurator.New("Act4QuestIntroC0", QuestIntroCues[0])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.0"))
+                .SetConditions(ConditionsBuilder.New().FlagInRange(BlueprintTool.GetRef<BlueprintUnlockableFlagReference>("8061fb025b4c5cf459cb81a1c96fcdc9"),minValue:20))//gate renown needs to be over 20
+                .SetAnswers(QuestIntroAnswers[0], QuestIntroAnswers[1], QuestIntroAnswers[2], QuestIntroAnswers[3])
+                .SetShowOnce()
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA0", QuestIntroAnswers[0])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.0"))
+                .SetNextCue(QuestIntroCues[1])
+                .Configure();
+
+            CueConfigurator.New("Act4QuestIntroC1", QuestIntroCues[1])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.1"))
+               .SetAnswers(QuestIntroAnswers[0], QuestIntroAnswers[1], QuestIntroAnswers[2], QuestIntroAnswers[3])
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA1", QuestIntroAnswers[1])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.1"))
+                .SetNextCue(QuestIntroCues[2])
+                .Configure();
+
+            CueConfigurator.New("Act4QuestIntroC2", QuestIntroCues[2])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.2"))
+               .SetAnswers(QuestIntroAnswers[0], QuestIntroAnswers[1], QuestIntroAnswers[2], QuestIntroAnswers[3])
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA2", QuestIntroAnswers[2])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.2"))
+                .SetNextCue(QuestIntroCues[3])
+                .Configure();
+
+            CueConfigurator.New("Act4QuestIntroC3", QuestIntroCues[3])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.3"))
+               //end dialog start quest mark flags to spawn map entranced
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA3", QuestIntroAnswers[3])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.3"))
+                .SetNextCue(QuestIntroCues[4])
+                .Configure();
+
+            CueConfigurator.New("Act4QuestIntroC4", QuestIntroCues[4])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.4"))
+               .SetAnswers(QuestIntroAnswers[4], QuestIntroAnswers[5])
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA4", QuestIntroAnswers[4])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.4"))
+                .SetNextCue(QuestIntroCues[5])
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestIntroA5", QuestIntroAnswers[5])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.5"))
+                .SetNextCue(QuestIntroCues[6])
+                .Configure();
+
+        }
         private static void LobotomisedMonsters()
         {
             FeatureConfigurator.New("LobotomisedFeature", LobotomisedFeature)
@@ -253,7 +322,7 @@ namespace gun.Plot
 
 
 
-            CheckConfigurator.New("CowgirlMeetC0", checks[0])
+            CheckConfigurator.New("CowgirlDistortedPortalC0", checks[0])
                 .SetDC(35)
                 .SetExperience(DialogExperience.NormalExperience)
                 .SetType(Kingmaker.EntitySystem.Stats.StatType.SaveWill)

@@ -31,6 +31,7 @@ namespace gun.Plot
         public const string GatewayToInsanityLongTime = "df646e65f9e94ad586f17e3b5759f4f8";
         public const string TreatedFleshwarps = "5ac1e7a2e0a64b109dc635e6d963cf6b";
         public const string CowgirlSpawnedInDrezen = "f3ed25ebefb743f39791e8cdf8c83183";
+        public const string UnlockedAct4Quest = "";
         public static void Configure()
         {
             UnlockableFlagConfigurator.New("CowgirlRespect", CowgirlRespect).Configure();
