@@ -13,6 +13,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using gun.Classes.Gunslinger;
 using gun.Classes.Spellscar_Drifter;
+using gun.Cowgirl;
 using gun.Firearms;
 using gun.Plot;
 using HarmonyLib;
@@ -234,6 +235,7 @@ namespace gun.Cowgirl
             Cowgirl.Configure();
             GeneralDialogue();
             RecruitmentDialog();
+            StuckinAbyssDialog();
         }
 
         private static void CompanionStory()
@@ -615,6 +617,14 @@ namespace gun.Cowgirl
                .Configure();
 
         }
+        private static void StuckinAbyssDialog()
+        {
+            CueConfigurator.New("CowgirlStuck0", RecruitmentDialogCue[0])
+               .SetText(LocalizationTool.GetString("Plot.CowgirlStuckinAbyss.Cue.0"))
+               .SetSpeaker(CowgirlUnit.GetSpeaker())
+               .SetShowOnce()
+               .Configure();
+        }
 
         private static void RecruitmentDialog()
         {
@@ -860,5 +870,23 @@ public class EvaluatorUnit : UnitEvaluator
     public EvaluatorUnit (UnitEntityData unit)
     {
         UnitData = unit;
+    }
+}
+
+public class SpeakerEvaluator : UnitEvaluator
+{
+    public override UnitEntityData GetValueInternal()
+    {
+        
+        return new DialogCurrentSpeaker().GetValue();
+    }
+
+    public override string GetCaption()
+    {
+        return "Get the current speakr unit entity data";
+    }
+
+    public SpeakerEvaluator()
+    {
     }
 }

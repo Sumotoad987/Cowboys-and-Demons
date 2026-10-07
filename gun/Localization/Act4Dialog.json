@@ -1,0 +1,114 @@
+[
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.0",
+    "enGB": "\"Howdy patner. I've been asking around this horrid slum they call a city and I reckon I got a lead on the Brainweaver. He musta come 'ere after leaving Golarion. I suppose havin' folks from planes all over in one place appeals to 'im. Gives him plenty of test subjects and the place is so morally broken that no one seems ta care that folks are disappearing.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.0",
+    "enGB": "Remind me what we're up against"
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.1",
+    "enGB": "\"Brainweavers an alchemist, a crazied scientist and the head of a cult of Yog-Sothoth. He's been kidnapping people for his twisted experiments and messing with the very fabric of reality in his studies of the wound. He's got powers so strange they can break peoples minds just tryin ta understand 'em and a whole lot of acolytes just as crazed as he is.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.1",
+    "enGB": "What did you find?"
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.2",
+    "enGB": "\"Well it started as just a feeling. Ya know, that kinda wrongness we felt near his base on Golarion. At first I thought it was just the Abyss or the part of the Worldwound on this side but I decided to look into it just in case. Turns out a load of demons, and other planer visitors 'ave been going missing round about the same area plus there's rumours going 'round of strange robed figures bearing symbols of the black spiral. The descriptions all match up to his minions so I started poking about seems his hold up in an abandoned building up in the middle city.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.2",
+    "enGB": "Is there anything I can do to help?"
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.3",
+    "enGB": "\"I was hoping you'd say that. I'd 'ave gone alone if I had ta but I'd much rather put a posse together. It'd be much easier to take him down if we work together down there. I'll show ya where we need ta go in the city. Let's head there whenever your ready to finish this monster.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.3",
+    "enGB": "I'm not sure we have time for this. If he's abducting demons I say let him. He's the Abyss's problem now."
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.4",
+    "enGB": "\"I have to go after him. It's my duty to bring him to justice for everything he's done back 'ome. But more than that I know he's not going stay someone else's problem. At some point he'll finish whatever he's up to here and we already know he has ways to slip between the planes. When he next comes back to Golarion just imagine what kinds of horrors he'll bring with 'im.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.4",
+    "enGB": "I'm here on a mission that's too important to delay. You're on your own."
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.5",
+    "enGB": "\"In that case I'd best be off. I 'ope you close the wound.\""
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Answer.5",
+    "enGB": "Alright then I'll help"
+  },
+  {
+    "Key": "Plot.Act4QuestIntro.Cue.5",
+    "enGB": "\"Thank you boss. I'll show ya where we need ta go in the city. Let's head there whenever your ready to finish this monster.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.0",
+    "enGB": "Bell paces up and down along the cliff edge grumbling to herself. She gives you half a wave walks a few more steps then turns. \"I was so close! So close...\" she kicks a rock over the cliff and down into the Ishiar. \"Every! Blasted! Time! Every time I think I've gotten 'im he finds some way to slip outta there. Five years! Five years I've been after this wretch. I've chased 'im all round the world fought through demons and cultists and monsters and what 'ave I got ta show for it... Nothing!\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.0",
+    "enGB": "That's not true. Think of all the people you've helped along the way"
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.1",
+    "enGB": "\"I know, I know I just... Their all 'is victims. They'd never 'ave been in trouble if I'd just caught 'im in the first place.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.2",
+    "enGB": "\"But I've failed so many more. All those folks he took I couldn't save 'em. If I'd just caught this guy years ago... It feels like it's my fault.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.1",
+    "enGB": "Don't be so hard on yourself. You might not have him but you've done a lot of good."
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.3",
+    "enGB": "\"Have I? I had one job! Catching 'im was my responsibility! Everything he's done it's my fault fer not stoppin' 'im.\" in spite of her words you can see a glimmer of hope in her eyes."
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.2",
+    "enGB": "I don't know what to tell you."
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.4",
+    "enGB": "\"There's nothing ya can say. I'm a failure. That's all there is too it.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.3",
+    "enGB": "You're right. You are useless."
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.5",
+    "enGB": "\"Yeah...\" you can see tears forming in her eyes. \"I don't even know why I'm here. Yer probably better off without me. But I guess I'm stuck 'ere till you've gotten us a way back 'ome. I need some time alone.\""
+  },
+  {
+    "Key": "Plot.CowgirlStuckinAbyss.Cue.0",
+    "enGB": "\"Let's just focus on getting outa this place.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.6",
+    "enGB": "\"I appreciate yer words but hunting Brainweaver. It's been my life fer so long. If I can't stop 'im what use am I? What's been the point of going so far and working so hard if after all that I can't win.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.4",
+    "enGB": "You can't let him define your life. You're worth more than that. Don't let him ruin your life too."
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Cue.7",
+    "enGB": "\"What else do I 'ave. I've gone miles an' miles from everyone I've ever known wound up on a plane far from 'ome. Now I'm fightin' in a war I don't understand in a country I couldn't even name a few months ago. Takin' 'im down is the only thing I still 'ave.\""
+  },
+  {
+    "Key": "Plot.Act4QuestConclusion.Answer.5",
+    "enGB": "You have me..."
+  }
+]

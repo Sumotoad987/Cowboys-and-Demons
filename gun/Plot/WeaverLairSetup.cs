@@ -151,4 +151,12 @@ namespace gun.Plot
             return ExitPositions[targetnum];
         }
     }
+
+    internal class WeaverLairEntrance : IAreaActivationHandler, ISubscriber, IGlobalSubscriber
+    {
+        public void OnAreaActivated()
+        {
+            return;
+        }
+    }
 }

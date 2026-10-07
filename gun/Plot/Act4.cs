@@ -8,6 +8,7 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes;
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
+using BlueprintCore.Blueprints.Configurators.Quests;
 using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -22,6 +23,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -46,6 +48,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
@@ -83,6 +86,14 @@ namespace gun.Plot
         public const string LobotomisedVrolikai = "2984aff65a424f9bb2a820f166b3df67";
         public static string[] QuestIntroCues = { };
         public static string[] QuestIntroAnswers = { };
+        public static string[] QuestConclusionCues = { };
+        public static string[] QuestConclusionAnswers = { };
+        public static string[] RomanceCues = { };
+        public static string[] RomanceAnswers = { };
+        public const string QuestID = "";
+        public const string TalkToCowgirlObjective1ID = "";//talk to her to begin quest
+        public const string PersueBrainweaverObjectiveID = ""; //the objective to actually chance the brainweaver down and do the quest
+        public const string TalkToCowgirlObjective2ID = "";//talk to her after quest to conclude it
 
         public static void Configure()
         {
@@ -101,18 +112,52 @@ namespace gun.Plot
                 .SetArea(WeaversLairArea)
                 .SetAreaPart(WeaversLairArea)
                 .Configure();
-
+            Quest();
             FusedDemon.Configure();
             LairPortals();
             LobotomisedMonsters();
             DistortedPortal.Configure();
             BrainweaverDialog.Configure();
-
+            CowgirlQuestIntro();
+            CowgirlQuestConclusion();
 
 
 
         }
 
+        private static void Quest()
+        {
+            QuestConfigurator BrainweaverLairQuest = QuestConfigurator.New("WeaversAbyssLairQuest", QuestID);
+            BrainweaverLairQuest.SetTitle(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Title"));
+            BrainweaverLairQuest.SetDescription(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Description"));
+            BrainweaverLairQuest.SetCompletionText(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Completion"));
+            BrainweaverLairQuest.SetGroup(Kingmaker.Enums.QuestGroupId.CompanionQuests);
+            BrainweaverLairQuest.SetDescriptionPriority(0);//not sure what this is
+            BrainweaverLairQuest.SetType(Kingmaker.Enums.QuestType.Normal);
+            BrainweaverLairQuest.SetLastChapter(4);//hoping 4 is chapter 4 again
+            BrainweaverLairQuest.SetQuestMarkerColorType(Kingmaker.Blueprints.Root.QuestMarkerColors.QuestMarkerColorType.Red);
+            BrainweaverLairQuest.SetObjectives(TalkToCowgirlObjective1ID, PersueBrainweaverObjectiveID, TalkToCowgirlObjective2ID);
+            BrainweaverLairQuest.Configure();
+
+            QuestObjectiveConfigurator TalkToCowgirlObjective1 = QuestObjectiveConfigurator.New("WeaversAbyssLairIntro", TalkToCowgirlObjective1ID);
+            TalkToCowgirlObjective1.SetTitle(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Intro.Title"));
+            TalkToCowgirlObjective1.SetDescription(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Intro.Description"));;
+            TalkToCowgirlObjective1.SetQuest(BlueprintTool.Get<BlueprintQuest>(QuestID));
+            TalkToCowgirlObjective1.Configure();
+
+            QuestObjectiveConfigurator PersueBrainweaverObjective = QuestObjectiveConfigurator.New("ReachTheGatewayToInsanity", PersueBrainweaverObjectiveID);
+            PersueBrainweaverObjective.SetTitle(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Main.Title"));
+            PersueBrainweaverObjective.SetDescription(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Main.Description"));
+            PersueBrainweaverObjective.AddExperience(cR: 15, encounter: Kingmaker.Blueprints.Classes.Experience.EncounterType.QuestMain, dummy: false, modifier: 1.0f);
+            PersueBrainweaverObjective.SetQuest(BlueprintTool.Get<BlueprintQuest>(QuestID));
+            PersueBrainweaverObjective.Configure();
+
+            QuestObjectiveConfigurator TalkToCowgirlObjective2 = QuestObjectiveConfigurator.New("WeaversAbyssLairIntro", TalkToCowgirlObjective2ID);
+            TalkToCowgirlObjective2.SetTitle(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Intro.Title"));
+            TalkToCowgirlObjective2.SetDescription(LocalizationTool.GetString("Plot.WeaversAbyssLairQuest.Intro.Description")); ;
+            TalkToCowgirlObjective2.SetQuest(BlueprintTool.Get<BlueprintQuest>(QuestID));
+            TalkToCowgirlObjective2.Configure();
+        }
         private static void CowgirlQuestIntro()
         {
             CueConfigurator.New("Act4QuestIntroC0", QuestIntroCues[0])
@@ -125,7 +170,7 @@ namespace gun.Plot
 
             AnswerConfigurator.New("Act4QuestIntroA0", QuestIntroAnswers[0])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.0"))
-                .SetNextCue(QuestIntroCues[1])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[1]))
                 .Configure();
 
             CueConfigurator.New("Act4QuestIntroC1", QuestIntroCues[1])
@@ -136,7 +181,7 @@ namespace gun.Plot
 
             AnswerConfigurator.New("Act4QuestIntroA1", QuestIntroAnswers[1])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.1"))
-                .SetNextCue(QuestIntroCues[2])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[2]))
                 .Configure();
 
             CueConfigurator.New("Act4QuestIntroC2", QuestIntroCues[2])
@@ -147,18 +192,19 @@ namespace gun.Plot
 
             AnswerConfigurator.New("Act4QuestIntroA2", QuestIntroAnswers[2])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.2"))
-                .SetNextCue(QuestIntroCues[3])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[3]))
                 .Configure();
 
             CueConfigurator.New("Act4QuestIntroC3", QuestIntroCues[3])
-               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.3"))
-               //end dialog start quest mark flags to spawn map entranced
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.3"))//hopefully this should set the act4 quest flag to 1 (which means main quest is active)
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.Act4Quest,true,Utilities.MakeIntConstant(1)).GiveObjective(PersueBrainweaverObjectiveID).FinishObjective(TalkToCowgirlObjective1ID).IncrementFlagValue(Flags.CowgirlApproval,true,Utilities.MakeIntConstant(1)))
                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
                .Configure();
 
             AnswerConfigurator.New("Act4QuestIntroA3", QuestIntroAnswers[3])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.3"))
-                .SetNextCue(QuestIntroCues[4])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[4]))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true,Utilities.MakeIntConstant(-1)))
                 .Configure();
 
             CueConfigurator.New("Act4QuestIntroC4", QuestIntroCues[4])
@@ -169,14 +215,186 @@ namespace gun.Plot
 
             AnswerConfigurator.New("Act4QuestIntroA4", QuestIntroAnswers[4])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.4"))
-                .SetNextCue(QuestIntroCues[5])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[5]))
                 .Configure();
+
+            CueConfigurator.New("Act4QuestIntroC5", QuestIntroCues[5])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.5"))
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .SetOnShow(ActionsBuilder.New().Unrecruit(Cowgirl.CowgirlUnit.GUID, new SpeakerEvaluator()))
+               .Configure();
 
             AnswerConfigurator.New("Act4QuestIntroA5", QuestIntroAnswers[5])
                 .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Answer.5"))
-                .SetNextCue(QuestIntroCues[6])
+                .SetNextCue(Utilities.MakeCueSelection(QuestIntroCues[6]))
                 .Configure();
 
+            CueConfigurator.New("Act4QuestIntroC6", QuestIntroCues[6])
+               .SetText(LocalizationTool.GetString("Plot.Act4QuestIntro.Cue.6"))
+               .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+               .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.Act4Quest, true, Utilities.MakeIntConstant(1)).GiveObjective(PersueBrainweaverObjectiveID).FinishObjective(TalkToCowgirlObjective1ID))
+               .Configure();
+
+        }
+
+        private static void CowgirlQuestConclusion()
+        {
+            CueConfigurator.New("Act4QuestConclusionC0", QuestConclusionCues[0])
+                            .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.0"))
+                            .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.Act4Quest, 2, 2))//the act 4 quest flag needs to be at stage 2 (3 is for finished
+                            .SetAnswers(QuestConclusionAnswers[0])
+                            .SetShowOnce()
+                            .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                            .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA0", QuestConclusionAnswers[0])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.0"))
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[1], QuestConclusionCues[2]))
+                .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC1", QuestConclusionCues[1])
+                            .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.1"))
+                            .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.TreatedFleshwarps, 1, 1))//gives this answer if you've treated the fleshwarps
+                            .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(1)))
+                            .SetContinueValue(Utilities.MakeCueSelection(QuestConclusionCues[6]))//go to zone A
+                            .SetShowOnce()
+                            .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                            .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC2", QuestConclusionCues[2])//or this one otherwise
+                            .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.2"))
+                            .SetContinueValue(Utilities.MakeCueSelection(QuestConclusionCues[6]))//go to zone A
+                            .SetShowOnce()
+                            .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                            .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA1", QuestConclusionAnswers[1])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.1"))
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[3]))
+                .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC3", QuestConclusionCues[3])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.3"))
+                .SetContinueValue(Utilities.MakeCueSelection(QuestConclusionCues[6]))//go to Zone A
+                .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true,Utilities.MakeIntConstant(1)))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA2", QuestConclusionAnswers[2])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.2"))
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[4]))
+                .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC4", QuestConclusionCues[4])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.4"))
+                .SetContinueValue(Utilities.MakeCueSelection(QuestConclusionCues[6]))//Go to zone A
+                .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-1)))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA3", QuestConclusionAnswers[3])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.3"))
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[5]))
+                .SetAlignmentShift(alignmentShift: new AlignmentShift() { Direction = AlignmentShiftDirection.NeutralEvil, Value = 5})
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-10)).IncrementFlagValue(Flags.ToldCowgirlShesUseless,true,Utilities.MakeIntConstant(1)))
+                .Configure();
+
+
+
+            //Zone A
+            CueConfigurator.New("Act4QuestConclusionC6", QuestConclusionCues[6])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.6"))
+                .SetAnswers(QuestConclusionAnswers[4])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA4", QuestConclusionAnswers[4])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.4"))
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[7]))
+                .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC7", QuestConclusionCues[7])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.7"))
+                .SetAnswers(QuestConclusionAnswers[5])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            ////TODO more content required for non romance route
+
+            AnswerConfigurator.New("Act4QuestConclusionA5", QuestConclusionAnswers[5])
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.5"))//you have me...
+                .SetNextCue(Utilities.MakeCueSelection(QuestConclusionCues[8], QuestConclusionCues[9]))
+                .Configure();
+
+            CueConfigurator.New("Act4QuestConclusionC8", QuestConclusionCues[8])//romance starting
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.8"))
+                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval,100,10))
+                .SetAnswers(QuestConclusionAnswers[6])//should have another option for not starting a romance here
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("Act4QuestConclusionA6", QuestConclusionAnswers[6])//kiss attempt
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Answer.6"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[0]))
+                .Configure();
+
+            //TODO the romance failed text
+            CueConfigurator.New("Act4QuestConclusionC9", QuestConclusionCues[9])//approval too low for romance
+                .SetText(LocalizationTool.GetString("Plot.Act4QuestConclusion.Cue.9"))
+                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval, 9, -999))
+                .SetAnswers(QuestConclusionAnswers[7])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            CowgirlRomanceStart();
+
+
+
+        }
+
+        private static void CowgirlRomanceStart()
+        {
+            CueConfigurator.New("CowgirlRomanceStartC0", RomanceCues[0])//abberation reveal
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.0"))
+                .SetAnswers(RomanceAnswers[0], RomanceAnswers[1], RomanceAnswers[3])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer0", RomanceAnswers[0])//tell her you love her anyway
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.0"))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true,Utilities.MakeIntConstant(4)))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[1]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC1", RomanceCues[1])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.1"))
+                .SetContinueValue(Utilities.MakeCueSelection(RomanceCues[3]))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer1", RomanceAnswers[1])//Ask her what this means
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.1"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[3]))
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer2", RomanceAnswers[2])//Ask if she's some kind of monster
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.2"))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-4)))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[2]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC2", RomanceCues[2])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.2"))
+                .SetContinueValue(Utilities.MakeCueSelection(RomanceCues[3]))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+
+            CueConfigurator.New("CowgirlRomanceStartC3", RomanceCues[3])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.3"))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
         }
         private static void LobotomisedMonsters()
         {
@@ -498,7 +716,7 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue0", cues[0])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.0"))
                 .SetContinueValue(Utilities.MakeCueSelection(checks[0]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CheckConfigurator.New("BrainweaverAct4Check0", checks[0])
@@ -512,13 +730,13 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue1", cues[1])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.1"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[2]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue2", cues[2])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.2"))
                 .SetAnswers(answers[0], answers[1], answers[2], answers[3], answers[4])
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             //what were those things
@@ -532,7 +750,7 @@ namespace gun.Plot
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.3"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[4]))
                 .SetAnswers(answers[0], answers[1], answers[2], answers[3], answers[4])
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue4", cues[4])
@@ -544,7 +762,7 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue5", cues[5])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.5"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[6]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue6", cues[6])
@@ -563,7 +781,7 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue7", cues[7])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.7"))
                 .SetAnswers(answers[0], answers[1], answers[2], answers[3], answers[4])
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             AnswerConfigurator.New("BrainweaverAct4Answer2", answers[2])
@@ -575,7 +793,7 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue8", cues[8])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.8"))
                 .SetAnswers(answers[0], answers[1], answers[2], answers[3], answers[4])
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             AnswerConfigurator.New("BrainweaverAct4Answer3", answers[3])
@@ -594,13 +812,13 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue9", cues[9])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.9"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[10]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue10", cues[10])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.10"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[11]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue11", cues[11])
@@ -612,12 +830,13 @@ namespace gun.Plot
             CueConfigurator.New("BrainweaverAct4Cue12", cues[12])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.12"))
                 .SetContinueValue(Utilities.MakeCueSelection(cues[13]))
-                //set speaker as brainweaver
+                .SetSpeaker(Brainweaver.Speaker)
                 .Configure();
 
             CueConfigurator.New("BrainweaverAct4Cue13", cues[13])
                 .SetText(LocalizationTool.GetString("Plot.BrainweaverAct4.Cue.13"))
                 .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .SetOnShow(ActionsBuilder.New().IncrementFlagValue(Flags.Act4Quest, true, Utilities.MakeIntConstant(1)).FinishObjective(Act4.PersueBrainweaverObjectiveID).GiveObjective(Act4.TalkToCowgirlObjective2ID))
                 .Configure();
         }
     }

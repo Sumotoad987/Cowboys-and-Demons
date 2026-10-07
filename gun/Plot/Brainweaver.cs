@@ -2,6 +2,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.DialogSystem;
 using Kingmaker.ResourceManagement;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace gun.Plot
     internal static class Brainweaver
     {
         public const string GUID = "a615d1ab2282484dabad455bf04cecff";
+        public static DialogSpeaker Speaker;
         public static void Configure()
         {
             BrainweaverPortrait.Configure();
@@ -23,6 +25,10 @@ namespace gun.Plot
                 .AddFacts(new List<Blueprint<BlueprintUnitFactReference>>{ BlueprintTool.GetRef<BlueprintUnitFactReference>("525f980cb29bc2240b93e953974cb325")})
                 .SetPortrait(BrainweaverPortrait.GUID)
                 .Configure();
+
+            Speaker = new DialogSpeaker();
+            Speaker.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(GUID);
+            Speaker.m_SpeakerPortrait = BlueprintTool.GetRef<BlueprintUnitReference>(GUID);
         }
     }
     internal static class BrainweaverPortrait
