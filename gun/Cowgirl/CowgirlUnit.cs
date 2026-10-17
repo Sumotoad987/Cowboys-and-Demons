@@ -621,8 +621,8 @@ namespace gun.Cowgirl
         {
             CueConfigurator.New("CowgirlStuck0", RecruitmentDialogCue[0])
                .SetText(LocalizationTool.GetString("Plot.CowgirlStuckinAbyss.Cue.0"))
+               .SetConditions(ConditionsBuilder.New().UseOr().FlagUnlocked(Flags.ToldCowgirlShesUseless).FlagUnlocked(Flags.DistructsRevealedCowgirl))
                .SetSpeaker(CowgirlUnit.GetSpeaker())
-               .SetShowOnce()
                .Configure();
         }
 

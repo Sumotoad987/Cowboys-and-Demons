@@ -395,6 +395,127 @@ namespace gun.Plot
                 .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
                 .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
                 .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer3", RomanceAnswers[3])//Ask if this means she'll turn into something like brainweaver
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.3"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[4]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC4", RomanceCues[4])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.4"))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer4", RomanceAnswers[4])//Is that why you're so obsessed with catching him
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.4"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[5]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC5", RomanceCues[5])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.5"))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer5", RomanceAnswers[5])//how is that possible
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.5"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[6]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC6", RomanceCues[6])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.6"))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer6", RomanceAnswers[6])//your father?
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.6"))
+                .SetShowConditions(ConditionsBuilder.New().CueSeen(RomanceCues[6],true))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[7]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC7", RomanceCues[7])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.7"))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer7", RomanceAnswers[7])//what does this mean
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.7"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[8]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC8", RomanceCues[8])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.8"))
+                .SetContinueValue(RomanceCues[9])
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC9", RomanceCues[9])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.9"))
+                .SetConditions(ConditionsBuilder.New().FlagInRange(Flags.CowgirlApproval,100,10))
+                .SetAnswers(RomanceAnswers[3], RomanceAnswers[4], RomanceAnswers[5], RomanceAnswers[6], RomanceAnswers[7], RomanceAnswers[8])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer8", RomanceAnswers[8])//I understand
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.8"))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[10]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC10", RomanceCues[10])
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.10"))
+                .SetAnswers(RomanceAnswers[9], RomanceAnswers[10], RomanceAnswers[11])
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer9", RomanceAnswers[9])//I don't know what to think
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.9"))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval,true, Utilities.MakeIntConstant(-1)).UnlockFlag(Flags.CowgirlWaitingForDecision))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[11]))
+                .Configure();
+
+
+            //TODO write the dialog for if you talk to her again after postponing decision
+            CueConfigurator.New("CowgirlRomanceStartC11", RomanceCues[11])//let me know when you decide 
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.11"))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer10", RomanceAnswers[10])//I don't know what to think
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.10"))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlRomance, true, Utilities.MakeIntConstant(1)))//TODO add aeon renegade logic (possibly with a cue possibly without)
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[12]))
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC12", RomanceCues[12])//real kiss
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.12"))
+                .SetContinueValue(RomanceCues[13])
+                .SetOnShow(ActionsBuilder.New().AddFact(Cowgirl.Secrets.RevealedTemplateGUID, new SpeakerEvaluator()).RemoveFact(Cowgirl.Secrets.MonsterTemplateGUID, new SpeakerEvaluator()))//remove the hidden feature and replace it with the revealed one
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            CueConfigurator.New("CowgirlRomanceStartC13", RomanceCues[13])//real kiss conclusion
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Cue.13"))
+                .SetSpeaker(Cowgirl.CowgirlUnit.GetSpeaker())
+                .Configure();
+
+            AnswerConfigurator.New("CowgirlRomanceStartAnswer11", RomanceAnswers[11])//I can't trust you
+                .SetText(LocalizationTool.GetString("Cowgirl.RomanceStart.Answer.11"))
+                .SetOnSelect(ActionsBuilder.New().IncrementFlagValue(Flags.CowgirlApproval, true, Utilities.MakeIntConstant(-5)).UnlockFlag(Flags.DistructsRevealedCowgirl))
+                .SetNextCue(Utilities.MakeCueSelection(RomanceCues[12]))
+                .Configure();
+
+            //TODO add aeon judgement option
+
+
+
+
+
+
+
         }
         private static void LobotomisedMonsters()
         {

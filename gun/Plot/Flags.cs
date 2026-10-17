@@ -34,6 +34,9 @@ namespace gun.Plot
         public const string CowgirlSpawnedInDrezen = "f3ed25ebefb743f39791e8cdf8c83183";
         public const string Act4Quest = "";
         public const string ToldCowgirlShesUseless = "";
+        public const string CowgirlWaitingForDecision = "";
+        public const string CowgirlRomance = "";
+        public const string DistructsRevealedCowgirl = "";
         public static void Configure()
         {
             UnlockableFlagConfigurator.New("CowgirlRespect", CowgirlRespect).Configure();
@@ -54,6 +57,9 @@ namespace gun.Plot
             UnlockableFlagConfigurator.New("CowgirlInParty", CowgirlInParty).Configure();
             UnlockableFlagConfigurator.New("CowgirlSpawnedInDrezen", CowgirlSpawnedInDrezen).Configure();
             UnlockableFlagConfigurator.New("ToldCowgirlShesUseless", ToldCowgirlShesUseless).Configure();
+            UnlockableFlagConfigurator.New("CowgirlWaitingForDecision", CowgirlWaitingForDecision).Configure();
+            UnlockableFlagConfigurator.New("CowgirlRomance", CowgirlRomance).Configure();
+            UnlockableFlagConfigurator.New("DistructsRevealedCowgirl", DistructsRevealedCowgirl).Configure();
         }
 
         public static ActionsBuilder IncrementFlag(int value,string GUID)

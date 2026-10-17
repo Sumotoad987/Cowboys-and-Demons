@@ -26,7 +26,8 @@ namespace gun.Cowgirl
 {
     internal static class Secrets
     {
-        public static string MonsterTemplateGUID = "a466216a77014e63ab6506dd98a15d27";
+        public const string MonsterTemplateGUID = "a466216a77014e63ab6506dd98a15d27";
+        public const string RevealedTemplateGUID = "";
 
         public static void Configure()
         {
@@ -68,6 +69,15 @@ namespace gun.Cowgirl
             TemplateConfig.Configure();
             //could add some spells but for now will not bother
 
+            FeatureConfigurator.New("ChildOfYogSothoth", RevealedTemplateGUID)//an identical copy of the other one but no longer hidden.
+                .CopyFrom(MonsterTemplateGUID)
+                .SetDisplayName("Cowgirl.Secret.Template.Revealed.Name")
+                .SetDescription("Cowgirl.Secret.Template.Revealed.Description")
+                .SetDescriptionShort("Cowgirl.Secret.Template.Revealed.Description.Short")
+                .SetHideInCharacterSheetAndLevelUp(false)
+                .SetHideInUI(false)
+                .Configure();
+                ;
 
         }
     }
